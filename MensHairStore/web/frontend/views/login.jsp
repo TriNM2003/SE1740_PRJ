@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,7 +13,7 @@
         <title>Đăng nhập</title>
     </head>
     <body>
-        <form name="input" action="LoginServlet" method="post">
+        <form name="input" action="<c:url value='/LoginServlet'/>" method="post">
 	<table>
 		<tr>
 		   <td>User name:</td><td><input type="text" name="user"/></td>

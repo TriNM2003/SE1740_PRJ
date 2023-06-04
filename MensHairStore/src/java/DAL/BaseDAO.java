@@ -32,6 +32,6 @@ public abstract class BaseDAO<T> {
         }
     }
     
-    public abstract ArrayList<T> getUsers();
+
     
 }

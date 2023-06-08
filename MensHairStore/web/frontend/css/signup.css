@@ -1,0 +1,92 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+body {
+    background-color: #F7F7F7;  
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    background-image: url('../../image/signup.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.login-box {
+    margin-top: 75px;
+    background: #e5e5e5;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    border-radius: 15px;
+}
+
+.login-title {
+    text-align: center;
+    font-size: 40px;
+    letter-spacing: 2px;
+    margin-top: 35px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.login-form {
+    margin-top: 25px;
+    text-align: left;
+}
+
+input {
+    background-color: #EEEEEE;
+    border: none;
+    border-bottom: 2px solid #fca311;
+    border-top: 0px;
+    border-radius: 0px;
+    outline: 0;
+    margin-bottom: 20px;
+    padding-left: 0px;
+    color: #000000;
+}
+
+
+.form-group {
+    margin: 30px;
+}
+
+
+.form-control-label {
+    font-size: 20px;
+    color: #000000;
+    letter-spacing: 1px;
+}
+
+.btn-outline-primary {
+    width: 200px;
+    height: 50px;
+    border-radius: 15px;
+    cursor: pointer;
+    border-color: #fca311 !important;
+    color: #ffffff;
+    margin-top: 30px;
+    background-color: #000000 !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: #fca311 !important;
+    
+
+    color: #000000 !important;
+}
+
+.login-button {
+    padding-right: 0px;
+    text-align: right;
+    margin-bottom: 25px;
+}
+
+.login-text {
+    padding-left: 0px;
+    color: #A2A4A4;
+}
+a{
+    text-decoration: none;
+    color: #fca311
+}
+

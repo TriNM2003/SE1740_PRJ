@@ -71,14 +71,20 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         AccountDAO acd = new AccountDAO();
         String user = request.getParameter("user");
         Account a = acd.getAccount(user);
         String pass = request.getParameter("pass");
         if (a.getPassword().equals(pass)) {
-            response.sendRedirect("frontend/views/home.jsp");
-        }else{
+            response.setContentType("text/html;charset=UTF-8");
+            try ( PrintWriter out = response.getWriter()) {
+                /* TODO output your page here. You may use following sample code. */
+                out.print("Đăng nhập thành công");
+                
+            }
+            
+        } else {
             Account ac = new Account();
             response.sendRedirect("frontend/views/login.jsp");
         }

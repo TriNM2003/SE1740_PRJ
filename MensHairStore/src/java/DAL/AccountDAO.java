@@ -20,13 +20,13 @@ public class AccountDAO extends BaseDAO<Account>{
     public void insertAccount(Account ac) {
         try {
             String sql = "INSERT INTO [Account]\n"
-                    
                     + "           ([username]\n"
                     + "           ,[password]\n"
-                    + "           ,[gmail])\n"
+                    + "           ,[gmail]\n"
+                    + "           ,[rolename])\n"
                     + "     VALUES\n"
-                    + "           (?\n"
-                    
+                    + "           (?\n"                    
+                    + "           ,?\n"
                     + "           ,?\n"
                     + "           ,?)";
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -34,6 +34,7 @@ public class AccountDAO extends BaseDAO<Account>{
             statement.setString(1, ac.getUsername());
             statement.setString(2, ac.getPassword());
             statement.setString(3, ac.getGmail());
+            statement.setString(4, ac.getRole_name());
             statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -41,7 +42,7 @@ public class AccountDAO extends BaseDAO<Account>{
     }
     public Account getAccount(String username) {
         try {
-            String sql = "SELECT a.UserId,a.username,a.password,a.gmail FROM Account a\n"
+            String sql = "SELECT a.UserId,a.username,a.password,a.gmail, a.role_name FROM Account a\n"
                     + "WHERE a.username = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, username);
@@ -52,6 +53,7 @@ public class AccountDAO extends BaseDAO<Account>{
                 a.setUsername(rs.getString("username"));
                 a.setPassword(rs.getString("password"));
                 a.setGmail(rs.getString("gmail"));
+                a.setRole_name(rs.getString("role_name"));
                 return a;
             }
 

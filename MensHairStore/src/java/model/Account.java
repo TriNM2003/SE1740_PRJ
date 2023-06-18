@@ -13,15 +13,17 @@ public class Account {
     String username;
     String password;
     String gmail;
+    String role_name;
 
     public Account() {
     }
 
-    public Account(int UserId, String username, String password, String gmail) {
+    public Account(int UserId, String username, String password, String role_name) {
         this.UserId = UserId;
         this.username = username;
         this.password = password;
-        this.gmail = gmail;
+        this.gmail=gmail;
+        this.role_name = role_name;
     }
 
     public int getUserId() {
@@ -47,7 +49,7 @@ public class Account {
     public void setPassword(String password) {
         this.password = password;
     }
-
+    
     public String getGmail() {
         return gmail;
     }
@@ -55,7 +57,13 @@ public class Account {
     public void setGmail(String gmail) {
         this.gmail = gmail;
     }
+    
+    public String getRole_name() {
+        return role_name;
+    }
 
-    
-    
+    public void setRole_name(String role_name) {
+        this.role_name = role_name;
+    }
+   
 }

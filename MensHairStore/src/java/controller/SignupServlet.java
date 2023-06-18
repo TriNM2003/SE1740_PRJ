@@ -76,13 +76,14 @@ public class SignupServlet extends HttpServlet {
         String user = request.getParameter("user");
         String pass = request.getParameter("pass");
         String gmail = request.getParameter("gmail");
-        if (user == null || pass == null || gmail == null) {
+        String role_name= "US";
+        if (user == null || pass == null) {
             Account ac =new Account();
             response.sendRedirect("frontend/views/login.jsp");
         } else {
             a.setUsername(user);
             a.setPassword(pass);
-            a.setGmail(gmail);
+            a.setRole_name(role_name);
             acd.insertAccount(a);
             response.sendRedirect("frontend/views/login.jsp");
         }

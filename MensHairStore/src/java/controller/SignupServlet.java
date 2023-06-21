@@ -11,6 +11,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.regex.Pattern;
 import model.Account;
 
 /**
@@ -67,26 +68,44 @@ public class SignupServlet extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
-     */ 
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        AccountDAO acd = new AccountDAO();
-        Account a = new Account();
-        String user = request.getParameter("user");
-        String pass = request.getParameter("pass");
-        String gmail = request.getParameter("gmail");
-        String role_name= "US";
-        if (user == null || pass == null) {
-            Account ac =new Account();
-            response.sendRedirect("frontend/views/login.jsp");
-        } else {
-            a.setUsername(user);
-            a.setPassword(pass);
-            a.setRole_name(role_name);
-            acd.insertAccount(a);
-            response.sendRedirect("frontend/views/login.jsp");
+        response.setContentType("text/html;charset=UTF-8");
+        try ( PrintWriter out = response.getWriter()) {
+            AccountDAO acd = new AccountDAO();
+            Account a = new Account();
+            String user = request.getParameter("user");
+            String pass = request.getParameter("pass");
+            String gmail = checkGmail(request.getParameter("gmail"));
+
+            String role_name = "US";
+            if (gmail == "0") {
+                String error1= "Email không hợp lệ";
+                request.setAttribute("error1", error1);
+                Account ac = new Account();
+                response.sendRedirect("frontend/views/signup.jsp");
+            }else{
+                a.setUsername(user);
+                a.setPassword(pass);
+                a.setGmail(gmail);
+                a.setRole_name(role_name);
+                acd.insertAccount(a);
+                response.sendRedirect("frontend/views/login.jsp");
+            }
         }
+    }
+
+    public String checkGmail(String mess) {
+        Pattern p = Pattern.compile("[a-z0-9._]+[a-z0-9.]+[a-z0-9._]{1}+@[a-z]+(\\.[a-z]+){1,3}$");
+        String str;
+        if (p.matcher(mess).find()) {
+            str = mess;
+        } else {
+            str = "0";
+        }
+        return str;
     }
 
     /**

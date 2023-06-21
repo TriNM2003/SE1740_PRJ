@@ -28,18 +28,24 @@
                     <div class="col-lg-12 login-form">
                         <form name="input" action="<c:url value='/SignupServlet'/>" method="post">
                             <div class="form-group">
-                                <label class="form-control-label">Username</label>
-                                <input type="text" class="form-control">
+                                <label class="form-control-label">Tên đăng nhập</label>
+                                <input type="text" class="form-control" name="user" required>
                             </div>
                             <div class="form-group">
                                 <label class="form-control-label">Email</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control"name="gmail"  required>
+                                <c:if test="${not empty error1}">
+                                    <h1>${error1}</h1>
+                                </c:if>
+
                             </div>
                             <div class="form-group">
-                                <label class="form-control-label">Password</label>
-                                <input type="password" class="form-control" i>
+                                <label class="form-control-label">Mật khẩu</label>
+                                <input type="password" class="form-control" name="pass" required>
+
                             </div>
                             <div class="col-12 login-btm login-button justify-content-center d-flex">
+
                                 <button type="submit" class="btn btn-outline-primary">Đăng kí</button>
                             </div>
                             <div class="col-12 login-btm login-button justify-content-center d-flex">

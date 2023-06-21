@@ -17,20 +17,21 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-public abstract class BaseDAO<T> {
+public abstract class BaseDAO {
     protected Connection connection;
     public BaseDAO()
     {
         try {
             String user = "sa";
             String pass = "12345";
-            String url = "jdbc:sqlserver://localhost:1433;databaseName=Assignment_prj";
+            String url = "jdbc:sqlserver://localhost:1433;databaseName=hairshop";
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             connection = DriverManager.getConnection(url, user, pass);
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(BaseDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
     
 
     

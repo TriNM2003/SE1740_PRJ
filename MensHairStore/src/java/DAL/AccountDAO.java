@@ -15,7 +15,7 @@ import model.Account;
  *
  * @author DELL
  */
-public class AccountDAO extends BaseDAO<Account>{
+public class AccountDAO extends BaseDAO{
     
     public void insertAccount(Account ac) {
         try {
@@ -23,7 +23,7 @@ public class AccountDAO extends BaseDAO<Account>{
                     + "           ([username]\n"
                     + "           ,[password]\n"
                     + "           ,[gmail]\n"
-                    + "           ,[rolename])\n"
+                    + "           ,[role_name])\n"
                     + "     VALUES\n"
                     + "           (?\n"                    
                     + "           ,?\n"
@@ -46,6 +46,28 @@ public class AccountDAO extends BaseDAO<Account>{
                     + "WHERE a.username = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, username);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                Account a = new Account();
+                a.setUserId(rs.getInt("userid"));
+                a.setUsername(rs.getString("username"));
+                a.setPassword(rs.getString("password"));
+                a.setGmail(rs.getString("gmail"));
+                a.setRole_name(rs.getString("role_name"));
+                return a;
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    public Account getAccountByGmail(String gmail) {
+        try {
+            String sql = "SELECT a.UserId,a.username,a.password,a.gmail, a.role_name FROM Account a\n"
+                    + "WHERE a.username = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, gmail);
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
                 Account a = new Account();

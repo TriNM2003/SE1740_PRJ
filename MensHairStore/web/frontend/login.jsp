@@ -28,12 +28,13 @@
                     <div class="col-lg-12 login-form">
                         <form name="input" action="<c:url value='/LoginServlet'/>" method="post">
                             <div class="form-group">
-                                <label class="form-control-label">Username</label>
-                                <input type="text" class="form-control">
+                                <label class="form-control-label">Tên đăng nhập</label>
+                                <input type="text" class="form-control"name="user" required>
                             </div>                            
                             <div class="form-group">
-                                <label class="form-control-label">Password</label>
-                                <input type="password" class="form-control" i>
+                                <label class="form-control-label">Mật khẩu</label>
+                                <input type="password" class="form-control" name="pass" required>
+                                <input type="checkbox" name ="remember" value="remember"/> Remember me <br/>
                             </div>
                             <div class="col-12 login-btm login-button justify-content-center d-flex">
                                 <button type="submit" class="btn btn-outline-primary">Đăng nhập</button>

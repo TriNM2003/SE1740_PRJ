@@ -71,13 +71,23 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-xs-2">
-                                <div id="colorlib-logo"><a href="index.html">Store</a></div>
+                                <div id="colorlib-logo"><a href="home.jsp"><img src="../image/logo.png" width="80%" height="80%" alt="HsMen"/></a></div>
                             </div>
                             <div class="col-xs-10 text-right menu-1">
                                 <ul>
-                                    <li class="active"><a href="index.html">Home</a></li>
+
+                                    <li class="dropdown search dropdown-slide">
+                                        <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
+                                                class="tf-ion-ios-search-strong"></i> Search</a>
+                                        <ul class="dropdown-menu search-dropdown">
+                                            <li>
+                                                <form action="post"><input type="search" class="form-control" placeholder="Search..."></form>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="active"><a href="home.jsp">Home</a></li>
                                     <li class="has-dropdown">
-                                        <a href="shop.html">Shop</a>
+                                        <a href="shop.jsp">Shop</a>
                                         <ul class="dropdown">
                                             <li><a href="product-detail.html">Product Detail</a></li>
                                             <li><a href="cart.html">Shipping Cart</a></li>
@@ -86,10 +96,11 @@
                                             <li><a href="add-to-wishlist.html">Wishlist</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="blog.html">Blog</a></li>
+
                                     <li><a href="about.html">About</a></li>
                                     <li><a href="contact.html">Contact</a></li>
                                     <li><a href="cart.html"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
+                                    <li><a href="login.jsp">Login</a></li>
                                 </ul>
                             </div>
                         </div>

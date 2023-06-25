@@ -75,7 +75,7 @@
                                     <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
                                         <div class="slider-text-inner text-center">
                                             <h1>Contact</h1>
-                                            <h2 class="bread"><span><a href="index.html">Home</a></span> <span>Contact</span></h2>
+                                            <h2 class="bread"><span><a href="home.jsp">Home</a></span> <span>Contact</span></h2>
                                         </div>
                                     </div>
                                 </div>

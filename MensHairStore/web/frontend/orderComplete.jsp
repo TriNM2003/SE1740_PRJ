@@ -75,7 +75,7 @@
                                     <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
                                         <div class="slider-text-inner text-center">
                                             <h1>Order Complete</h1>
-                                            <h2 class="bread"><span><a href="index.html">Home</a></span> <span><a href="cart.html">Shopping Cart</a></span> <span>Checkout</span></h2>
+                                            <h2 class="bread"><span><a href="home.jsp">Home</a></span> <span><a href="cart.html">Shopping Cart</a></span> <span>Checkout</span></h2>
                                         </div>
                                     </div>
                                 </div>
@@ -110,7 +110,7 @@
                             <span class="icon"><i class="icon-shopping-cart"></i></span>
                             <h2>Thank you for purchasing, Your order is complete</h2>
                             <p>
-                                <a href="index.html"class="btn btn-primary">Home</a>
+                                <a href="home.jsp"class="btn btn-primary">Home</a>
                                 <a href="shop.html"class="btn btn-primary btn-outline">Continue Shopping</a>
                             </p>
                         </div>

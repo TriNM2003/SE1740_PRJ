@@ -16,9 +16,11 @@
         <!-- Bootstrap CSS v5.2.1 -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="css/signup.css" rel="stylesheet">
+        
     </head>
 
     <body class="d-flex align-items-center">
+        
         <div class="container">
             <div class="row justify-content-center" style="margin:20px;">
                 <div class="col-lg-6 col-md-8 login-box">
@@ -34,9 +36,7 @@
                             <div class="form-group">
                                 <label class="form-control-label">Email</label>
                                 <input type="text" class="form-control"name="gmail"  required>
-                                <c:if test="${not empty error1}">
-                                    <h1>${error1}</h1>
-                                </c:if>
+                                
 
                             </div>
                             <div class="form-group">
@@ -57,7 +57,7 @@
             </div>
         </div>
     </div>
-
+   
 </body>
 
 </html>

@@ -71,7 +71,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-xs-2">
-                                <div id="colorlib-logo"><a href="home.jsp"><img src="../image/logo.png" width="80%" height="80%" alt="HsMen"/></a></div>
+                                <div id="colorlib-logo"><a href="home.jsp"><img src="image/logo.png" width="80%" height="80%" alt="HsMen"/></a></div>
                             </div>
                             <div class="col-xs-10 text-right menu-1">
                                 <ul>
@@ -102,6 +102,28 @@
                                     <li><a href="cart.html"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
                                     <li><a href="login.jsp">Login</a></li>
                                 </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="colorlib-subscribe" style="height: 100px">
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2">
+
+                                <div class="col-md-12">
+                                    <form class="form-inline qbstp-header-subscribe">
+                                        <div class="row">
+                                            <div class="col-md-12 col-md-offset-0">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" id="email" placeholder="Tìm kiếm sản phẩm">
+                                                    <button type="submit" class="btn btn-primary">Search</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>

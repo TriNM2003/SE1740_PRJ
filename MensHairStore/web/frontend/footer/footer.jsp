@@ -64,13 +64,13 @@
     <body>
         
 
-        <footer id="colorlib-footer" role="contentinfo">
+        <footer id="colorlib-footer" role="contentinfo" style=" font-weight: 400">
             <div class="container">
                 <div class="row row-pb-md">
                     <div class="col-md-3 colorlib-widget">
-                        <h4>About Store</h4>
-                        <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
-                        <p>
+                        <h4>Về chúng tôi</h4>
+                        <p>"Chúng tôi cam kết mang đến cho bạn trải nghiệm mua sắm tuyệt vời cùng các sản phẩm chất lượng tốt nhất và dịch vụ hỗ trợ chuyên nghiệp."</p>
+                        
                         <ul class="colorlib-social-icons">
                             <li><a href="#"><i class="icon-twitter"></i></a></li>
                             <li><a href="#"><i class="icon-facebook"></i></a></li>
@@ -80,16 +80,13 @@
                         </p>
                     </div>
                     <div class="col-md-2 colorlib-widget">
-                        <h4>Customer Care</h4>
+                        <h4>Diều khoản & quyền lợi</h4>
                         <p>
                         <ul class="colorlib-footer-links">
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Returns/Exchange</a></li>
-                            <li><a href="#">Gift Voucher</a></li>
-                            <li><a href="#">Wishlist</a></li>
-                            <li><a href="#">Special</a></li>
-                            <li><a href="#">Customer Services</a></li>
-                            <li><a href="#">Site maps</a></li>
+                            <li>Cam kết chất lương</li>
+                            <li>Bảo hành & đổi trả</li>
+                            <li>Tư vấn tận tình</li>
+                            <li>Hướng dẫn sử dụng <br>& bảo quản</li>
                         </ul>
                         </p>
                     </div>
@@ -107,21 +104,20 @@
                     </div>
 
                     <div class="col-md-2">
-                        <h4>News</h4>
+                        <h4>Thời gian làm việc</h4>
                         <ul class="colorlib-footer-links">
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="#">Press</a></li>
-                            <li><a href="#">Exhibitions</a></li>
+                            <li>Thứ 2 - Thứ 7 <br> 9:00 AM - 9:00 PM
+                                <br>Chủ nhật  <br>   9:00 AM - 7:00 PM</li>
                         </ul>
                     </div>
 
                     <div class="col-md-3">
-                        <h4>Contact Information</h4>
+                        <h4>Thông tin liên hệ</h4>
                         <ul class="colorlib-footer-links">
-                            <li>291 South 21th Street, <br> Suite 721 New York NY 10016</li>
-                            <li><a href="tel://1234567920">+ 1235 2355 98</a></li>
-                            <li><a href="mailto:info@yoursite.com">info@yoursite.com</a></li>
-                            <li><a href="#">yoursite.com</a></li>
+                            <li>Trường Đại học FPT <br> Thạch Thất, Hà Nội</li>
+                            <li>(+84)986.669.003</li>
+                            <li>nguyentri@gmail.com</li>
+                            
                         </ul>
                     </div>
                 </div>

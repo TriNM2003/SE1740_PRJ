@@ -68,7 +68,7 @@
             <aside id="colorlib-hero" class="breadcrumbs">
                 <div class="flexslider">
                     <ul class="slides">
-                        <li style="background-image: url(images/cover-img-1.jpg);">
+                        <li style="background-image: url(image/overlay/andrea-donato-MNu0n-3BIKs-unsplash.jpg);">
                             <div class="overlay"></div>
                             <div class="container-fluid">
                                 <div class="row">
@@ -92,15 +92,15 @@
                             <div class="process-wrap">
                                 <div class="process text-center active">
                                     <p><span>01</span></p>
-                                    <h3>Shopping Cart</h3>
+                                    <h3>Giỏ hàng</h3>
                                 </div>
                                 <div class="process text-center active">
-                                    <p><span>02</span></p>
-                                    <h3>Checkout</h3>
+                                    <p><span>02</span></p> 
+                                    <h3>Thông tin & thanh toán</h3>
                                 </div>
                                 <div class="process text-center">
                                     <p><span>03</span></p>
-                                    <h3>Order Complete</h3>
+                                    <h3>Hoàn tất đạt hàng</h3>
                                 </div>
                             </div>
                         </div>
@@ -108,10 +108,10 @@
                     <div class="row">
                         <div class="col-md-10 col-md-offset-1 text-center">
                             <span class="icon"><i class="icon-shopping-cart"></i></span>
-                            <h2>Thank you for purchasing, Your order is complete</h2>
+                            <h2>Cảm ơn đã tin tưởng chúng tôi!<br>Chúc bạn có trải nghiệm tuyệt vời với sản phẩm!</h2>
                             <p>
-                                <a href="home.jsp"class="btn btn-primary">Home</a>
-                                <a href="shop.html"class="btn btn-primary btn-outline">Continue Shopping</a>
+                                <a href="home.jsp"class="btn btn-primary">Trang chủ</a>
+                                <a href="shop.jsp"class="btn btn-primary btn-outline">Tiếp tục mua sắm</a>
                             </p>
                         </div>
                     </div>

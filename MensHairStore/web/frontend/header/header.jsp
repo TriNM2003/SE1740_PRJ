@@ -76,18 +76,10 @@
                             <div class="col-xs-10 text-right menu-1">
                                 <ul>
 
-                                    <li class="dropdown search dropdown-slide">
-                                        <a href="#!" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"><i
-                                                class="tf-ion-ios-search-strong"></i> Search</a>
-                                        <ul class="dropdown-menu search-dropdown">
-                                            <li>
-                                                <form action="post"><input type="search" class="form-control" placeholder="Search..."></form>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="active"><a href="home.jsp">Home</a></li>
+                                    
+                                    <li class="active"><a href="home.jsp">Trang chủ</a></li>
                                     <li class="has-dropdown">
-                                        <a href="shop.jsp">Shop</a>
+                                        <a href="shop.jsp">Cửa hàng</a>
                                         <ul class="dropdown">
                                             <li><a href="product-detail.html">Product Detail</a></li>
                                             <li><a href="cart.html">Shipping Cart</a></li>
@@ -97,16 +89,16 @@
                                         </ul>
                                     </li>
 
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                    <li><a href="cart.html"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
-                                    <li><a href="login.jsp">Login</a></li>
+                                    <li><a href="about.jsp">About</a></li>
+                                    <li><a href="contact.jsp">Contact</a></li>
+                                    <li><a href="cart.jsp"><i class="icon-shopping-cart2"></i> Giỏ hàng</a></li>
+                                    <li><a href="login.jsp"><i class="icon-user2"></i>Đăng nhập</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div id="colorlib-subscribe" style="height: 100px">
+                <div id="colorlib-subscribe" style="height: 62px">
                     <div class="overlay"></div>
                     <div class="container">
                         <div class="row">
@@ -118,7 +110,7 @@
                                             <div class="col-md-12 col-md-offset-0">
                                                 <div class="form-group">
                                                     <input type="text" class="form-control" id="email" placeholder="Tìm kiếm sản phẩm">
-                                                    <button type="submit" class="btn btn-primary">Search</button>
+                                                    <button type="submit" class="btn btn-primary"> <i class="icon-search5" style="padding: 0px 5px"></i> </button>
                                                 </div>
                                             </div>
                                         </div>

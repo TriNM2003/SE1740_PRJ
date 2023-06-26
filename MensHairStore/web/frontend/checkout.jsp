@@ -68,7 +68,7 @@
             <aside id="colorlib-hero" class="breadcrumbs">
                 <div class="flexslider">
                     <ul class="slides">
-                        <li style="background-image: url(images/cover-img-1.jpg);">
+                        <li style="background-image: url(image/overlay/andrea-donato-MNu0n-3BIKs-unsplash.jpg);">
                             <div class="overlay"></div>
                             <div class="container-fluid">
                                 <div class="row">
@@ -190,35 +190,29 @@
                         </div>
                         <div class="col-md-5">
                             <div class="cart-detail">
-                                <h2>Cart Total</h2>
+                                <h2>Thanh toán</h2>
                                 <ul>
                                     <li>
-                                        <span>Subtotal</span> <span>$100.00</span>
+                                        <span>Tổng tiền sản phẩm</span> <span>100.00</span>
                                         <ul>
-                                            <li><span>1 x Product Name</span> <span>$99.00</span></li>
-                                            <li><span>1 x Product Name</span> <span>$78.00</span></li>
+                                            <li><span>1 x Product Name</span><span>99.00 </span></l>
+                                            
                                         </ul>
                                     </li>
-                                    <li><span>Shipping</span> <span>$0.00</span></li>
-                                    <li><span>Order Total</span> <span>$180.00</span></li>
+                                    <li><span>Phí giao hàng</span> <span>0.00</span></li>
+                                    <li><span>Tổng thanh toán</span> <span>180.00(VND)</span></li>
                                 </ul>
                             </div>
                             <div class="cart-detail">
-                                <h2>Payment Method</h2>
+                                <h2>Phương thức thanh toán</h2>
                                 <div class="form-group">
                                     <div class="col-md-12">
                                         <div class="radio">
-                                            <label><input type="radio" name="optradio">Direct Bank Tranfer</label>
+                                            <label><input type="radio" name="optradio">Thanh toán trực tiếp</label>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="col-md-12">
-                                        <div class="radio">
-                                            <label><input type="radio" name="optradio">Check Payment</label>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                                 <div class="form-group">
                                     <div class="col-md-12">
                                         <div class="radio">
@@ -229,14 +223,14 @@
                                 <div class="form-group">
                                     <div class="col-md-12">
                                         <div class="checkbox">
-                                            <label><input type="checkbox" value="">I have read and accept the terms and conditions</label>
+                                            <label><input type="checkbox" value="">Tôi đã đọc và chấp thuận những điều khoản trên</label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p><a href="#" class="btn btn-primary">Place an order</a></p>
+                                    <p><a href="orderComplete.jsp" class="btn btn-primary">Đặt hàng</a></p>
                                 </div>
                             </div>
                         </div>

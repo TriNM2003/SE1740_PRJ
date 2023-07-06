@@ -74,8 +74,8 @@
                                 <div class="row">
                                     <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
                                         <div class="slider-text-inner text-center">
-                                            <h1>Shopping Cart</h1>
-                                            <h2 class="bread"><span><a href="home.jsp">Home</a></span> <span><a href="shop.html">Product</a></span> <span>Shopping Cart</span></h2>
+                                            <h1>Giỏ hàng</h1>
+                                            <h2 class="bread"><span><a href="home.jsp">Trang chủ</a></span>  <span>Giỏ hàng</span></h2>
                                         </div>
                                     </div>
                                 </div>
@@ -92,15 +92,15 @@
                             <div class="process-wrap">
                                 <div class="process text-center active">
                                     <p><span>01</span></p>
-                                    <h3>Shopping Cart</h3>
+                                    <h3>Giỏ hàng</h3>
                                 </div>
                                 <div class="process text-center">
                                     <p><span>02</span></p>
-                                    <h3>Checkout</h3>
+                                    <h3>Thanh toán</h3>
                                 </div>
                                 <div class="process text-center">
                                     <p><span>03</span></p>
-                                    <h3>Order Complete</h3>
+                                    <h3>Hoàn tất đơn hàng</h3>
                                 </div>
                             </div>
                         </div>
@@ -109,19 +109,20 @@
                         <div class="col-md-10 col-md-offset-1">
                             <div class="product-name">
                                 <div class="one-forth text-center">
-                                    <span>Product Details</span>
+                                    <span>Sản phẩm</span>
                                 </div>
                                 <div class="one-eight text-center">
-                                    <span>Price</span>
+                                    <span>Giá</span>
                                 </div>
                                 <div class="one-eight text-center">
-                                    <span>Quantity</span>
+                                    <span>Số lượng</span>
+                                </div>
+                                
+                                <div class="one-eight text-center">
+                                    <span>Thành tiền</span>
                                 </div>
                                 <div class="one-eight text-center">
-                                    <span>Total</span>
-                                </div>
-                                <div class="one-eight text-center">
-                                    <span>Remove</span>
+                                    <span></span>
                                 </div>
                             </div>
                             <div class="product-cart">
@@ -152,7 +153,7 @@
                                         <a href="#" class="closed"></a>
                                     </div>
                                 </div>
-                            </div>
+
                             <div class="product-cart">
                                 <div class="one-forth">
                                     <div class="product-img" style="background-image: url(images/item-7.jpg);">
@@ -183,7 +184,7 @@
                                         <a href="#" class="closed"></a>
                                     </div>
                                 </div>
-                            </div>
+
                             <div class="product-cart">
                                 <div class="one-forth">
                                     <div class="product-img" style="background-image: url(images/item-8.jpg);">

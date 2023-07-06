@@ -78,11 +78,10 @@
                                     <div class="col-md-6 col-md-offset-3 col-md-pull-2 col-sm-12 col-xs-12 slider-text">
                                         <div class="slider-text-inner">
                                             <div class="desc">
-                                                <h1 class="head-1">Men's</h1>
-                                                <h2 class="head-2">Jeans</h2>
-                                                <h2 class="head-3">Collection</h2>
-                                                <p class="category"><span>New stylish shirts, pants &amp; Accessories</span></p>
-                                                <p><a href="#" class="btn btn-primary">Shop Collection</a></p>
+                                                <h1 class="head-1" style="font-size: 30px">Forte</h1>
+                                                <h2 class="head-2" style="font-size: 20px">series</h2>
+                                                <p class="category" style="transform: translateX(-5px);">BST hot nhất mùa hè</p>
+                                                <p><a href="#" class="btn btn-primary">Xem ngay</a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -96,11 +95,10 @@
                                     <div class="col-md-6 col-md-offset-3 col-md-pull-2 col-sm-12 col-xs-12 slider-text">
                                         <div class="slider-text-inner">
                                             <div class="desc">
-                                                <h1 class="head-1">Men's</h1>
-                                                <h2 class="head-2">Jeans</h2>
-                                                <h2 class="head-3">Collection</h2>
-                                                <p class="category"><span>New stylish shirts, pants &amp; Accessories</span></p>
-                                                <p><a href="#" class="btn btn-primary">Shop Collection</a></p>
+                                                <h1 class="head-1" style="font-size: 30px">Frau</h1>
+                                                <h2 class="head-2" style="font-size: 20px">tonis</h2>
+                                                <p class="category" style="transform: translateX(-5px);">BST nước hoa mùa hè</p>
+                                                <p><a href="#" class="btn btn-primary">Xem ngay</a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -115,11 +113,10 @@
                                     <div class="col-md-6 col-md-offset-3 col-md-push-3 col-sm-12 col-xs-12 slider-text">
                                         <div class="slider-text-inner">
                                             <div class="desc">
-                                                <h1 class="head-1">New</h1>
-                                                <h2 class="head-2">Arrival</h2>
-                                                <h2 class="head-3">up to 30% off</h2>
-                                                <p class="category"><span>New stylish shirts, pants &amp; Accessories</span></p>
-                                                <p><a href="#" class="btn btn-primary">Shop Collection</a></p>
+                                                <h1 class="head-1" style="font-size: 30px">Sản phẩm</h1>
+                                                <h2 class="head-2" style="font-size: 20px">gội rửa</h2>
+                                                <p class="category" style="transform: translateX(-5px);">Sạch tới từng chân tóc</p>
+                                                <p><a href="#" class="btn btn-primary">Xem ngay</a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -133,11 +130,10 @@
                                     <div class="col-md-6 col-md-offset-3 col-md-pull-2 col-sm-12 col-xs-12 slider-text">
                                         <div class="slider-text-inner">
                                             <div class="desc">
-                                                <h1 class="head-1">Men's</h1>
-                                                <h2 class="head-2">Jeans</h2>
-                                                <h2 class="head-3">Collection</h2>
-                                                <p class="category"><span>New stylish shirts, pants &amp; Accessories</span></p>
-                                                <p><a href="#" class="btn btn-primary">Shop Collection</a></p>
+                                                <h1 class="head-1" style="font-size: 20px">Aqua di</h1>
+                                                <h2 class="head-2" style="font-size: 30px"> gio</h2>
+                                                <p class="category" style="transform: translateX(-5px);">SP hot nhất mua hè</p>
+                                                <p><a href="#" class="btn btn-primary">Xem ngay</a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -151,11 +147,10 @@
                                     <div class="col-md-6 col-md-offset-3 col-md-pull-2 col-sm-12 col-xs-12 slider-text">
                                         <div class="slider-text-inner">
                                             <div class="desc">
-                                                <h1 class="head-1">Huge</h1>
-                                                <h2 class="head-2">Sale</h2>
-                                                <h2 class="head-3">45% off</h2>
-                                                <p class="category"><span>New stylish shirts, pants &amp; Accessories</span></p>
-                                                <p><a href="#" class="btn btn-primary">Shop Collection</a></p>
+                                                <h1 class="head-1" style="font-size: 30px">Pomade</h1>
+                                                <h2 class="head-2" style="font-size: 20px; transform: translateX(-6px)">Collections</h2>
+                                                <p class="category" style="transform: translateX(-5px);">Cổ điển trang trọng</p>
+                                                <p><a href="#" class="btn btn-primary">Xem ngay</a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -266,7 +261,7 @@
                                     <div class="text-rights">
                                         <h3 class="title">Tạo kiểu tóc đẳng cấp với các sản phẩm tóc nam chất lượng cao của chúng tôi!</h3>
                                         <p>Giảm giá 5% tất cả các sản phẩm nhân dịp mở bán.</p>
-                                        <p><a href="shop.html" class="btn btn-primary">Shop Now</a> <a href="#" class="btn btn-primary btn-outline">Read more</a></p>
+                                        <p><a href="shop.jsp" class="btn btn-primary">Mua hàng</a> </p>
                                     </div>
                                 </div>
                             </div>

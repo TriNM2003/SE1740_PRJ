@@ -74,8 +74,9 @@
                                 <div class="row">
                                     <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
                                         <div class="slider-text-inner text-center">
-                                            <h1>Checkout</h1>
-                                            <h2 class="bread"><span><a href="home.jsp">Home</a></span> <span><a href="cart.html">Shopping Cart</a></span> <span>Checkout</span></h2>
+                                            <h1>Thanh toán</h1>
+                                            <h2 class="bread"><span><a href="home.jsp">Trang chủ</a></span>
+                                                <span><a href="cart.html">Giỏ hàng</a></span> <span>Thanh toán</span></h2>
                                         </div>
                                     </div>
                                 </div>
@@ -92,15 +93,15 @@
                             <div class="process-wrap">
                                 <div class="process text-center active">
                                     <p><span>01</span></p>
-                                    <h3>Shopping Cart</h3>
+                                    <h3>Giỏ hàng</h3>
                                 </div>
                                 <div class="process text-center active">
                                     <p><span>02</span></p>
-                                    <h3>Checkout</h3>
+                                    <h3>Thanh toán</h3>
                                 </div>
                                 <div class="process text-center">
                                     <p><span>03</span></p>
-                                    <h3>Order Complete</h3>
+                                    <h3>Hoàn tất thành toán</h3>
                                 </div>
                             </div>
                         </div>
@@ -108,83 +109,50 @@
                     <div class="row">
                         <div class="col-md-7">
                             <form method="post" class="colorlib-form">
-                                <h2>Billing Details</h2>
+                                <h2>Thông tin địa chỉ nhận hàng</h2>
                                 <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label for="country">Select Country</label>
-                                            <div class="form-field">
-                                                <i class="icon icon-arrow-down3"></i>
-                                                <select name="people" id="people" class="form-control">
-                                                    <option value="#">Select country</option>
-                                                    <option value="#">Alaska</option>
-                                                    <option value="#">China</option>
-                                                    <option value="#">Japan</option>
-                                                    <option value="#">Korea</option>
-                                                    <option value="#">Philippines</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                     <div class="form-group">
-                                        <div class="col-md-6">
-                                            <label for="fname">First Name</label>
-                                            <input type="text" id="fname" class="form-control" placeholder="Your firstname">
+                                        <div class="col-md-12">
+                                            <label for="fname">Họ và tên</label>
+                                            <input type="text" id="name" class="form-control" placeholder="Nhập tên...">
                                         </div>
-                                        <div class="col-md-6">
-                                            <label for="lname">Last Name</label>
-                                            <input type="text" id="lname" class="form-control" placeholder="Your lastname">
-                                        </div>
+                                        
                                     </div>
+                                    
+                                    
+                                    
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="companyname">Company Name</label>
-                                            <input type="text" id="companyname" class="form-control" placeholder="Company Name">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label for="fname">Address</label>
-                                            <input type="text" id="address" class="form-control" placeholder="Enter Your Address">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" id="address2" class="form-control" placeholder="Second Address">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label for="companyname">Town/City</label>
-                                            <input type="text" id="towncity" class="form-control" placeholder="Town or City">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-6">
-                                            <label for="stateprovince">State/Province</label>
-                                            <input type="text" id="fname" class="form-control" placeholder="State Province">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="lname">Zip/Postal Code</label>
-                                            <input type="text" id="zippostalcode" class="form-control" placeholder="Zip / Postal">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-6">
-                                            <label for="email">E-mail Address</label>
-                                            <input type="text" id="email" class="form-control" placeholder="State Province">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="Phone">Phone Number</label>
-                                            <input type="text" id="zippostalcode" class="form-control" placeholder="">
+                                            <label for="companyname">Thành Phố</label>
+                                            <input type="text" id="towncity" class="form-control" placeholder="Nhập thành phố...">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-md-12">
-                                            <div class="radio">
-                                                <label><input type="radio" name="optradio">Create an Account? </label>
-                                                <label><input type="radio" name="optradio"> Ship to different address</label>
-                                            </div>
+                                            <label for="stateprovince">Quận/Huyện</label>
+                                            <input type="text" id="fname" class="form-control" placeholder="Nhập quận/huyện...">
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="fname">Địa chỉ</label>
+                                            <input type="text" id="address" class="form-control" placeholder="Nhập địa chỉ..">
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-6">
+                                            <label for="email">Địa chỉ E-mail</label>
+                                            <input type="text" id="email" class="form-control" placeholder="xxxxxxxxx@xxxx.xxx.xx">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="Phone">Số điện thoại</label>
+                                            <input type="text" id="zippostalcode" class="form-control" placeholder="">
                                         </div>
                                     </div>
+                                    
                                 </div>
                             </form>
                         </div>
@@ -194,7 +162,7 @@
                                 <ul>
                                     <li>
                                         <span>Tổng tiền sản phẩm</span> <span>100.00</span>
-                                        <ul>
+                                        <ul >
                                             <li><span>1 x Product Name</span><span>99.00 </span></l>
                                             
                                         </ul>
@@ -220,13 +188,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="col-md-12">
-                                        <div class="checkbox">
-                                            <label><input type="checkbox" value="">Tôi đã đọc và chấp thuận những điều khoản trên</label>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div>
                             <div class="row">
                                 <div class="col-md-12">

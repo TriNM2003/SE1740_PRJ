@@ -14,6 +14,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!-- Bootstrap CSS v5.2.1 -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="css/signup.css" rel="stylesheet">
         
@@ -50,6 +52,9 @@
                             </div>
                             <div class="col-12 login-btm login-button justify-content-center d-flex">
                                 Đã có tài khoản? <a href="login.jsp" >Đăng nhập</a>
+                            </div>
+                            <div class="col-12 login-btm login-button justify-content-center d-flex">
+                                <a href="home.jsp" ><i class="fa-light fa-house"></i>Trangchu</a>
                             </div>
                     </div>
                     </form>

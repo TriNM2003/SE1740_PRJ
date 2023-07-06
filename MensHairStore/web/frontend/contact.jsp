@@ -74,8 +74,8 @@
                                 <div class="row">
                                     <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
                                         <div class="slider-text-inner text-center">
-                                            <h1>Contact</h1>
-                                            <h2 class="bread"><span><a href="home.jsp">Home</a></span> <span>Contact</span></h2>
+                                            <h1>Liên hệ</h1>
+                                            <h2 class="bread"><span><a href="home.jsp">Trang chủ</a></span> <span>Liên hệ</span></h2>
                                         </div>
                                     </div>
                                 </div>
@@ -89,7 +89,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-10 col-md-offset-1">
-                            <h3>Contact Information</h3>
+                            <h3>Thông tin liên hệ</h3>
                             <div class="row contact-info-wrap">
                                 <div class="col-md-3">
                                     <p><span><i class="icon-location"></i></span> Trường Đại học FPT <br> Thạch Thất, Hà Nội</p>

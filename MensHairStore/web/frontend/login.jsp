@@ -42,6 +42,9 @@
                             <div class="col-12 login-btm login-button justify-content-center d-flex">
                                 Chưa có tài khoản? <a href="signup.jsp" >Đăng kí</a>
                             </div>
+                            <div class="col-12 login-btm login-button justify-content-center d-flex">
+                                <a href="home.jsp" >Trang chủ</a>
+                            </div>
                     </div>
                     </form>
                 </div>

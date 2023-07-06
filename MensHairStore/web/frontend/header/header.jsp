@@ -89,10 +89,10 @@
                                         </ul>
                                     </li>
 
-                                    <li><a href="about.jsp">About</a></li>
-                                    <li><a href="contact.jsp">Contact</a></li>
+                                    <li><a href="about.jsp">Giới thiệu</a></li>
+                                    <li><a href="contact.jsp">Liên hệ</a></li>
                                     <li><a href="cart.jsp"><i class="icon-shopping-cart2"></i> Giỏ hàng</a></li>
-                                    <li><a href="login.jsp"><i class="icon-user2"></i>Đăng nhập</a></li>
+                                    <li><a href="login1.jsp"><i class="icon-user2"></i>Đăng nhập</a>/<a href="signup1.jsp">Đăng ký</a></li>
                                 </ul>
                             </div>
                         </div>

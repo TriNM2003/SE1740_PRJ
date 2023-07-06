@@ -392,8 +392,8 @@ h1, h2, h3, h4, h5, h6, figure {
     left: -3em;
     right: 0;
     bottom: 0;
-    width: 310px;
-    height: 310px;
+    width: 200px;
+    height: 200px;
     content: '';
     background: #fff;
     z-index: -1;
@@ -412,15 +412,17 @@ h1, h2, h3, h4, h5, h6, figure {
     color: #000;
 }
 #colorlib-hero .flexslider .slider-text > .slider-text-inner .head-1 {
-    font-weight: 700;
-    font-size: 60px;
+    transform: translateX(-13px);
+    font-weight: 500;
+    font-size: 50px;
     margin-bottom: 5px;
 }
 #colorlib-hero .flexslider .slider-text > .slider-text-inner .head-2 {
+    transform: translateX(40px);
     font-size: 30px;
     font-weight: 500;
     margin-bottom: 10px;
-    letter-spacing: 5px;
+    letter-spacing: 3px;
 }
 #colorlib-hero .flexslider .slider-text > .slider-text-inner .head-3 {
     font-size: 50px;
@@ -431,7 +433,7 @@ h1, h2, h3, h4, h5, h6, figure {
     margin-bottom: 30px;
 }
 #colorlib-hero .flexslider .slider-text > .slider-text-inner .category span {
-    font-weight: 100;
+    font-weight: 200;
     font-size: 20px;
     color: gray;
 }

@@ -75,8 +75,8 @@
                                 <div class="row">
                                     <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
                                         <div class="slider-text-inner text-center">
-                                            <h1>About Us</h1>
-                                            <h2 class="bread"><span><a href="home.jsp">Home</a></span> <span>About Us</span></h2>
+                                            <h1>Giới thiệu</h1>
+                                            <h2 class="bread"><span><a href="home.jsp">Trang chủ</a></span> <span>Giới thiệu</span></h2>
                                         </div>
                                     </div>
                                 </div>
@@ -93,7 +93,7 @@
                             <div class="col-one-forth">
                                 <div class="row">
                                     <div class="col-md-12 about">
-                                        <h2>About</h2>
+                                        <h2>Giới thiệu</h2>
 
                                         <ul>
                                             <li><a href="#">History</a></li>

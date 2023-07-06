@@ -73,20 +73,17 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
 
         AccountDAO acd = new AccountDAO();
-        String user = request.getParameter("user");
-        Account a = acd.getAccount(user);
-        String pass = request.getParameter("pass");
-        if (a.getPassword().equals(pass)) {
-            response.setContentType("text/html;charset=UTF-8");
-            try ( PrintWriter out = response.getWriter()) {
-                /* TODO output your page here. You may use following sample code. */
-                response.sendRedirect("home.jsp");
-                
-            }
+        String user = request.getParameter("username");
+        String pass = request.getParameter("password");
+        Account a = acd.getAccount(user,pass);
+        
+        
+        if ( a !=null ) {
+            response.sendRedirect("home.jsp");
             
         } else {
             Account ac = new Account();
-            response.sendRedirect("frontend/views/login.jsp");
+            response.sendRedirect("login1.jsp");
         }
 
     }

@@ -76,37 +76,30 @@ public class SignupServlet extends HttpServlet {
         try ( PrintWriter out = response.getWriter()) {
             AccountDAO acd = new AccountDAO();
             Account a = new Account();
-            String user = request.getParameter("user");
-            String pass = request.getParameter("pass");
-            String gmail = checkGmail(request.getParameter("gmail"));
+            String user = request.getParameter("username");
+            String pass = request.getParameter("password");
+            String gmail= request.getParameter("gmail");
+            String re_pass = request.getParameter("re_password");
 
             String role_name = "US";
-            if (gmail == "0") {
-                String error1= "Email không hợp lệ";
-                request.setAttribute("error1", error1);
-                Account ac = new Account();
-                response.sendRedirect("frontend/views/signup.jsp");
+            if (!pass.equals(re_pass)) {
+                Account ac=new Account();
+                
+                
+                response.sendRedirect("signup1.jsp");
+                
             }else{
                 a.setUsername(user);
                 a.setPassword(pass);
                 a.setGmail(gmail);
                 a.setRole_name(role_name);
                 acd.insertAccount(a);
-                response.sendRedirect("frontend/views/login.jsp");
+                response.sendRedirect("login1.jsp");
             }
         }
     }
 
-    public String checkGmail(String mess) {
-        Pattern p = Pattern.compile("[a-z0-9._]+[a-z0-9.]+[a-z0-9._]{1}+@[a-z]+(\\.[a-z]+){1,3}$");
-        String str;
-        if (p.matcher(mess).find()) {
-            str = mess;
-        } else {
-            str = "0";
-        }
-        return str;
-    }
+
 
     /**
      * Returns a short description of the servlet.

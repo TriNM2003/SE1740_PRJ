@@ -40,15 +40,17 @@ public class AccountDAO extends BaseDAO{
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public Account getAccount(String username) {
+    public Account getAccount(String username,String password) {
         try {
+            Account a = new Account();
             String sql = "SELECT a.UserId,a.username,a.password,a.gmail, a.role_name FROM Account a\n"
-                    + "WHERE a.username = ?";
+                    + "WHERE a.username = ? and password =?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, username);
+            statement.setString(2, password);
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
-                Account a = new Account();
+                
                 a.setUserId(rs.getInt("userid"));
                 a.setUsername(rs.getString("username"));
                 a.setPassword(rs.getString("password"));

@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -90,9 +91,10 @@
                     <div class="row">
                         <div class="col-md-10 col-md-push-2">
                             <div class="row row-pb-lg">
-                                <div class="col-md-4 text-center">
+                                <c:forEach items="${product}" var="o">
+                                    <div class="col-md-4 text-center">
                                     <div class="product-entry">
-                                        <div class="product-img" style="background-image: url(images/item-5.jpg);">
+                                        <div class="product-img" style="background-image: url(${o.thumbnail});">
                                             <p class="tag"><span class="new">New</span></p>
                                             <div class="cart">
                                                 <p>
@@ -104,218 +106,12 @@
                                             </div>
                                         </div>
                                         <div class="desc">
-                                            <h3><a href="product-detail.html">Floral Dress</a></h3>
-                                            <p class="price"><span>$300.00</span></p>
+                                            <h3><a href="product-detail.html">${o.product_name}</a></h3>
+                                            <p class="price"><span>${o.price}</span></p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4 text-center">
-                                    <div class="product-entry">
-                                        <div class="product-img" style="background-image: url(images/item-6.jpg);">
-                                            <p class="tag"><span class="sale">Sale</span></p>
-                                            <div class="cart">
-                                                <p>
-                                                    <span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
-                                                    <span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
-                                                    <span><a href="#"><i class="icon-heart3"></i></a></span>
-                                                    <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="desc">
-                                            <h3><a href="product-detail.html">Floral Dress</a></h3>
-                                            <p class="price"><span>$199.00</span> <span class="sale">$300.00</span> </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 text-center">
-                                    <div class="product-entry">
-                                        <div class="product-img" style="background-image: url(images/item-7.jpg);">
-                                            <p class="tag"><span class="new">New</span></p>
-                                            <div class="cart">
-                                                <p>
-                                                    <span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
-                                                    <span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
-                                                    <span><a href="#"><i class="icon-heart3"></i></a></span>
-                                                    <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="desc">
-                                            <h3><a href="product-detail.html">Floral Dress</a></h3>
-                                            <p class="price"><span>$300.00</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 text-center">
-                                    <div class="product-entry">
-                                        <div class="product-img" style="background-image: url(images/item-8.jpg);">
-                                            <div class="cart">
-                                                <p>
-                                                    <span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
-                                                    <span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
-                                                    <span><a href="#"><i class="icon-heart3"></i></a></span>
-                                                    <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="desc">
-                                            <h3><a href="product-detail.html">Floral Dress</a></h3>
-                                            <p class="price"><span>$300.00</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 text-center">
-                                    <div class="product-entry">
-                                        <div class="product-img" style="background-image: url(images/item-9.jpg);">
-                                            <p class="tag"><span class="sale">Sale</span></p>
-                                            <div class="cart">
-                                                <p>
-                                                    <span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
-                                                    <span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
-                                                    <span><a href="#"><i class="icon-heart3"></i></a></span>
-                                                    <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="desc">
-                                            <h3><a href="product-detail.html">Floral Dress</a></h3>
-                                            <p class="price"><span>$199.00</span> <span class="sale">$300.00</span> </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 text-center">
-                                    <div class="product-entry">
-                                        <div class="product-img" style="background-image: url(images/item-10.jpg);">
-                                            <p class="tag"><span class="new">New</span></p>
-                                            <div class="cart">
-                                                <p>
-                                                    <span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
-                                                    <span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
-                                                    <span><a href="#"><i class="icon-heart3"></i></a></span>
-                                                    <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="desc">
-                                            <h3><a href="product-detail.html">Floral Dress</a></h3>
-                                            <p class="price"><span>$300.00</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 text-center">
-                                    <div class="product-entry">
-                                        <div class="product-img" style="background-image: url(images/item-11.jpg);">
-                                            <div class="cart">
-                                                <p>
-                                                    <span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
-                                                    <span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
-                                                    <span><a href="#"><i class="icon-heart3"></i></a></span>
-                                                    <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="desc">
-                                            <h3><a href="product-detail.html">Floral Dress</a></h3>
-                                            <p class="price"><span>$300.00</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 text-center">
-                                    <div class="product-entry">
-                                        <div class="product-img" style="background-image: url(images/item-12.jpg);">
-                                            <p class="tag"><span class="new">New</span></p>
-                                            <div class="cart">
-                                                <p>
-                                                    <span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
-                                                    <span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
-                                                    <span><a href="#"><i class="icon-heart3"></i></a></span>
-                                                    <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="desc">
-                                            <h3><a href="product-detail.html">Floral Dress</a></h3>
-                                            <p class="price"><span>$300.00</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 text-center">
-                                    <div class="product-entry">
-                                        <div class="product-img" style="background-image: url(images/item-13.jpg);">
-                                            <p class="tag"><span class="new">New</span></p>
-                                            <div class="cart">
-                                                <p>
-                                                    <span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
-                                                    <span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
-                                                    <span><a href="#"><i class="icon-heart3"></i></a></span>
-                                                    <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="desc">
-                                            <h3><a href="product-detail.html">Floral Dress</a></h3>
-                                            <p class="price"><span>$300.00</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 text-center">
-                                    <div class="product-entry">
-                                        <div class="product-img" style="background-image: url(images/item-14.jpg);">
-                                            <p class="tag"><span class="new">New</span></p>
-                                            <div class="cart">
-                                                <p>
-                                                    <span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
-                                                    <span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
-                                                    <span><a href="#"><i class="icon-heart3"></i></a></span>
-                                                    <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="desc">
-                                            <h3><a href="product-detail.html">Floral Dress</a></h3>
-                                            <p class="price"><span>$300.00</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 text-center">
-                                    <div class="product-entry">
-                                        <div class="product-img" style="background-image: url(images/item-15.jpg);">
-                                            <p class="tag"><span class="new">New</span></p>
-                                            <div class="cart">
-                                                <p>
-                                                    <span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
-                                                    <span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
-                                                    <span><a href="#"><i class="icon-heart3"></i></a></span>
-                                                    <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="desc">
-                                            <h3><a href="product-detail.html">Floral Dress</a></h3>
-                                            <p class="price"><span>$300.00</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 text-center">
-                                    <div class="product-entry">
-                                        <div class="product-img" style="background-image: url(images/item-16.jpg);">
-                                            <p class="tag"><span class="new">New</span></p>
-                                            <div class="cart">
-                                                <p>
-                                                    <span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
-                                                    <span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
-                                                    <span><a href="#"><i class="icon-heart3"></i></a></span>
-                                                    <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="desc">
-                                            <h3><a href="product-detail.html">Floral Dress</a></h3>
-                                            <p class="price"><span>$300.00</span></p>
-                                        </div>
-                                    </div>
-                                </div>
+                                </c:forEach>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
@@ -336,25 +132,17 @@
                                     <h2>Categories</h2>
                                     <div class="fancy-collapse-panel">
                                         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                        <c:forEach items="${cate}" var="o">    
+                                            
                                             <div class="panel panel-default">
                                                 <div class="panel-heading" role="tab" id="headingOne">
                                                     <h4 class="panel-title">
-                                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Men
-                                                        </a>
+                                                        <a href="#"   >${o.category_name}</a>
                                                     </h4>
                                                 </div>
-                                                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                                    <div class="panel-body">
-                                                        <ul>
-                                                            <li><a href="#">Jeans</a></li>
-                                                            <li><a href="#">T-Shirt</a></li>
-                                                            <li><a href="#">Jacket</a></li>
-                                                            <li><a href="#">Shoes</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
+                                                
                                             </div>
-                                        
+                                        </c:forEach>
                                         </div>
                                     </div>
                                 </div>

@@ -5,12 +5,19 @@
 
 package controller;
 
+import DAL.CategoryDAO;
+import DAL.ProductDAO;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import model.Category;
+import model.Product;
+
 
 /**
  *
@@ -27,9 +34,27 @@ public class shop extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        
-    } 
+        ProductDAO pd = new ProductDAO();
+        ArrayList<Product> pro= pd.AllProduct();
+        request.setAttribute("product",pro);
 
+        CategoryDAO cd= new CategoryDAO();
+
+        
+        ArrayList<Category> cate= cd.getCategory();
+        request.setAttribute("cate",cate);
+        
+
+        
+        request.getRequestDispatcher("shop.jsp").forward(request, response);
+    } 
+    public static void main(String[] args) {
+        CategoryDAO dao = new CategoryDAO();
+        ArrayList<Category> list= dao.getCategory();
+        for(Category o: list){
+            System.out.println(o);
+        }
+    }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
      * Handles the HTTP <code>GET</code> method.

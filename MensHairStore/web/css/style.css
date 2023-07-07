@@ -1502,7 +1502,7 @@ h1, h2, h3, h4, h5, h6, figure {
     font-size: 12px;
     text-transform: uppercase;
     background: transparent;
-    color: #FFC300;
+
     position: relative;
     -webkit-box-shadow: none !important;
     -moz-box-shadow: none !important;
@@ -1522,7 +1522,7 @@ h1, h2, h3, h4, h5, h6, figure {
 
 .panel-heading a:after {
     font-family: "icomoon";
-    content: "\e994";
+/*    content: "\e994";*/
     position: absolute;
     right: 20px;
     font-size: 11px;
@@ -1533,7 +1533,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 .panel-heading a.collapsed:after {
-    content: "\e9af";
+/*    content: "\e9af";*/
 }
 
 .panel-heading a.collapsed {

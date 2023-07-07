@@ -91,10 +91,35 @@ public class ProductDAO  extends BaseDAO {
         return list;
     }
     
+    public ArrayList<Product> GetProductByCategory(String category_id) {
+        ArrayList<Product> list=new ArrayList<>();
+        
+        try {
+            String sql = "select * from product where category_id=?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, category_id);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                 list.add(new Product(rs.getInt(1),
+                                    rs.getString(2),
+                                    rs.getInt(3),
+                                    rs.getInt(4),
+                                    rs.getFloat(5),
+                                    rs.getDate(6),
+                                    rs.getDate(7),
+                                    rs.getString(8)
+                                    ));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+    
     
     public static void main(String[] args) {
         ProductDAO dao = new ProductDAO();
-        ArrayList<Product> list= dao.AllProduct();
+        ArrayList<Product> list= dao.GetProductByCategory("4");
         for(Product o: list){
             System.out.println(o);
         }

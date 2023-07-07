@@ -107,7 +107,7 @@
                                         </div>
                                         <div class="desc">
                                             <h3><a href="product-detail.html">${o.product_name}</a></h3>
-                                            <p class="price"><span>${o.price}</span></p>
+                                            <p class="price"><span>${o.price}$</span></p>
                                         </div>
                                     </div>
                                 </div>
@@ -134,10 +134,10 @@
                                         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                                         <c:forEach items="${cate}" var="o">    
                                             
-                                            <div class="panel panel-default">
+                                            <div class="panel panel-default" >
                                                 <div class="panel-heading" role="tab" id="headingOne">
-                                                    <h4 class="panel-title">
-                                                        <a href="#"   >${o.category_name}</a>
+                                                    <h4 class="panel-title" style="color: ${tag == o.category_id ? "orange ":"" }">
+                                                        <a href="category?c_id=${o.category_id}">${o.category_name}</a>
                                                     </h4>
                                                 </div>
                                                 

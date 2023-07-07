@@ -9,22 +9,24 @@ package model;
  * @author DELL
  */
 public class Account {
-    int UserId;
-    String username;
-    String password;
-    String gmail;
-    String role_name;
+    private int UserId;
+    private String username;
+    private String password;
+    private String gmail;
+    private String role_name;
 
     public Account() {
     }
 
-    public Account(int UserId, String username, String password, String role_name) {
+    public Account(int UserId, String username, String password, String gmail, String role_name) {
         this.UserId = UserId;
         this.username = username;
         this.password = password;
-        this.gmail=gmail;
+        this.gmail = gmail;
         this.role_name = role_name;
     }
+
+    
 
     public int getUserId() {
         return UserId;
@@ -64,6 +66,11 @@ public class Account {
 
     public void setRole_name(String role_name) {
         this.role_name = role_name;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" + "UserId=" + UserId + ", username=" + username + ", password=" + password + ", gmail=" + gmail + ", role_name=" + role_name + '}';
     }
    
 }

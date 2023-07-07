@@ -9,18 +9,19 @@ import java.sql.Date;
  * @author DELL
  */
 public class Product {
-    int product_id;
-    String product_name;
-    int subcategory_id;
-    int brand_id;
-    float price;
-    java.sql.Date create_time;
-    java.sql.Date update_time;
+    private int product_id;
+    private String product_name;
+    private int subcategory_id;
+    private int brand_id;
+    private float price;
+    private java.sql.Date create_time;
+    private java.sql.Date update_time;
+    private String thumbnail;
 
     public Product() {
     }
 
-    public Product(int product_id, String product_name, int subcategory_id, int brand_id, float price, Date create_time, Date update_time) {
+    public Product(int product_id, String product_name, int subcategory_id, int brand_id, float price, Date create_time, Date update_time, String thumbnail) {
         this.product_id = product_id;
         this.product_name = product_name;
         this.subcategory_id = subcategory_id;
@@ -28,7 +29,10 @@ public class Product {
         this.price = price;
         this.create_time = create_time;
         this.update_time = update_time;
+        this.thumbnail = thumbnail;
     }
+
+    
 
     public int getProduct_id() {
         return product_id;
@@ -86,9 +90,19 @@ public class Product {
         this.update_time = update_time;
     }
 
+    public String getThumbnail() {
+        return thumbnail;
+    }
+
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
+    }
+
     @Override
     public String toString() {
-        return "Product{" + "product_id=" + product_id + ", product_name=" + product_name + ", subcategory_id=" + subcategory_id + ", brand_id=" + brand_id + ", price=" + price + ", create_time=" + create_time + ", update_time=" + update_time + '}';
+        return "Product{" + "product_id=" + product_id + ", product_name=" + product_name + ", subcategory_id=" + subcategory_id + ", brand_id=" + brand_id + ", price=" + price + ", create_time=" + create_time + ", update_time=" + update_time + ", thumbnail=" + thumbnail + '}';
     }
+    
+    
     
 }

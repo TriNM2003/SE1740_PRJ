@@ -18,7 +18,7 @@ import model.Product;
  *
  * @author DELL
  */
-public class HomeDAO  extends BaseDAO {
+public class ProductDAO  extends BaseDAO {
     public ArrayList<Product> Newproduct() {
         ArrayList<Product> list=new ArrayList<>();
         
@@ -33,7 +33,32 @@ public class HomeDAO  extends BaseDAO {
                                     rs.getInt(4),
                                     rs.getFloat(5),
                                     rs.getDate(6),
-                                    rs.getDate(7)
+                                    rs.getDate(7),
+                                    rs.getString(8)
+                                    ));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+    
+    public ArrayList<Product> HomeProduct() {
+        ArrayList<Product> list=new ArrayList<>();
+        
+        try {
+            String sql = "select TOP 8 * from product";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                 list.add(new Product(rs.getInt(1),
+                                    rs.getString(2),
+                                    rs.getInt(3),
+                                    rs.getInt(4),
+                                    rs.getFloat(5),
+                                    rs.getDate(6),
+                                    rs.getDate(7),
+                                    rs.getString(8)
                                     ));
             }
         } catch (SQLException ex) {
@@ -43,8 +68,8 @@ public class HomeDAO  extends BaseDAO {
     }
     
     public static void main(String[] args) {
-        HomeDAO dao = new HomeDAO();
-        ArrayList<Product> list= dao.Newproduct();
+        ProductDAO dao = new ProductDAO();
+        ArrayList<Product> list= dao.HomeProduct();
         for(Product o: list){
             System.out.println(o);
         }

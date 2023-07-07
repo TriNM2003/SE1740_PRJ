@@ -1,4 +1,4 @@
-﻿--create  database hairshop
+﻿--create database hairshop
 
 create table [Account](
 	[id] int not null identity(1,1) primary key,
@@ -53,13 +53,13 @@ create table [subCategory](
 
 create table [Product](
 	[product_id] int not null identity(1,1) primary key,
-	[product_name] varchar(50) ,
+	[product_name] nvarchar(50) ,
 	[subcategory_id] int ,
 	[brand_id] int,
 	[price] float ,
 	[create_time] DATETIME ,
 	[update_time] DATETIME ,
-	
+	[thumbnail] varchar(500) 
 	FOREIGN KEY (subcategory_id) REFERENCES [subCategory](subcategory_id) ,
 	FOREIGN KEY (brand_id) REFERENCES [Brand](brand_id) 
 	 
@@ -84,7 +84,7 @@ create table [Info](
 	[fragrance] nvarchar(200) ,
 	[title] nvarchar(100) ,
 	[des1] nvarchar(1000) ,
-	[des2] nvarchar(1000) 
+	
 	FOREIGN KEY (info_id) REFERENCES [Product](product_id) 
 );
 
@@ -178,8 +178,8 @@ select * from brand
 
 --product
 --1 quicksand
-insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time )
-values('Hanz de Fuko Quicksand',1,1,550.000,GETDATE(),GETDATE() )
+insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time,thumbnail )
+values(N'Hanz de Fuko Quicksand',1,1,55,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2017/04/quicksand.jpg' )
 insert into Gallery(product_id,thumbnail) 
 values(1,'https://clmensstore.com/wp-content/uploads/2017/04/quicksand.jpg')
 insert into Gallery(product_id,thumbnail) 
@@ -190,12 +190,10 @@ insert into Gallery(product_id,thumbnail)
 values(1,'https://clmensstore.com/wp-content/uploads/2017/04/hanz-qs.png')
 insert into Gallery(product_id,thumbnail) 
 values(1,'https://clmensstore.com/wp-content/uploads/2017/04/maxresdefault.jpg')
-insert into Info(info_id,capacity,title,fragrance,des1,des2)
-values(1,56,'Hanz de Fuko Quicksand','không mùi','Khi hậu châu Á thường rất nóng và đặc biệt tại Việt Nam. Mùa hè rất oi bức và tóc của chúng ta thường dễ bị tiết ra dầu rất nhiều, vì vậy Hanz de Fuko Quicksand đã ra đời để cải thiện chuyện đó. Hanz de Fuko Quicksand lại mang 1 đặc tính rất là đặc biệt, đó là chất Dry Shampoo được chứa trong sản phẩm của thương hiệu này (sẽ có bài viết chi tiết về chất này). Chất này có khả năng hút dầu, mồ hôi của tóc.','Cực kì nhẹ tóc, thích hợp với những bạn tóc mỏng, trung bình. Hút dầu rất tốt, sản phẩm giúp tóc bạn giảm lượng dầu tiết ra, trông tóc sạch sẽ và tự nhiên.')
 
 
-insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time )
-values('Hanz de Fuko Claymation',1,1,550.000,GETDATE(),GETDATE() )
+insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time,thumbnail )
+values(N'Hanz de Fuko Claymation',1,1,55,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2017/04/HDF_SHOP_Products_CM_02.jpg' )
 insert into Gallery(product_id,thumbnail) 
 values(2,'https://clmensstore.com/wp-content/uploads/2017/04/HDF_SHOP_Products_CM_02.jpg')
 insert into Gallery(product_id,thumbnail) 
@@ -206,51 +204,43 @@ insert into Gallery(product_id,thumbnail)
 values(2,'https://clmensstore.com/wp-content/uploads/2017/04/hanz-clay-1-1.png')
 insert into Gallery(product_id,thumbnail) 
 values(2,'https://clmensstore.com/wp-content/uploads/2017/04/maxresdefault-1.jpg')
-insert into Info(info_id,capacity,title,fragrance,des1,des2)
-values(2,56,'Hanz de Fuko Claymation','không mùi','Khi hậu châu Á thường rất nóng và đặc biệt tại Việt Nam. Mùa hè rất oi bức và tóc của chúng ta thường dễ bị tiết ra dầu rất nhiều, vì vậy Hanz de Fuko Quicksand đã ra đời để cải thiện chuyện đó. Hanz de Fuko Quicksand lại mang 1 đặc tính rất là đặc biệt, đó là chất Dry Shampoo được chứa trong sản phẩm của thương hiệu này (sẽ có bài viết chi tiết về chất này). Chất này có khả năng hút dầu, mồ hôi của tóc.','Cực kì nhẹ tóc, thích hợp với những bạn tóc mỏng, trung bình. Hút dầu rất tốt, sản phẩm giúp tóc bạn giảm lượng dầu tiết ra, trông tóc sạch sẽ và tự nhiên.')
-select * from info
-insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time )
-values('Hanz de Fuko Natural Shampoo',7,1,550.000,GETDATE(),GETDATE() )
+
+insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time,thumbnail )
+values(N'Hanz de Fuko Natural Shampoo',7,1,55,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2017/05/hanz-de-fuko-natural-shampoo.jpg' )
 insert into Gallery(product_id,thumbnail) 
 values(3,'https://clmensstore.com/wp-content/uploads/2017/05/hanz-de-fuko-natural-shampoo.jpg')
 insert into Gallery(product_id,thumbnail) 
 values(3,'https://clmensstore.com/wp-content/uploads/2017/05/71BlQ0UvwSL._SL1500-768x768.jpg')
-insert into Info(info_id,capacity,title,fragrance,des1,des2)
-values(3,237,'Hanz de Fuko Natural Shampoo',' Thảo mộc kết hợp với bạc hà','','')
 
 
-insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time )
-values('Hanz de Fuko Natural Conditioner ',8,1,550.000,GETDATE(),GETDATE() )
+
+insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time,thumbnail )
+values(N'Hanz de Fuko Natural Conditioner ',8,1,55,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2017/05/hanz-de-fuko-natural-conditioner-1.jpg' )
 insert into Gallery(product_id,thumbnail) 
 values(4,'https://clmensstore.com/wp-content/uploads/2017/05/hanz-de-fuko-natural-conditioner-1.jpg')
 insert into Gallery(product_id,thumbnail) 
 values(4,'https://clmensstore.com/wp-content/uploads/2017/05/eaf287df-f67a-4e7a-9237-a9ea4303.jpg')
-insert into Info(info_id,capacity,title,fragrance,des1,des2)
-values(4,237,'Hanz de Fuko Natural Conditioner','','')
 
-insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time )
-values('Hanz de Fuko Dry Shampoo ',9,1,580.000,GETDATE(),GETDATE() )
+
+insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time,thumbnail )
+values(N'Hanz de Fuko Dry Shampoo ',9,1,58,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2018/04/dry1.jpg' )
 insert into Gallery(product_id,thumbnail) 
 values(5,'https://clmensstore.com/wp-content/uploads/2018/04/dry1.jpg')
 insert into Gallery(product_id,thumbnail) 
 values(5,'https://www.google.com/imgres?imgurl=https%3A%2F%2Fhanzdefuko.vn%2Fwp-content%2Fuploads%2F2022%2F04%2Fhanz-de-fuko-dry-shampoo-bia-min.jpg&tbnid=9bFJA2kZbiC6iM&vet=12ahUKEwjt7sbnj_n_AhVlgVYBHdkEB2IQMygCegUIARCvAQ..i&imgrefurl=https%3A%2F%2Fhanzdefuko.vn%2Fhanz-de-fuko-dry-shampoo%2F&docid=vYEHQShuXk_N4M&w=1000&h=1000&q=hanz%20de%20fuko%20dry%20shampoo&ved=2ahUKEwjt7sbnj_n_AhVlgVYBHdkEB2IQMygCegUIARCvAQ')
-insert into Info(info_id,capacity,title,fragrance,des1,des2)
-values(5,240,'Hanz de Fuko Dry Shampoo',' Thảo mộc kết hợp với bạc hà','','')
 
-insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time )
-values('Hanz de Fuko Modify Pomade',2,1,550.000,GETDATE(),GETDATE() )
+insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time,thumbnail )
+values(N'Hanz de Fuko Modify Pomade',2,1,55,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2017/11/Modify_Pomade1.jpg' )
 insert into Gallery(product_id,thumbnail) 
 values(6,'https://clmensstore.com/wp-content/uploads/2017/11/Modify_Pomade1.jpg')
 insert into Gallery(product_id,thumbnail) 
 values(6,'https://clmensstore.com/wp-content/uploads/2017/11/hanz-de-fuko-modify-pomade.png')
 insert into Gallery(product_id,thumbnail) 
 values(6,'https://clmensstore.com/wp-content/uploads/2017/11/fy-scaled.jpg')
-insert into Info(info_id,capacity,title,fragrance,des1,des2)
-values(6,56,'Hanz de Fuko Modify Pomade','hương nhiệt đới nhẹ nhàng','Khi hậu châu Á thường rất nóng và đặc biệt tại Việt Nam. Mùa hè rất oi bức và tóc của chúng ta thường dễ bị tiết ra dầu rất nhiều, vì vậy Hanz de Fuko Quicksand đã ra đời để cải thiện chuyện đó. Hanz de Fuko Quicksand lại mang 1 đặc tính rất là đặc biệt, đó là chất Dry Shampoo được chứa trong sản phẩm của thương hiệu này (sẽ có bài viết chi tiết về chất này). Chất này có khả năng hút dầu, mồ hôi của tóc.','Cực kì nhẹ tóc, thích hợp với những bạn tóc mỏng, trung bình. Hút dầu rất tốt, sản phẩm giúp tóc bạn giảm lượng dầu tiết ra, trông tóc sạch sẽ và tự nhiên.')
 
 
-insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time )
-values('Hanz de Fuko Style Lock Hair Spray',5,1,600.000,GETDATE(),GETDATE() )
+insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time,thumbnail )
+values(N'Hanz de Fuko Style Lock Hair Spray',5,1,60,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2018/04/gom-hanz.jpg' )
 insert into Gallery(product_id,thumbnail) 
 values(7,'https://clmensstore.com/wp-content/uploads/2018/04/gom-hanz.jpg')
 insert into Gallery(product_id,thumbnail) 
@@ -258,16 +248,16 @@ values(7,'https://clmensstore.com/wp-content/uploads/2018/04/gom-hanz.jpg')
 insert into Gallery(product_id,thumbnail) 
 values(7,'https://clmensstore.com/wp-content/uploads/2018/04/gom-hanz.jpg')
 
-insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time )
-values('Dầu dưỡng tóc Hanz De Fuko Hair Oil ',15,1,550.000,GETDATE(),GETDATE() )
+insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time,thumbnail )
+values(N'Dầu dưỡng tóc Hanz De Fuko Hair Oil ',15,1,55,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2022/12/hanz-de-fuko-oil.jpg' )
 insert into Gallery(product_id,thumbnail) 
 values(8,'https://clmensstore.com/wp-content/uploads/2022/12/hanz-de-fuko-oil.jpg')
 insert into Gallery(product_id,thumbnail) 
 values(8,'https://clmensstore.com/wp-content/uploads/2022/12/75322220_273874553510149_4981115678233618642_n-1024x1024.jpg')
 
 
-insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time )
-values('Hanz De Fuko Two Ton Pomade',2,1,580.000,GETDATE(),GETDATE() )
+insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time,thumbnail )
+values(N'Hanz De Fuko Two Ton Pomade',2,1,58,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2022/12/two-ton-pomade.jpg' )
 insert into Gallery(product_id,thumbnail) 
 values(9,'https://clmensstore.com/wp-content/uploads/2022/12/two-ton-pomade.jpg')
 insert into Gallery(product_id,thumbnail) 
@@ -280,8 +270,8 @@ values(9,'https://clmensstore.com/wp-content/uploads/2022/12/71rLyywbKmL-1024x73
 
 
 --2 Kevin murphy
-insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time )
-values('Kevin Murphy Rough Rider ',1,2,599.000,GETDATE(),GETDATE() )
+insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time,thumbnail )
+values(N'Kevin Murphy Rough Rider ',1,2,59,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2013/06/123123123123-e1626508675603.jpg' )
 insert into Gallery(product_id,thumbnail) 
 values(10,'https://clmensstore.com/wp-content/uploads/2013/06/123123123123-e1626508675603.jpg')
 insert into Gallery(product_id,thumbnail) 
@@ -289,8 +279,8 @@ values(10,'https://clmensstore.com/wp-content/uploads/2013/06/kPcNQSm-e152872087
 insert into Gallery(product_id,thumbnail) 
 values(10,'https://clmensstore.com/wp-content/uploads/2013/06/s8IbYlI-1024x1024.jpg')
 
-insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time )
-values('Kevin Murphy Night Rider ',1,2,599.000,GETDATE(),GETDATE() )
+insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time,thumbnail )
+values(N'Kevin Murphy Night Rider ',1,2,59,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2017/04/312312312-e1626508721413.jpg' )
 insert into Gallery(product_id,thumbnail) 
 values(11,'https://clmensstore.com/wp-content/uploads/2017/04/312312312-e1626508721413.jpg')
 insert into Gallery(product_id,thumbnail) 
@@ -298,71 +288,71 @@ values(11,'https://clmensstore.com/wp-content/uploads/2017/04/yfmQbsl-e151099274
 insert into Gallery(product_id,thumbnail) 
 values(11,'https://clmensstore.com/wp-content/uploads/2017/04/maxresdefault-2.jpg')
 
-insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time )
-values('Kevin Murphy Session Spray ',5,2,650.000,GETDATE(),GETDATE() )
+insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time,thumbnail)
+values(N'Kevin Murphy Session Spray ',5,2,65,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2017/05/KMU505-_BEDROOMHAIR_AEROSOL_235ML-01.jpg' )
 insert into Gallery(product_id,thumbnail) 
 values(12,'https://clmensstore.com/wp-content/uploads/2017/05/KMU505-_BEDROOMHAIR_AEROSOL_235ML-01.jpg')
 insert into Gallery(product_id,thumbnail) 
 values(12,'https://clmensstore.com/wp-content/uploads/2017/05/gom-xit-toc-kevin-murphy-sesion.jpg')
 
-insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time )
-values('Kevin Murphy Touchable ',5,2,650.000,GETDATE(),GETDATE() )
+insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time,thumbnail )
+values(N'Kevin Murphy Touchable ',5,2,65,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2022/10/Thiet-ke-chua-co-ten-1-1.png' )
 insert into Gallery(product_id,thumbnail) 
 values(13,'https://clmensstore.com/wp-content/uploads/2022/10/Thiet-ke-chua-co-ten-1-1.png')
 insert into Gallery(product_id,thumbnail) 
 values(13,'https://clmensstore.com/wp-content/uploads/2022/10/1633512959.374403574742.jpeg')
 
-insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time )
-values('Kevin Murphy Bedroom Hair – Flexible Texturising ',5,2,690.000,GETDATE(),GETDATE() )
+insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time,thumbnail )
+values(N'Kevin Murphy Bedroom Hair – Flexible Texturising ',5,2,69,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2021/06/KMU505-_BEDROOMHAIR_AEROSOL_235ML-01.jpg' )
 insert into Gallery(product_id,thumbnail) 
 values(14,'https://clmensstore.com/wp-content/uploads/2021/06/KMU505-_BEDROOMHAIR_AEROSOL_235ML-01.jpg')
 insert into Gallery(product_id,thumbnail) 
 values(14,'https://clmensstore.com/wp-content/uploads/2021/06/BedroomHair_1-2.jpg')
 
-insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time )
-values('Kevin Murphy Bedroom Hair – Flexible Texturising ',7,2,750.000,GETDATE(),GETDATE() )
+insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time,thumbnail )
+values(N'Kevin Murphy Bedroom Hair – Flexible Texturising ',7,2,75,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2022/01/Kevin-Smooth-Again-Wash.png' )
 insert into Gallery(product_id,thumbnail) 
 values(15,'https://clmensstore.com/wp-content/uploads/2022/01/Kevin-Smooth-Again-Wash.png')
 insert into Gallery(product_id,thumbnail) 
 values(15,'https://clmensstore.com/wp-content/uploads/2022/01/pack-kevin-murphy-smooth-it-all-over-1-768x768.jpg')
 
-insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time )
-values('Kevin Murphy Balancing.Wash',7,2,750.000,GETDATE(),GETDATE() )
+insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time,thumbnail )
+values(N'Kevin Murphy Balancing.Wash',7,2,75,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2020/08/kevin-murphy-balancing-wash-250ml.jpg' )
 insert into Gallery(product_id,thumbnail) 
 values(16,'https://clmensstore.com/wp-content/uploads/2020/08/kevin-murphy-balancing-wash-250ml.jpg')
 insert into Gallery(product_id,thumbnail) 
 values(16,'https://clmensstore.com/wp-content/uploads/2020/08/8e3cf104201e8ee14314f1b1bc6cffa1.jpg')
 
-insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time )
-values('Kevin Murphy Maxi.Wash',7,2,580.000,GETDATE(),GETDATE() )
+insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time,thumbnail )
+values(N'Kevin Murphy Maxi.Wash',7,2,58,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2020/07/keVIN-mURPHY-MAXI.WASH_.png' )
 insert into Gallery(product_id,thumbnail) 
 values(17,'https://clmensstore.com/wp-content/uploads/2020/07/keVIN-mURPHY-MAXI.WASH_.png')
 insert into Gallery(product_id,thumbnail) 
 values(17,'https://clmensstore.com/wp-content/uploads/2020/07/image001_20191210172619-768x768.jpg')
 
-insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time )
-values('Kevin Murphy Young.Again.Wash',7,2,650.000,GETDATE(),GETDATE() )
+insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time,thumbnail )
+values(N'Kevin Murphy Young.Again.Wash',7,2,65,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2020/07/Kevin-Murphy-Young.Again_.Wash-.jpg' )
 insert into Gallery(product_id,thumbnail) 
 values(18,'https://clmensstore.com/wp-content/uploads/2020/07/Kevin-Murphy-Young.Again_.Wash-.jpg')
 insert into Gallery(product_id,thumbnail) 
 values(18,'https://clmensstore.com/wp-content/uploads/2020/07/kevin-510x765.jpg')
 
-insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time )
-values('Kevin Murphy Repair-me.Wash',7,2,580.000,GETDATE(),GETDATE() )
+insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time,thumbnail )
+values(N'Kevin Murphy Repair-me.Wash',7,2,58,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2020/07/kvm021_kevinmurphy_repairmewash_1_1560x1960-x85hl.jpg' )
 insert into Gallery(product_id,thumbnail) 
 values(19,'https://clmensstore.com/wp-content/uploads/2020/07/kvm021_kevinmurphy_repairmewash_1_1560x1960-x85hl.jpg')
 insert into Gallery(product_id,thumbnail) 
 values(19,'https://clmensstore.com/wp-content/uploads/2020/07/kevin-murphy-1024x768.jpg')
 
-insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time )
-values('Kevin Murphy Smooth Again.Rinse',8,2,750.000,GETDATE(),GETDATE() )
+insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time,thumbnail )
+values(N'Kevin Murphy Smooth Again.Rinse',8,2,75,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2022/02/Kevin-Smooth-Again-Rinse.png' )
 insert into Gallery(product_id,thumbnail) 
 values(20,'https://clmensstore.com/wp-content/uploads/2022/02/Kevin-Smooth-Again-Rinse.png')
 insert into Gallery(product_id,thumbnail) 
 values(20,'https://clmensstore.com/wp-content/uploads/2022/02/Kevin-Murphy-Smooth.Again-subiektywnablog-6-768x512.jpg')
 
-insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time )
-values('Kevin Murphy Young.Again.Rinse',8,2,750.000,GETDATE(),GETDATE() )
+insert into Product(product_name,subcategory_id,brand_id,price ,create_time,update_time,thumbnail )
+values(N'Kevin Murphy Young.Again.Rinse',8,2,75,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2020/07/Kevin-Murphy-Young.Again_.Rinse_.jpg' )
 insert into Gallery(product_id,thumbnail) 
 values(21,'https://clmensstore.com/wp-content/uploads/2020/07/Kevin-Murphy-Young.Again_.Rinse_.jpg')
 insert into Gallery(product_id,thumbnail) 

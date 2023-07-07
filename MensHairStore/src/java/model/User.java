@@ -9,25 +9,25 @@ import java.sql.Date;
  * @author DELL
  */
 public class User {
-    int user_id;
-    String fullname;
-    String address;
-    String phone_number;
-    Date create_time;
-    Date update_time;
-    int delete;
+    private int user_id;
+    private String fullname;
+    private String address;
+    private String phone_number;
+    private Date create_time;
+    private Date update_time;
+    
 
     public User() {
     }
 
-    public User(int user_id, String fullname, String address, String phone_number, Date create_time, Date update_time, int delete) {
+    public User(int user_id, String fullname, String address, String phone_number, Date create_time, Date update_time) {
         this.user_id = user_id;
         this.fullname = fullname;
         this.address = address;
         this.phone_number = phone_number;
         this.create_time = create_time;
         this.update_time = update_time;
-        this.delete = delete;
+        
     }
 
     public int getUser_id() {
@@ -78,13 +78,12 @@ public class User {
         this.update_time = update_time;
     }
 
-    public int getDelete() {
-        return delete;
+    @Override
+    public String toString() {
+        return "User{" + "user_id=" + user_id + ", fullname=" + fullname + ", address=" + address + ", phone_number=" + phone_number + ", create_time=" + create_time + ", update_time=" + update_time + '}';
     }
 
-    public void setDelete(int delete) {
-        this.delete = delete;
-    }
+    
     
 }
 

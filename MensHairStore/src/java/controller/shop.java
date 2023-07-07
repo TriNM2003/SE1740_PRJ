@@ -5,25 +5,18 @@
 
 package controller;
 
-import DAL.CategoryDAO;
-import DAL.ProductDAO;
-import DAL.subCategoryDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import model.Category;
-import model.Product;
-import model.subCategory;
 
 /**
  *
  * @author DELL
  */
-public class home extends HttpServlet {
+public class shop extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -35,25 +28,8 @@ public class home extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         
-            /* TODO output your page here. You may use following sample code. */
-        ProductDAO hd = new ProductDAO();
-        CategoryDAO cd= new CategoryDAO();
-        subCategoryDAO sd= new subCategoryDAO();
-        
-        ArrayList<Product> newpro= hd.Newproduct();
-        request.setAttribute("newproduct",newpro);
-        ArrayList<Product> homepro= hd.HomeProduct();
-        request.setAttribute("homeproduct",homepro);
-        ArrayList<Category> cate= cd.getCategory();
-        request.setAttribute("cate",cate);
-        ArrayList<subCategory> subcate= sd.getsubCategory();
-        request.setAttribute("subcate",subcate);
-        request.getRequestDispatcher("home.jsp").forward(request, response);
-        
-        
     } 
-    
-    
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
      * Handles the HTTP <code>GET</code> method.

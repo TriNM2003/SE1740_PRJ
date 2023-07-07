@@ -42,8 +42,8 @@ public class AccountDAO extends BaseDAO{
     }
     public Account getAccount(String username,String password) {
         try {
-            Account a = new Account();
-            String sql = "SELECT a.UserId,a.username,a.password,a.gmail, a.role_name FROM Account a\n"
+            
+            String sql = "SELECT * FROM Account a\n"
                     + "WHERE a.username = ? and password =?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, username);
@@ -51,11 +51,7 @@ public class AccountDAO extends BaseDAO{
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
                 
-                a.setUserId(rs.getInt("userid"));
-                a.setUsername(rs.getString("username"));
-                a.setPassword(rs.getString("password"));
-                a.setGmail(rs.getString("gmail"));
-                a.setRole_name(rs.getString("role_name"));
+                Account a = new Account(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
                 return a;
             }
 
@@ -66,18 +62,14 @@ public class AccountDAO extends BaseDAO{
     }
     public Account getAccountByGmail(String gmail) {
         try {
-            String sql = "SELECT a.UserId,a.username,a.password,a.gmail, a.role_name FROM Account a\n"
-                    + "WHERE a.username = ?";
+            String sql = "SELECT * FROM Account a\n"
+                    + "WHERE a.gmail = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, gmail);
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
-                Account a = new Account();
-                a.setUserId(rs.getInt("userid"));
-                a.setUsername(rs.getString("username"));
-                a.setPassword(rs.getString("password"));
-                a.setGmail(rs.getString("gmail"));
-                a.setRole_name(rs.getString("role_name"));
+                Account a = new Account(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+
                 return a;
             }
 
@@ -85,5 +77,12 @@ public class AccountDAO extends BaseDAO{
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+    public static void main(String[] args) {
+        AccountDAO ad= new AccountDAO();
+        Account ac = ad.getAccountByGmail("minhtri147963@gmail.com");
+        Account a = ad.getAccount("123456", "123456");
+        System.out.println(ac);
+        System.out.println(a);
     }
 }

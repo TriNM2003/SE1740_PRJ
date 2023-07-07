@@ -31,7 +31,7 @@ public class UserDAO extends BaseDAO {
             statement.setString(4, u.getPhone_number());
             statement.setDate(5, u.getCreate_time());
             statement.setDate(6, u.getUpdate_time());
-            statement.setInt(7, u.getDelete());
+            
             
             
             statement.executeUpdate();

@@ -148,7 +148,7 @@
                                         <div class="slider-text-inner">
                                             <div class="desc">
                                                 <h1 class="head-1" style="font-size: 30px">Pomade</h1>
-                                                <h2 class="head-2" style="font-size: 20px; transform: translateX(-6px)">Collections</h2>
+                                                <h2 class="head-2" style="font-size: 20px">Collections</h2>
                                                 <p class="category" style="transform: translateX(-5px);">Cổ điển trang trọng</p>
                                                 <p><a href="#" class="btn btn-primary">Xem ngay</a></p>
                                             </div>
@@ -216,26 +216,26 @@
                     <div class="row">
                         
                     <c:forEach items="${newproduct}" var="o">
-                        <div class="col-md-3 text-center">
-                            <div class="product-entry">
-                                <div class="product-img" style="background-image: url(${o.thumbnail});">
-                                    <p class="tag"><span class="new">New</span></p>
-                                    <div class="cart">
-                                        <p>
-                                            <span class="addtocart"><a href="cart.jsp"><i class="icon-shopping-cart"></i></a></span> 
-                                            <span><a href="productDetail.jsp"><i class="icon-eye"></i></a></span> 
-                                            <span><a href="#"><i class="icon-heart3"></i></a></span>
-                                            <span><a href="add-to-wishlist.jsp"><i class="icon-bar-chart"></i></a></span>
-                                        </p>
+                                    <div class="col-md-4 text-center">
+                                    <div class="product-entry">
+                                        <div class="product-img" style="background-image: url(${o.thumbnail});">
+                                            <p class="tag"><span class="new">New</span></p>
+                                            <div class="cart">
+                                                <p>
+                                                    <span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
+                                                    <span><a href="detail?p_id=${o.product_id}"><i class="icon-eye"></i></a></span> 
+                                                    <span><a href="#"><i class="icon-heart3"></i></a></span>
+                                                    <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="desc">
+                                            <h3><a href="detail?p_id=${o.product_id}">${o.product_name}</a></h3>
+                                            <p class="price"><span>$${o.price}</span></p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="desc">
-                                    <h3><a href="shop.html">${o.product_name}</a></h3>
-                                    <p class="price"><span>${o.price}$</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </c:forEach>
+                                </c:forEach>
                         
                     </div>
                 </div>
@@ -285,26 +285,26 @@
                     <div class="row">
                         
                         <c:forEach items="${homeproduct}" var="o">
-                        <div class="col-md-3 text-center">
-                            <div class="product-entry">
-                                <div class="product-img" style="background-image: url(${o.thumbnail});">
-                                    <p class="tag"><span class="new">New</span></p>
-                                    <div class="cart">
-                                        <p>
-                                            <span class="addtocart"><a href="cart.jsp"><i class="icon-shopping-cart"></i></a></span> 
-                                            <span><a href="productDetail.jsp"><i class="icon-eye"></i></a></span> 
-                                            <span><a href="#"><i class="icon-heart3"></i></a></span>
-                                            <span><a href="add-to-wishlist.jsp"><i class="icon-bar-chart"></i></a></span>
-                                        </p>
+                                    <div class="col-md-4 text-center">
+                                    <div class="product-entry">
+                                        <div class="product-img" style="background-image: url(${o.thumbnail});">
+                                            <p class="tag"><span class="new">New</span></p>
+                                            <div class="cart">
+                                                <p>
+                                                    <span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
+                                                    <span><a href="detail?p_id=${o.product_id}"><i class="icon-eye"></i></a></span> 
+                                                    <span><a href="#"><i class="icon-heart3"></i></a></span>
+                                                    <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="desc">
+                                            <h3><a href="detail?p_id=${o.product_id}">${o.product_name}</a></h3>
+                                            <p class="price"><span>$${o.price}</span></p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="desc">
-                                    <h3><a href="shop.html">${o.product_name}</a></h3>
-                                    <p class="price"><span>${o.price}$</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </c:forEach>
+                                </c:forEach>
                         
                     </div>
                 </div>

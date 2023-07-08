@@ -23,7 +23,7 @@ public class ProductDAO  extends BaseDAO {
         ArrayList<Product> list=new ArrayList<>();
         
         try {
-            String sql = "select TOP 4 * from product order by create_time desc";
+            String sql = "select TOP 3 * from product order by create_time desc";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
@@ -47,7 +47,7 @@ public class ProductDAO  extends BaseDAO {
         ArrayList<Product> list=new ArrayList<>();
         
         try {
-            String sql = "select TOP 8 * from product";
+            String sql = "select TOP 6 * from product";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
@@ -95,7 +95,7 @@ public class ProductDAO  extends BaseDAO {
         ArrayList<Product> list=new ArrayList<>();
         
         try {
-            String sql = "select * from product where category_id=?";
+            String sql = "select * from product where category_id=? ";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, category_id);
             ResultSet rs = statement.executeQuery();
@@ -115,13 +115,64 @@ public class ProductDAO  extends BaseDAO {
         }
         return list;
     }
+    public ArrayList<Product> GetSimilarProduct(int category_id) {
+        ArrayList<Product> list=new ArrayList<>();
+        
+        try {
+            String sql = "select TOP 3 * from product where category_id=? ORDER BY NEWID()";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, category_id);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                 list.add(new Product(rs.getInt(1),
+                                    rs.getString(2),
+                                    rs.getInt(3),
+                                    rs.getInt(4),
+                                    rs.getFloat(5),
+                                    rs.getDate(6),
+                                    rs.getDate(7),
+                                    rs.getString(8)
+                                    ));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+    public Product GetProductById(String product_id) {
+        Product p= new Product();
+        
+        try {
+            String sql = "select * from product where product_id=? ";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, product_id);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                p= new Product(rs.getInt(1),
+                                    rs.getString(2),
+                                    rs.getInt(3),
+                                    rs.getInt(4),
+                                    rs.getFloat(5),
+                                    rs.getDate(6),
+                                    rs.getDate(7),
+                                    rs.getString(8)
+                                    );
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return p;
+    }
     
     
     public static void main(String[] args) {
         ProductDAO dao = new ProductDAO();
-        ArrayList<Product> list= dao.GetProductByCategory("4");
+        ArrayList<Product> list= dao.GetSimilarProduct(1);
+        
         for(Product o: list){
             System.out.println(o);
         }
+//        Product p = dao.GetProductById("4");
+//        System.out.println(p);
     }
 }

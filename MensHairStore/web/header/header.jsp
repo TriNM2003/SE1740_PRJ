@@ -71,15 +71,15 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-xs-2">
-                                <div id="colorlib-logo"><a href="home.jsp"><img src="image/logo.png" width="80%" height="80%" alt="HsMen"/></a></div>
+                                <div id="colorlib-logo"><a href="home"><img src="image/logo.png" width="80%" height="80%" alt="HsMen"/></a></div>
                             </div>
                             <div class="col-xs-10 text-right menu-1">
                                 <ul>
 
                                     
-                                    <li class="active"><a href="home.jsp">Trang chủ</a></li>
+                                    <li class="active"><a href="home">Trang chủ</a></li>
                                     <li class="has-dropdown">
-                                        <a href="shop.jsp">Cửa hàng</a>
+                                        <a href="shop">Cửa hàng</a>
                                         <ul class="dropdown">
                                             <li><a href="product-detail.html">Product Detail</a></li>
                                             <li><a href="cart.html">Shipping Cart</a></li>

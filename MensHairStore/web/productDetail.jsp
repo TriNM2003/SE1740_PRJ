@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -93,8 +94,8 @@
                                 <div class="row">
                                     <div class="col-md-5">
                                         <div class="product-entry">
-                                            <div class="product-img" style="background-image: url(images/item-7.jpg);">
-                                                <p class="tag"><span class="sale">Sale</span></p>
+                                            <div class="product-img" style="background-image: url(${detail.thumbnail});">
+                                                <p class="tag"><span class="sale">New</span></p>
                                             </div>
                                             <div class="thumb-nail">
                                                 <a href="#" class="thumb-img" style="background-image: url(images/item-11.jpg);"></a>
@@ -105,40 +106,37 @@
                                     </div>
                                     <div class="col-md-7">
                                         <div class="desc">
-                                            <h3>Dummy Product Name</h3>
+                                            <h3>${detail.product_name}</h3>
                                             <p class="price">
-                                                <span>$68.00</span> 
-                                                <span class="rate text-right">
-                                                    <i class="icon-star-full"></i>
-                                                    <i class="icon-star-full"></i>
-                                                    <i class="icon-star-full"></i>
-                                                    <i class="icon-star-full"></i>
-                                                    <i class="icon-star-half"></i>
-                                                    (74 Rating)
-                                                </span>
+                                                <span>$${detail.price}</span> 
+                                                
                                             </p>
-                                            <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+                                            <!-- <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p> -->
                                             <div class="color-wrap">
                                                 <p class="color-desc">
-                                                    Color: 
-                                                    <a href="#" class="color color-1"></a>
-                                                    <a href="#" class="color color-2"></a>
-                                                    <a href="#" class="color color-3"></a>
-                                                    <a href="#" class="color color-4"></a>
-                                                    <a href="#" class="color color-5"></a>
+                                                    Thương hiệu: 
+                                                    
                                                 </p>
                                             </div>
-                                            <div class="size-wrap">
-                                                <p class="size-desc">
-                                                    Size: 
-                                                    <a href="#" class="size size-1">xs</a>
-                                                    <a href="#" class="size size-2">s</a>
-                                                    <a href="#" class="size size-3">m</a>
-                                                    <a href="#" class="size size-4">l</a>
-                                                    <a href="#" class="size size-5">xl</a>
-                                                    <a href="#" class="size size-5">xxl</a>
+                                            <div class="color-wrap">
+                                                <p class="color-desc">
+                                                    Xuất xứ: 
+                                                    
                                                 </p>
                                             </div>
+                                            <div class="color-wrap">
+                                                <p class="color-desc">
+                                                    Dung tích: 
+                                                    
+                                                </p>
+                                            </div>
+                                            <div class="color-wrap">
+                                                <p class="color-desc">
+                                                    Mùi hương: 
+                                                    
+                                                </p>
+                                            </div>
+                                            
                                             <div class="row row-pb-sm">
                                                 <div class="col-md-4">
                                                     <div class="input-group">
@@ -156,7 +154,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <p><a href="cart.html" class="btn btn-primary btn-addtocart"><i class="icon-shopping-cart"></i> Add to Cart</a></p>
+                                            <p><a href="cart.html" class="btn btn-primary btn-addtocart"><i class="icon-shopping-cart"></i> Thêm vào giỏ hàng</a></p>
                                         </div>
                                     </div>
                                 </div>
@@ -168,9 +166,9 @@
                             <div class="row">
                                 <div class="col-md-12 tabulation">
                                     <ul class="nav nav-tabs">
-                                        <li class="active"><a data-toggle="tab" href="#description">Description</a></li>
-                                        <li><a data-toggle="tab" href="#manufacturer">Manufacturer</a></li>
-                                        <li><a data-toggle="tab" href="#review">Reviews</a></li>
+                                        <li class="active"><a data-toggle="tab" href="#description">Mô tả</a></li>
+                                        <li><a data-toggle="tab" href="#manufacturer">Cách sử dụng</a></li>
+                                        <li><a data-toggle="tab" href="#review">Nhận xét&Đánh giá</a></li>
                                     </ul>
                                     <div class="tab-content">
                                         <div id="description" class="tab-pane fade in active">
@@ -191,8 +189,9 @@
                                         </div>
                                         <div id="review" class="tab-pane fade">
                                             <div class="row">
-                                                <div class="col-md-7">
+                                                <div class="col-md-12">
                                                     <h3>23 Reviews</h3>
+                                                    
                                                     <div class="review">
                                                         <div class="user-img" style="background-image: url(images/person1.jpg)"></div>
                                                         <div class="desc">
@@ -213,107 +212,9 @@
                                                             <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrov</p>
                                                         </div>
                                                     </div>
-                                                    <div class="review">
-                                                        <div class="user-img" style="background-image: url(images/person2.jpg)"></div>
-                                                        <div class="desc">
-                                                            <h4>
-                                                                <span class="text-left">Jacob Webb</span>
-                                                                <span class="text-right">14 March 2018</span>
-                                                            </h4>
-                                                            <p class="star">
-                                                                <span>
-                                                                    <i class="icon-star-full"></i>
-                                                                    <i class="icon-star-full"></i>
-                                                                    <i class="icon-star-full"></i>
-                                                                    <i class="icon-star-half"></i>
-                                                                    <i class="icon-star-empty"></i>
-                                                                </span>
-                                                                <span class="text-right"><a href="#" class="reply"><i class="icon-reply"></i></a></span>
-                                                            </p>
-                                                            <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrov</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="review">
-                                                        <div class="user-img" style="background-image: url(images/person3.jpg)"></div>
-                                                        <div class="desc">
-                                                            <h4>
-                                                                <span class="text-left">Jacob Webb</span>
-                                                                <span class="text-right">14 March 2018</span>
-                                                            </h4>
-                                                            <p class="star">
-                                                                <span>
-                                                                    <i class="icon-star-full"></i>
-                                                                    <i class="icon-star-full"></i>
-                                                                    <i class="icon-star-full"></i>
-                                                                    <i class="icon-star-half"></i>
-                                                                    <i class="icon-star-empty"></i>
-                                                                </span>
-                                                                <span class="text-right"><a href="#" class="reply"><i class="icon-reply"></i></a></span>
-                                                            </p>
-                                                            <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrov</p>
-                                                        </div>
-                                                    </div>
+                                                    
                                                 </div>
-                                                <div class="col-md-4 col-md-push-1">
-                                                    <div class="rating-wrap">
-                                                        <h3>Give a Review</h3>
-                                                        <p class="star">
-                                                            <span>
-                                                                <i class="icon-star-full"></i>
-                                                                <i class="icon-star-full"></i>
-                                                                <i class="icon-star-full"></i>
-                                                                <i class="icon-star-full"></i>
-                                                                <i class="icon-star-full"></i>
-                                                                (98%)
-                                                            </span>
-                                                            <span>20 Reviews</span>
-                                                        </p>
-                                                        <p class="star">
-                                                            <span>
-                                                                <i class="icon-star-full"></i>
-                                                                <i class="icon-star-full"></i>
-                                                                <i class="icon-star-full"></i>
-                                                                <i class="icon-star-full"></i>
-                                                                <i class="icon-star-empty"></i>
-                                                                (85%)
-                                                            </span>
-                                                            <span>10 Reviews</span>
-                                                        </p>
-                                                        <p class="star">
-                                                            <span>
-                                                                <i class="icon-star-full"></i>
-                                                                <i class="icon-star-full"></i>
-                                                                <i class="icon-star-full"></i>
-                                                                <i class="icon-star-empty"></i>
-                                                                <i class="icon-star-empty"></i>
-                                                                (98%)
-                                                            </span>
-                                                            <span>5 Reviews</span>
-                                                        </p>
-                                                        <p class="star">
-                                                            <span>
-                                                                <i class="icon-star-full"></i>
-                                                                <i class="icon-star-full"></i>
-                                                                <i class="icon-star-empty"></i>
-                                                                <i class="icon-star-empty"></i>
-                                                                <i class="icon-star-empty"></i>
-                                                                (98%)
-                                                            </span>
-                                                            <span>0 Reviews</span>
-                                                        </p>
-                                                        <p class="star">
-                                                            <span>
-                                                                <i class="icon-star-full"></i>
-                                                                <i class="icon-star-empty"></i>
-                                                                <i class="icon-star-empty"></i>
-                                                                <i class="icon-star-empty"></i>
-                                                                <i class="icon-star-empty"></i>
-                                                                (98%)
-                                                            </span>
-                                                            <span>0 Reviews</span>
-                                                        </p>
-                                                    </div>
-                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -328,87 +229,32 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6 col-md-offset-3 text-center colorlib-heading">
-                            <h2><span>Similar Products</span></h2>
-                            <p>We love to tell our successful far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                            <h2><span>Sản phẩm tương tự</span></h2>
+                            
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-3 text-center">
-                            <div class="product-entry">
-                                <div class="product-img" style="background-image: url(images/item-5.jpg);">
-                                    <p class="tag"><span class="new">New</span></p>
-                                    <div class="cart">
-                                        <p>
-                                            <span class="addtocart"><a href="#"><i class="icon-shopping-cart"></i></a></span> 
-                                            <span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
-                                            <span><a href="#"><i class="icon-heart3"></i></a></span>
-                                            <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
-                                        </p>
+                        <c:forEach items="${product}" var="o">
+                                    <div class="col-md-4 text-center">
+                                    <div class="product-entry">
+                                        <div class="product-img" style="background-image: url(${o.thumbnail});">
+                                            <p class="tag"><span class="new">New</span></p>
+                                            <div class="cart">
+                                                <p>
+                                                    <span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
+                                                    <span><a href="detail?p_id=${o.product_id}"><i class="icon-eye"></i></a></span> 
+                                                    <span><a href="#"><i class="icon-heart3"></i></a></span>
+                                                    <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="desc">
+                                            <h3><a href="detail?p_id=${o.product_id}">${o.product_name}</a></h3>
+                                            <p class="price"><span>$${o.price}</span></p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="desc">
-                                    <h3><a href="shop.html">Floral Dress</a></h3>
-                                    <p class="price"><span>$300.00</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 text-center">
-                            <div class="product-entry">
-                                <div class="product-img" style="background-image: url(images/item-6.jpg);">
-                                    <p class="tag"><span class="new">New</span></p>
-                                    <div class="cart">
-                                        <p>
-                                            <span class="addtocart"><a href="#"><i class="icon-shopping-cart"></i></a></span> 
-                                            <span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
-                                            <span><a href="#"><i class="icon-heart3"></i></a></span>
-                                            <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="desc">
-                                    <h3><a href="shop.html">Floral Dress</a></h3>
-                                    <p class="price"><span>$300.00</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 text-center">
-                            <div class="product-entry">
-                                <div class="product-img" style="background-image: url(images/item-7.jpg);">
-                                    <p class="tag"><span class="new">New</span></p>
-                                    <div class="cart">
-                                        <p>
-                                            <span class="addtocart"><a href="#"><i class="icon-shopping-cart"></i></a></span> 
-                                            <span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
-                                            <span><a href="#"><i class="icon-heart3"></i></a></span>
-                                            <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="desc">
-                                    <h3><a href="shop.html">Floral Dress</a></h3>
-                                    <p class="price"><span>$300.00</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 text-center">
-                            <div class="product-entry">
-                                <div class="product-img" style="background-image: url(images/item-8.jpg);">
-                                    <p class="tag"><span class="new">New</span></p>
-                                    <div class="cart">
-                                        <p>
-                                            <span class="addtocart"><a href="#"><i class="icon-shopping-cart"></i></a></span> 
-                                            <span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
-                                            <span><a href="#"><i class="icon-heart3"></i></a></span>
-                                            <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="desc">
-                                    <h3><a href="shop.html">Floral Dress</a></h3>
-                                    <p class="price"><span>$300.00</span></p>
-                                </div>
-                            </div>
-                        </div>
+                                </c:forEach>
                     </div>
                 </div>
             </div>

@@ -11,7 +11,7 @@ import java.sql.Date;
 public class Product {
     private int product_id;
     private String product_name;
-    private int subcategory_id;
+    private int category_id;
     private int brand_id;
     private float price;
     private java.sql.Date create_time;
@@ -21,10 +21,10 @@ public class Product {
     public Product() {
     }
 
-    public Product(int product_id, String product_name, int subcategory_id, int brand_id, float price, Date create_time, Date update_time, String thumbnail) {
+    public Product(int product_id, String product_name, int category_id, int brand_id, float price, Date create_time, Date update_time, String thumbnail) {
         this.product_id = product_id;
         this.product_name = product_name;
-        this.subcategory_id = subcategory_id;
+        this.category_id = category_id;
         this.brand_id = brand_id;
         this.price = price;
         this.create_time = create_time;
@@ -50,12 +50,12 @@ public class Product {
         this.product_name = product_name;
     }
 
-    public int getSubcategory_id() {
-        return subcategory_id;
+    public int getCategory_id() {
+        return category_id;
     }
 
-    public void setSubcategory_id(int subcategory_id) {
-        this.subcategory_id = subcategory_id;
+    public void setCategory_id(int category_id) {
+        this.category_id = category_id;
     }
 
     public int getBrand_id() {
@@ -100,7 +100,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" + "product_id=" + product_id + ", product_name=" + product_name + ", subcategory_id=" + subcategory_id + ", brand_id=" + brand_id + ", price=" + price + ", create_time=" + create_time + ", update_time=" + update_time + ", thumbnail=" + thumbnail + '}';
+        return "Product{" + "product_id=" + product_id + ", product_name=" + product_name + ", category_id=" + category_id + ", brand_id=" + brand_id + ", price=" + price + ", create_time=" + create_time + ", update_time=" + update_time + ", thumbnail=" + thumbnail + '}';
     }
     
     

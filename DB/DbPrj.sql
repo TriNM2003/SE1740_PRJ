@@ -358,3 +358,4 @@ values(21,'https://clmensstore.com/wp-content/uploads/2020/07/P1013756.jpg')
 
 
 select * from product p,Gallery g where p.product_id=g.product_id
+select* from Product p, Category c where p.category_id=c.category_id

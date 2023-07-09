@@ -76,7 +76,7 @@
                                     <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
                                         <div class="slider-text-inner text-center">
                                             <h1>Product Detail</h1>
-                                            <h2 class="bread"><span><a href="home.jsp">Home</a></span> <span><a href="shop.html">Product</a></span> <span>Product Detail</span></h2>
+                                            <h2 class="bread"><span><a href="home">Home</a></span> <span><a href="shop">Product</a></span> <span>Product Detail</span></h2>
                                         </div>
                                     </div>
                                 </div>
@@ -98,15 +98,15 @@
                                                 <p class="tag"><span class="sale">New</span></p>
                                             </div>
                                             <div class="thumb-nail">
-                                                <a href="#" class="thumb-img" style="background-image: url(images/item-11.jpg);"></a>
-                                                <a href="#" class="thumb-img" style="background-image: url(images/item-12.jpg);"></a>
-                                                <a href="#" class="thumb-img" style="background-image: url(images/item-16.jpg);"></a>
+                                                <c:forEach items="${gall}" var="o">
+                                                    <a  class="thumb-img" style="background-image: url(${o.thumbnail});"></a>
+                                                </c:forEach>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-7">
                                         <div class="desc">
-                                            <h3>${detail.product_name}</h3>
+                                            <h2>${detail.product_name}</h2>
                                             <p class="price">
                                                 <span>$${detail.price}</span> 
                                                 
@@ -114,25 +114,25 @@
                                             <!-- <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p> -->
                                             <div class="color-wrap">
                                                 <p class="color-desc">
-                                                    Thương hiệu: 
+                                                    Thương hiệu: <span style="margin-left: 15px; color: orange    ">${brand.brand_name}</span>
                                                     
                                                 </p>
                                             </div>
                                             <div class="color-wrap">
                                                 <p class="color-desc">
-                                                    Xuất xứ: 
+                                                    Xuất xứ: <span style="margin-left: 50px; color: orange    ">${brand.brand_address}</span>
                                                     
                                                 </p>
                                             </div>
                                             <div class="color-wrap">
                                                 <p class="color-desc">
-                                                    Dung tích: 
+                                                    Dung tích: <span style="margin-left: 35px; color: orange    "> ${info.capacity} gram</span>
                                                     
                                                 </p>
                                             </div>
                                             <div class="color-wrap">
                                                 <p class="color-desc">
-                                                    Mùi hương: 
+                                                    Mùi hương: <span style="margin-left: 30px; color: orange    ">${info.fragrance}</span>
                                                     
                                                 </p>
                                             </div>
@@ -168,24 +168,15 @@
                                     <ul class="nav nav-tabs">
                                         <li class="active"><a data-toggle="tab" href="#description">Mô tả</a></li>
                                         <li><a data-toggle="tab" href="#manufacturer">Cách sử dụng</a></li>
-                                        <li><a data-toggle="tab" href="#review">Nhận xét&Đánh giá</a></li>
+                                        <li><a data-toggle="tab" href="#review">Nhận xét </a></li>
                                     </ul>
                                     <div class="tab-content">
                                         <div id="description" class="tab-pane fade in active">
-                                            <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-                                            <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
-                                            <ul>
-                                                <li>The Big Oxmox advised her not to do so</li>
-                                                <li>Because there were thousands of bad Commas</li>
-                                                <li>Wild Question Marks and devious Semikoli</li>
-                                                <li>She packed her seven versalia</li>
-                                                <li>tial into the belt and made herself on the way.</li>
-                                            </ul>
+                                            <p>${info.title}</p>
+                                            <p>${info.des1}</p>
                                         </div>
                                         <div id="manufacturer" class="tab-pane fade">
-                                            <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-                                            <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
-
+                                            <p>${info.manual}</p>
                                         </div>
                                         <div id="review" class="tab-pane fade">
                                             <div class="row">

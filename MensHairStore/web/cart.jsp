@@ -75,7 +75,7 @@
                                     <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
                                         <div class="slider-text-inner text-center">
                                             <h1>Giỏ hàng</h1>
-                                            <h2 class="bread"><span><a href="home.jsp">Trang chủ</a></span>  <span>Giỏ hàng</span></h2>
+                                            <h2 class="bread"><span><a href="home">Trang chủ</a></span>  <span>Giỏ hàng</span></h2>
                                         </div>
                                     </div>
                                 </div>
@@ -274,7 +274,7 @@
                                     </div>
                                 </div>
                                 <div class="desc">
-                                    <h3><a href="shop.html">Floral Dress</a></h3>
+                                    <h3><a href="shop">Floral Dress</a></h3>
                                     <p class="price"><span>$300.00</span></p>
                                 </div>
                             </div>
@@ -293,7 +293,7 @@
                                     </div>
                                 </div>
                                 <div class="desc">
-                                    <h3><a href="shop.html">Floral Dress</a></h3>
+                                    <h3><a href="shop">Floral Dress</a></h3>
                                     <p class="price"><span>$300.00</span></p>
                                 </div>
                             </div>
@@ -312,7 +312,7 @@
                                     </div>
                                 </div>
                                 <div class="desc">
-                                    <h3><a href="shop.html">Floral Dress</a></h3>
+                                    <h3><a href="shop">Floral Dress</a></h3>
                                     <p class="price"><span>$300.00</span></p>
                                 </div>
                             </div>
@@ -331,7 +331,7 @@
                                     </div>
                                 </div>
                                 <div class="desc">
-                                    <h3><a href="shop.html">Floral Dress</a></h3>
+                                    <h3><a href="shop">Floral Dress</a></h3>
                                     <p class="price"><span>$300.00</span></p>
                                 </div>
                             </div>

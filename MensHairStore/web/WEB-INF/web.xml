@@ -24,6 +24,22 @@
         <servlet-name>detail</servlet-name>
         <servlet-class>controller.detail</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>gallerycontroller</servlet-name>
+        <servlet-class>controller.gallerycontroller</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>search</servlet-name>
+        <servlet-class>controller.search</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>manageProduct</servlet-name>
+        <servlet-class>controller.manageProduct</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>addProduct</servlet-name>
+        <servlet-class>controller.addProduct</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -47,6 +63,22 @@
     <servlet-mapping>
         <servlet-name>detail</servlet-name>
         <url-pattern>/detail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>gallerycontroller</servlet-name>
+        <url-pattern>/gallerycontroller</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>search</servlet-name>
+        <url-pattern>/search</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>manageProduct</servlet-name>
+        <url-pattern>/manageProduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addProduct</servlet-name>
+        <url-pattern>/addProduct</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

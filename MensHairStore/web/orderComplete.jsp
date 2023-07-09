@@ -75,7 +75,7 @@
                                     <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
                                         <div class="slider-text-inner text-center">
                                             <h1>Order Complete</h1>
-                                            <h2 class="bread"><span><a href="home.jsp">Home</a></span> <span><a href="cart.html">Shopping Cart</a></span> <span>Checkout</span></h2>
+                                            <h2 class="bread"><span><a href="home">Home</a></span> <span><a href="cart.html">Shopping Cart</a></span> <span>Checkout</span></h2>
                                         </div>
                                     </div>
                                 </div>
@@ -110,8 +110,8 @@
                             <span class="icon"><i class="icon-shopping-cart"></i></span>
                             <h2>Cảm ơn đã tin tưởng chúng tôi!<br>Chúc bạn có trải nghiệm tuyệt vời với sản phẩm!</h2>
                             <p>
-                                <a href="home.jsp"class="btn btn-primary">Trang chủ</a>
-                                <a href="shop.jsp"class="btn btn-primary btn-outline">Tiếp tục mua sắm</a>
+                                <a href="home"class="btn btn-primary">Trang chủ</a>
+                                <a href="shop"class="btn btn-primary btn-outline">Tiếp tục mua sắm</a>
                             </p>
                         </div>
                     </div>

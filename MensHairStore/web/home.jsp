@@ -81,7 +81,7 @@
                                                 <h1 class="head-1" style="font-size: 30px">Forte</h1>
                                                 <h2 class="head-2" style="font-size: 20px">series</h2>
                                                 <p class="category" style="transform: translateX(-5px);">BST hot nhất mùa hè</p>
-                                                <p><a href="#" class="btn btn-primary">Xem ngay</a></p>
+                                                <p><a href="category?c_id=1" class="btn btn-primary">Xem ngay</a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -98,7 +98,7 @@
                                                 <h1 class="head-1" style="font-size: 30px">Frau</h1>
                                                 <h2 class="head-2" style="font-size: 20px">tonis</h2>
                                                 <p class="category" style="transform: translateX(-5px);">BST nước hoa mùa hè</p>
-                                                <p><a href="#" class="btn btn-primary">Xem ngay</a></p>
+                                                <p><a href="category?c_id=3" class="btn btn-primary">Xem ngay</a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -116,7 +116,7 @@
                                                 <h1 class="head-1" style="font-size: 30px">Sản phẩm</h1>
                                                 <h2 class="head-2" style="font-size: 20px">gội rửa</h2>
                                                 <p class="category" style="transform: translateX(-5px);">Sạch tới từng chân tóc</p>
-                                                <p><a href="#" class="btn btn-primary">Xem ngay</a></p>
+                                                <p><a href="category?c_id=2" class="btn btn-primary">Xem ngay</a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -133,7 +133,7 @@
                                                 <h1 class="head-1" style="font-size: 20px">Aqua di</h1>
                                                 <h2 class="head-2" style="font-size: 30px"> gio</h2>
                                                 <p class="category" style="transform: translateX(-5px);">SP hot nhất mua hè</p>
-                                                <p><a href="#" class="btn btn-primary">Xem ngay</a></p>
+                                                <p><a href="category?c_id=3" class="btn btn-primary">Xem ngay</a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -150,7 +150,7 @@
                                                 <h1 class="head-1" style="font-size: 30px">Pomade</h1>
                                                 <h2 class="head-2" style="font-size: 20px">Collections</h2>
                                                 <p class="category" style="transform: translateX(-5px);">Cổ điển trang trọng</p>
-                                                <p><a href="#" class="btn btn-primary">Xem ngay</a></p>
+                                                <p><a href="category?c_id=1" class="btn btn-primary">Xem ngay</a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -168,7 +168,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6">
-                            <a href="shop.html" class="f-product-1" style="background-image: url(image/slider/pexels-elina-volkova-16372667.jpg);">
+                            <a href="category?c_id=1" class="f-product-1" style="background-image: url(image/slider/pexels-elina-volkova-16372667.jpg);">
                                 <div class="desc">
                                     <h2>Sản<br>phẩm<br>tạo<br>kiểu</h2>
                                 </div>
@@ -177,21 +177,21 @@
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <a href="" class="f-product-2" style="background-image: url(image/categ/pexels-cottonbro-studio-7440056.jpg);">
+                                    <a href="category?c_id=2" class="f-product-2" style="background-image: url(image/categ/pexels-cottonbro-studio-7440056.jpg);">
                                         <div class="desc">
                                             <h2>Sản<br>phẩm<br>gội<br>rửa</h2>
                                         </div>
                                     </a>
                                 </div>
                                 <div class="col-md-6" >
-                                    <a href="" class="f-product-2" style="background-image: url(image/categ/pexels-hamza-nouasria-12562773.jpg);">
+                                    <a href="category?c_id=3" class="f-product-2" style="background-image: url(image/categ/pexels-hamza-nouasria-12562773.jpg);">
                                         <div class="desc">
                                             <h2>Nước <br>hoa </h2>
                                         </div>
                                     </a>
                                 </div>
                                 <div class="col-md-12">
-                                    <a href="" class="f-product-2" style="background-image: url(image/categ/pexels-andrzej-gdula-11159157.jpg);">
+                                    <a href="category?c_id=4" class="f-product-2" style="background-image: url(image/categ/pexels-andrzej-gdula-11159157.jpg);">
                                         <div class="desc">
                                             <h2>Sản<br>phẩm<br>dưỡng<br>tóc</h2>
                                         </div>
@@ -255,15 +255,15 @@
                                             <div class="sale-box-top">
                                                 <h2 class="number">5</h2>
                                                 <span class="sup-1">%</span>
-                                                <span class="sup-2">Off</span>
+                                                <span class="sup-2">off</span>
                                             </div>
-                                            <h2 class="text-sale">Sale</h2>
+                                            <h3 class="text-sale">Sale</h3>
                                         </div>
                                     </div>
                                     <div class="text-rights">
                                         <h3 class="title">Tạo kiểu tóc đẳng cấp với các sản phẩm tóc nam chất lượng cao của chúng tôi!</h3>
-                                        <p>Giảm giá 5% tất cả các sản phẩm nhân dịp mở bán.</p>
-                                        <p><a href="shop.jsp" class="btn btn-primary">Mua hàng</a> </p>
+                                        <p>Tặng mã giảm giá 5% tất cả các sản phẩm nhân dịp mở bán.</p>
+                                        <p><a href="shop" class="btn btn-primary">Mua hàng ngay</a> </p>
                                     </div>
                                 </div>
                             </div>

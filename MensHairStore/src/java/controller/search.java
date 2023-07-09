@@ -5,9 +5,7 @@
 
 package controller;
 
-import DAL.BrandDAO;
-import DAL.GalleryDAO;
-import DAL.InfoDAO;
+import DAL.CategoryDAO;
 import DAL.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,16 +14,14 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
-import model.Brand;
-import model.Gallery;
-import model.Info;
+import model.Category;
 import model.Product;
 
 /**
  *
  * @author DELL
  */
-public class detail extends HttpServlet {
+public class search extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -37,27 +33,23 @@ public class detail extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String p_id=request.getParameter("p_id");
-        ProductDAO pd=new ProductDAO();
-        Product p = pd.GetProductById(p_id);
-        request.setAttribute("detail", p);
-        
-        InfoDAO ifd=new InfoDAO();
-        Info info = ifd.GetInfo(p_id);
-        request.setAttribute("info", info);
-        
-        BrandDAO bd=new BrandDAO();
-        Brand brand = bd.GetBrand(p.getBrand_id());
-        request.setAttribute("brand", brand);
-        
-        GalleryDAO gd = new GalleryDAO();
-        ArrayList<Gallery> gall= gd.getGallery(p_id);
-        request.setAttribute("gall",gall);
-        
-        ArrayList<Product> pro= pd.GetSimilarProduct(p.getCategory_id());
+        request.setCharacterEncoding("UTF-8");
+        String mess = request.getParameter("search");
+        ProductDAO pd = new ProductDAO();
+        ArrayList<Product> pro= pd.GetProductBySearch(mess);
         request.setAttribute("product",pro);
+
+        CategoryDAO cd= new CategoryDAO();
+
         
-        request.getRequestDispatcher("productDetail.jsp").forward(request, response);
+        ArrayList<Category> cate= cd.getCategory();
+        request.setAttribute("cate",cate);
+        
+        request.setAttribute("mess",mess);//search
+        
+
+        
+        request.getRequestDispatcher("shop.jsp").forward(request, response);
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

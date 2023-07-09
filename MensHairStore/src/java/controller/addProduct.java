@@ -5,9 +5,6 @@
 
 package controller;
 
-import DAL.BrandDAO;
-import DAL.GalleryDAO;
-import DAL.InfoDAO;
 import DAL.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,17 +12,13 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import model.Brand;
-import model.Gallery;
-import model.Info;
 import model.Product;
 
 /**
  *
  * @author DELL
  */
-public class detail extends HttpServlet {
+public class addProduct extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -37,27 +30,21 @@ public class detail extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String p_id=request.getParameter("p_id");
-        ProductDAO pd=new ProductDAO();
-        Product p = pd.GetProductById(p_id);
-        request.setAttribute("detail", p);
-        
-        InfoDAO ifd=new InfoDAO();
-        Info info = ifd.GetInfo(p_id);
-        request.setAttribute("info", info);
-        
-        BrandDAO bd=new BrandDAO();
-        Brand brand = bd.GetBrand(p.getBrand_id());
-        request.setAttribute("brand", brand);
-        
-        GalleryDAO gd = new GalleryDAO();
-        ArrayList<Gallery> gall= gd.getGallery(p_id);
-        request.setAttribute("gall",gall);
-        
-        ArrayList<Product> pro= pd.GetSimilarProduct(p.getCategory_id());
-        request.setAttribute("product",pro);
-        
-        request.getRequestDispatcher("productDetail.jsp").forward(request, response);
+        request.setCharacterEncoding("UTF-8");
+        String product_name=request.getParameter("product_name");
+        int category_id= Integer.parseInt(request.getParameter("category_id"));
+        int brand_id= Integer.parseInt(request.getParameter("brand_id"));
+        Float price=Float.parseFloat(request.getParameter("price"));
+        String thumbnail=request.getParameter("thumbnail");
+        Product p = new Product();
+        p.setProduct_name(product_name);
+        p.setCategory_id(category_id);
+        p.setBrand_id(brand_id);
+        p.setPrice(price);
+        p.setThumbnail(thumbnail);
+        ProductDAO pd= new ProductDAO();
+        pd.insertProduct(p);
+        response.sendRedirect("manageProduct");
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

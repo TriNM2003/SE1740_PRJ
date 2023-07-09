@@ -163,12 +163,51 @@ public class ProductDAO  extends BaseDAO {
         }
         return p;
     }
-    
+    public ArrayList<Product> GetProductBySearch(String mess) {
+        ArrayList<Product> list=new ArrayList<>();
+        
+        try {
+            String sql = "select * from product where product_name like ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1,"%"+ mess + "%");
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                 list.add(new Product(rs.getInt(1),
+                                    rs.getString(2),
+                                    rs.getInt(3),
+                                    rs.getInt(4),
+                                    rs.getFloat(5),
+                                    rs.getDate(6),
+                                    rs.getDate(7),
+                                    rs.getString(8)
+                                    ));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+    public void insertProduct(Product s) {
+        try {
+            String sql = "insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )"
+                    + "values(?,?,?,?,GETDATE(),GETDATE(),?)";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            
+            statement.setString(1, s.getProduct_name() );
+            statement.setInt(2, s.getCategory_id());
+            statement.setInt(3, s.getBrand_id());
+            statement.setFloat(4, s.getPrice());
+            statement.setString(5, s.getThumbnail());
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
     public static void main(String[] args) {
         ProductDAO dao = new ProductDAO();
-        ArrayList<Product> list= dao.GetSimilarProduct(1);
-        
+        ArrayList<Product> list= dao.GetProductBySearch("han");
+       
         for(Product o: list){
             System.out.println(o);
         }

@@ -1,10 +1,14 @@
 <%-- 
-    Document   : contact
-    Created on : 21-06-2023, 13:50:49
+    Document   : updateproduct
+    Created on : 09-07-2023, 10:16:21
     Author     : DELL
 --%>
 
+
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -28,7 +32,7 @@
         <meta name="twitter:card" content="" />
 
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
-
+        <link href="css/admin.css" rel="stylesheet">
         <!-- Animate.css -->
         <link rel="stylesheet" href="css/animate.css">
         <!-- Icomoon Icon Fonts-->
@@ -74,8 +78,7 @@
                                 <div class="row">
                                     <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
                                         <div class="slider-text-inner text-center">
-                                            <h1>Liên hệ</h1>
-                                            <h2 class="bread"><span><a href="home">Trang chủ</a></span> <span>Liên hệ</span></h2>
+                                            <h1>Thêm sản phẩm</h1>                                    
                                         </div>
                                     </div>
                                 </div>
@@ -84,73 +87,75 @@
                     </ul>
                 </div>
             </aside>
-
-            <div id="colorlib-contact">
+            <div class="colorlib-shop">
                 <div class="container">
+
                     <div class="row">
-                        <div class="col-md-10 col-md-offset-1">
-                            <h3>Thông tin liên hệ</h3>
-                            <div class="row contact-info-wrap">
-                                <div class="col-md-3">
-                                    <p><span><i class="icon-location"></i></span> Trường Đại học FPT <br> Thạch Thất, Hà Nội</p>
-                                </div>
-                                <div class="col-md-3">
-                                    <p><span><i class="icon-phone3"></i></span>(+84)986.669.003</p>
-                                </div>
-                                <div class="col-md-3">
-                                    <p><span><i class="icon-paperplane"></i></span>nguyentri@gmail.com</p>
-                                </div>
+                        <div class="col-md-12">
+                            <form action="addProduct" method="post" class="colorlib-form">
                                 
-                            </div>
+                                <div class="row">
+
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <label for="fname">Tên sản phẩm</label>
+                                            <input name="product_name" type="text" id="name" class="form-control" placeholder="Nhập tên...">
+                                        </div>
+
+                                    </div>
+
+
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="companyname"> Category ID </label>
+                                            <input name="category_id"type="text" id="towncity" class="form-control" placeholder="Nhập Category_ID...">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <label for="stateprovince">ID thương hiệu</label>
+                                            <input name="brand_id"type="text" id="fname" class="form-control" placeholder="Nhập ID thương hiệu..">
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <label for="stateprovince">Giá</label>
+                                            <input name="price"type="text" id="fname" class="form-control" placeholder="Nhập giá sản phẩm...">
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <label for="stateprovince">Ảnh</label>
+                                            <input name="thumbnail"type="text" id="fname" class="form-control" placeholder="Nhập link ảnh ...">
+                                        </div>
+
+                                    </div>
+                                    
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input type="submit" class="btn btn-primary" value="Thêm sản phẩm">
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <div class="col-md-10 col-md-offset-1">
-                            <div class="contact-wrap">
-                                <h3>Get In Touch</h3>
-                                <form action="#">
-                                    <div class="row form-group">
-                                        <div class="col-md-6 padding-bottom">
-                                            <label for="fname">First Name</label>
-                                            <input type="text" id="fname" class="form-control" placeholder="Your firstname">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="lname">Last Name</label>
-                                            <input type="text" id="lname" class="form-control" placeholder="Your lastname">
-                                        </div>
-                                    </div>
 
-                                    <div class="row form-group">
-                                        <div class="col-md-12">
-                                            <label for="email">Email</label>
-                                            <input type="text" id="email" class="form-control" placeholder="Your email address">
-                                        </div>
-                                    </div>
-
-                                    <div class="row form-group">
-                                        <div class="col-md-12">
-                                            <label for="subject">Subject</label>
-                                            <input type="text" id="subject" class="form-control" placeholder="Your subject of this message">
-                                        </div>
-                                    </div>
-
-                                    <div class="row form-group">
-                                        <div class="col-md-12">
-                                            <label for="message">Message</label>
-                                            <textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Say something about us"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group text-center">
-                                        <input type="submit" value="Send Message" class="btn btn-primary">
-                                    </div>
-                                </form>		
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
 
-            <div id="map" class="colorlib-map"></div>
+
 
         <jsp:include page="footer/footer.jsp"></jsp:include>
+
+
+
+
+
 
         <!-- jQuery -->
         <script src="js/jquery.min.js"></script>
@@ -171,13 +176,10 @@
         <script src="js/bootstrap-datepicker.js"></script>
         <!-- Stellar Parallax -->
         <script src="js/jquery.stellar.min.js"></script>
-        <!-- Google Map -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
-        <script src="js/google_map.js"></script>
         <!-- Main -->
         <script src="js/main.js"></script>
+    </script>
 
-    </body>
+</body>
 </html>
-
 

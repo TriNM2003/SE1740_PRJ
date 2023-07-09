@@ -81,11 +81,11 @@
                                     <li class="has-dropdown">
                                         <a href="shop">Cửa hàng</a>
                                         <ul class="dropdown">
-                                            <li><a href="product-detail.html">Product Detail</a></li>
-                                            <li><a href="cart.html">Shipping Cart</a></li>
-                                            <li><a href="checkout.html">Checkout</a></li>
-                                            <li><a href="order-complete.html">Order Complete</a></li>
-                                            <li><a href="add-to-wishlist.html">Wishlist</a></li>
+                                            <li><a href="category?c_id=1">SP tạo kiểu</a></li>
+                                            <li><a href="category?c_id=2">SP gội rửa</a></li>
+                                            <li><a href="category?c_id=3">Nước hoa</a></li>
+                                            <li><a href="category?c_id=4">SP dưỡng tóc</a></li>
+                                            
                                         </ul>
                                     </li>
 
@@ -105,11 +105,11 @@
                             <div class="col-md-8 col-md-offset-2">
 
                                 <div class="col-md-12">
-                                    <form class="form-inline qbstp-header-subscribe">
+                                    <form class="form-inline qbstp-header-subscribe" action="search" >
                                         <div class="row">
                                             <div class="col-md-12 col-md-offset-0">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" id="email" placeholder="Tìm kiếm sản phẩm">
+                                                    <input value="${mess}" name="search" type="text" class="form-control" id="email" placeholder="Tìm kiếm sản phẩm">
                                                     <button type="submit" class="btn btn-primary"> <i class="icon-search5" style="padding: 0px 5px"></i> </button>
                                                 </div>
                                             </div>

@@ -5,9 +5,7 @@
 
 package controller;
 
-import DAL.BrandDAO;
 import DAL.GalleryDAO;
-import DAL.InfoDAO;
 import DAL.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,16 +14,14 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
-import model.Brand;
 import model.Gallery;
-import model.Info;
 import model.Product;
 
 /**
  *
  * @author DELL
  */
-public class detail extends HttpServlet {
+public class gallerycontroller extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -42,20 +38,17 @@ public class detail extends HttpServlet {
         Product p = pd.GetProductById(p_id);
         request.setAttribute("detail", p);
         
-        InfoDAO ifd=new InfoDAO();
-        Info info = ifd.GetInfo(p_id);
-        request.setAttribute("info", info);
-        
-        BrandDAO bd=new BrandDAO();
-        Brand brand = bd.GetBrand(p.getBrand_id());
-        request.setAttribute("brand", brand);
-        
         GalleryDAO gd = new GalleryDAO();
         ArrayList<Gallery> gall= gd.getGallery(p_id);
         request.setAttribute("gall",gall);
         
         ArrayList<Product> pro= pd.GetSimilarProduct(p.getCategory_id());
         request.setAttribute("product",pro);
+        String g_id= request.getParameter("g_id");
+        
+        Gallery g = gd.GetThumbnailById(g_id);
+        
+        request.setAttribute("g", g);
         
         request.getRequestDispatcher("productDetail.jsp").forward(request, response);
     } 

@@ -140,7 +140,7 @@
                                     
                                 </td>
                                 <td>
-                                    <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="icon-info" data-toggle="tooltip" title="Thêm thông tin"></i></a>
+                                    <a href="addInfo?p_id=${o.product_id}" class="edit" data-toggle="modal"><i class="icon-info" data-toggle="tooltip" title="Thêm thông tin"></i></a>
                                     
                                 </td>
                                 <td>

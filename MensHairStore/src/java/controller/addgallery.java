@@ -63,12 +63,14 @@ public class addgallery extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         int p_id= Integer.parseInt(request.getParameter("product_id"));
         String thumbnail= request.getParameter("thumbnail");
         GalleryDAO gd= new GalleryDAO();
         Gallery g = new Gallery();
         g.setProduct_id(p_id);
-        g.getThumbnail();
+        g.setThumbnail(thumbnail);
         gd.insertProduct(g);
         response.sendRedirect("manageProduct");
     }

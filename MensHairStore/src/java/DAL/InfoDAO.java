@@ -39,6 +39,23 @@ public class InfoDAO extends BaseDAO{
         }
         return p;
     }
+    public void insertInfo(Info s) {
+        try {
+            String sql = "insert into Info(info_id,capacity,fragrance,title,des1,manual)"
+                    + "values(?,?,?,?,?,?)";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            
+            statement.setInt(1, s.getInfo_id());
+            statement.setInt(2, s.getCapacity());
+            statement.setString(3, s.getFragrance());
+            statement.setString(4, s.getTitle());
+            statement.setString(5, s.getDes1());
+            statement.setString(6, s.getManual());
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(InfoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     public static void main(String[] args) {
         InfoDAO dao = new InfoDAO();
 //        ArrayList<Info> list= dao.getInfo("1");

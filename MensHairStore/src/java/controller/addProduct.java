@@ -30,6 +30,7 @@ public class addProduct extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
         request.setCharacterEncoding("UTF-8");
         String product_name=request.getParameter("product_name");
         int category_id= Integer.parseInt(request.getParameter("category_id"));

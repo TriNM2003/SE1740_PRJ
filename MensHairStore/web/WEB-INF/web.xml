@@ -52,6 +52,10 @@
         <servlet-name>addgallery</servlet-name>
         <servlet-class>controller.addgallery</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>addInfo</servlet-name>
+        <servlet-class>controller.addInfo</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -103,6 +107,10 @@
     <servlet-mapping>
         <servlet-name>addgallery</servlet-name>
         <url-pattern>/addgallery</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addInfo</servlet-name>
+        <url-pattern>/addInfo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

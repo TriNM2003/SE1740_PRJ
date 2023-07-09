@@ -5,6 +5,7 @@
 
 package controller;
 
+import DAL.InfoDAO;
 import DAL.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,13 +13,14 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.Info;
 import model.Product;
 
 /**
  *
  * @author DELL
  */
-public class updateproduct extends HttpServlet {
+public class addInfo extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -30,11 +32,12 @@ public class updateproduct extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
         String p_id=request.getParameter("p_id");
         ProductDAO pd=new ProductDAO();
         Product p = pd.GetProductById(p_id);
         request.setAttribute("detail", p);
-        request.getRequestDispatcher("updateproduct.jsp").forward(request, response);
+        request.getRequestDispatcher("addInfo.jsp").forward(request, response);
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -61,26 +64,27 @@ public class updateproduct extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
+        
         int p_id= Integer.parseInt(request.getParameter("product_id"));
         String product_name= request.getParameter("product_name");
-        int category_id= Integer.parseInt(request.getParameter("category_id"));
-        int brand_id= Integer.parseInt(request.getParameter("brand_id"));
-        float price= Float.parseFloat(request.getParameter("price"));
-        String thumbnail= request.getParameter("thumbnail");
+        int capacity= Integer.parseInt(request.getParameter("capacity"));
+        String fragrance= request.getParameter("fragrance");
+        String title= request.getParameter("title");
+        String des1= request.getParameter("des1");
+        String manual= request.getParameter("manual");
+       
+        Info i= new Info();
+        i.setInfo_id(p_id);
+        i.setCapacity(capacity);
+        i.setFragrance(fragrance);
+        i.setTitle(title);
+        i.setDes1(des1);
+        i.setManual(manual);
+        InfoDAO ifd = new InfoDAO();
+        ifd.insertInfo(i);
         
-        Product p= new Product();
-        p.setProduct_id(p_id);
-        p.setProduct_name(product_name);
-        p.setCategory_id(category_id);
-        p.setBrand_id(brand_id);
-        p.setPrice(price);
-        p.setThumbnail(thumbnail);
-        ProductDAO pd=new ProductDAO();
-        pd.updateProduct(p);
         response.sendRedirect("manageProduct");
-        
     }
 
     /** 

@@ -40,6 +40,18 @@
         <servlet-name>addProduct</servlet-name>
         <servlet-class>controller.addProduct</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>updateproduct</servlet-name>
+        <servlet-class>controller.updateproduct</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>deleteproduct</servlet-name>
+        <servlet-class>controller.deleteproduct</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>addgallery</servlet-name>
+        <servlet-class>controller.addgallery</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -79,6 +91,18 @@
     <servlet-mapping>
         <servlet-name>addProduct</servlet-name>
         <url-pattern>/addProduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updateproduct</servlet-name>
+        <url-pattern>/updateproduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deleteproduct</servlet-name>
+        <url-pattern>/deleteproduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addgallery</servlet-name>
+        <url-pattern>/addgallery</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

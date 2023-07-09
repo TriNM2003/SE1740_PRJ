@@ -1,9 +1,14 @@
 <%-- 
-    Document   : updateproduct
-    Created on : 09-07-2023, 10:16:21
+    Document   : addimage
+    Created on : 09-07-2023, 16:50:40
     Author     : DELL
 --%>
 
+<%-- 
+    Document   : addproduct
+    Created on : 09-07-2023, 10:16:02
+    Author     : DELL
+--%>
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -78,7 +83,7 @@
                                 <div class="row">
                                     <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
                                         <div class="slider-text-inner text-center">
-                                            <h1>Thay đổi thông tin sản phẩm</h1>                                    
+                                            <h1>Thêm ảnh</h1>                                    
                                         </div>
                                     </div>
                                 </div>
@@ -92,21 +97,21 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            <form action="updateproduct" method="post" class="colorlib-form">
+                            <form action="addgallery" method="post" class="colorlib-form">
                                 
                                 <div class="row">
+
                                     <div class="form-group">
                                         <div class="col-md-12">
                                             <label for="fname">ID</label>
-                                            <input name="product_id" type="text" id="name" class="form-control"  value="${detail.product_id}" readonly>
+                                            <input name="product_id" type="text" id="name" class="form-control" value="${detail.product_id}" readonly>
                                         </div>
 
                                     </div>
-
                                     <div class="form-group">
                                         <div class="col-md-12">
                                             <label for="fname">Tên sản phẩm</label>
-                                            <input name="product_name" type="text" id="name" class="form-control" placeholder="Nhập tên...." value="${detail.product_name}">
+                                            <input name="product_name" type="text" id="name" class="form-control" value="${detail.product_name}" readonly>
                                         </div>
 
                                     </div>
@@ -115,37 +120,17 @@
 
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="companyname"> Category ID </label>
-                                            <input name="category_id"type="text" id="towncity" class="form-control" placeholder="Nhập Category_ID..." value="${detail.category_id}">
+                                            <label for="companyname"> Ảnh </label>
+                                            <input name="thumbnail"type="text" id="towncity" class="form-control" placeholder="Nhập link ảnh...">
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <div class="col-md-12">
-                                            <label for="stateprovince">ID thương hiệu</label>
-                                            <input name="brand_id"type="text" id="fname" class="form-control" placeholder="Nhập ID thương hiệu.." value="${detail.brand_id}">
-                                        </div>
-
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-12">
-                                            <label for="stateprovince">Giá</label>
-                                            <input name="price"type="text" id="fname" class="form-control" placeholder="Nhập giá sản phẩm..." value="${detail.price}">
-                                        </div>
-
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-12">
-                                            <label for="stateprovince">Ảnh</label>
-                                            <input name="thumbnail"type="text" id="fname" class="form-control" placeholder="Nhập link ảnh ..." value="${detail.thumbnail}">
-                                        </div>
-
-                                    </div>
+                                    
                                     
 
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <input type="submit" class="btn btn-primary" value="Cập nhật">
+                                        <input type="submit" class="btn btn-primary" value="Thêm ảnh">
                                     </div>
                                 </div>
                             </form>

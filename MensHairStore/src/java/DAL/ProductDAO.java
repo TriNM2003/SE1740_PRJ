@@ -204,6 +204,36 @@ public class ProductDAO  extends BaseDAO {
         }
     }
     
+    public void updateProduct(Product s) {
+        try {
+            String sql = "update Product set product_name=?,category_id=?,brand_id=?,update_time=GetDate(),price=?,thumbnail=? "
+                    + "where product_id=?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            
+            statement.setString(1, s.getProduct_name() );
+            statement.setInt(2, s.getCategory_id());
+            statement.setInt(3, s.getBrand_id());
+            statement.setFloat(4, s.getPrice());
+            statement.setString(5, s.getThumbnail());
+            statement.setInt(6, s.getProduct_id());
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void deleteProduct(String p_id) {
+        try {
+            String sql = "delete from Product where product_id=?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            
+            statement.setString(1, p_id );
+            
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public static void main(String[] args) {
         ProductDAO dao = new ProductDAO();
         ArrayList<Product> list= dao.GetProductBySearch("han");

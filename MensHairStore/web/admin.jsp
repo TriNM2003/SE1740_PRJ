@@ -64,7 +64,15 @@
         <!--[if lt IE 9]>
         <script src="js/respond.min.js"></script>
         <![endif]-->
-
+        <script type="text/javascript">
+            function confirmDelete(id) {
+                if (confirm("Xóa sản phẩm id=" + id + "?")) {
+                    
+                  window.location= "deleteproduct?id=" + id;
+                        
+                }
+            }
+        </script>
     </head>
     <body>
 
@@ -98,7 +106,7 @@
                                 <h2>Quản lý <b>sản phẩm</b></h2>
                             </div>
                             <div class="col-sm-6">
-                                <a href="addproduct.jsp" class="btn btn-success" ><i class="icon-address-book"></i> <span>Thêm sản phẩm</span></a>
+                                <a href="addproduct.jsp" class="btn btn-success" ><i class="icon-plus"></i> <span>Thêm sản phẩm</span></a>
                                 </div>
                         </div>
                     </div>
@@ -112,6 +120,7 @@
                                 <th>Giá</th>
                                 <th>Ngày tạo</th>
                                 <th>Cập nhật</th>
+                                <th>Thêm ảnh</th> 
                                 <th>Chi tiết</th>
                                 <th></th>
                             </tr>
@@ -127,13 +136,17 @@
                                 <td>${o.create_time}</td>
                                 <td>${o.update_time}</td>
                                 <td>
-                                    <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="icon-info" data-toggle="tooltip" title="Add info"></i></a>
+                                    <a href="addgallery?p_id=${o.product_id}" class="edit" data-toggle="modal"><i class="icon-image" data-toggle="tooltip" title="Thêm ảnh"></i></a>
+                                    
+                                </td>
+                                <td>
+                                    <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="icon-info" data-toggle="tooltip" title="Thêm thông tin"></i></a>
                                     
                                 </td>
                                 <td>
                                     
-                                    <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="icon-edit" data-toggle="tooltip" title="Edit"></i></a>
-                                    <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="icon-delete" data-toggle="tooltip" title="Delete"></i></a>
+                                    <a href="updateproduct?p_id=${o.product_id}" class="edit" data-toggle="modal"><i class="icon-edit" data-toggle="tooltip" title="Thay đổi thông tin"></i></a>
+                                    <a href="#" onclick="confirmDelete(${o.product_id})" class="delete" data-toggle="modal"><i class="icon-delete" data-toggle="tooltip" title="Xóa sản phẩm"></i></a>
                                 </td>
                             </tr>
                         </c:forEach> 

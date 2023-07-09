@@ -1571,7 +1571,7 @@ h1, h2, h3, h4, h5, h6, figure {
     margin-bottom: 40px;
 }
 .colorlib-form label {
-    font-weight: 400;
+    font-weight: 600;
     font-size: 13px;
     text-transform: uppercase;
     color: black;
@@ -1583,6 +1583,7 @@ h1, h2, h3, h4, h5, h6, figure {
     float: left;
 }
 .colorlib-form .form-control {
+    font-weight:500;
     height: 50px;
     -webkit-box-shadow: none;
     box-shadow: none;

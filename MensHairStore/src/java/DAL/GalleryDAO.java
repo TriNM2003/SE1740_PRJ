@@ -54,6 +54,22 @@ public class GalleryDAO extends BaseDAO {
         }
         return p;
     }
+    public void insertProduct(Gallery s) {
+        try {
+            String sql ="insert into gallery(product_id,thumbnail)"
+                    + "values(?,?)";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            
+            
+            statement.setInt(1, s.getProduct_id());
+            
+            statement.setString(2, s.getThumbnail());
+            
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     public static void main(String[] args) {
         GalleryDAO dao = new GalleryDAO();
 //        ArrayList<Gallery> list= dao.getGallery("1");

@@ -121,7 +121,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="companyname"> Ảnh </label>
-                                            <input name="thumbnail"type="text" id="towncity" class="form-control" placeholder="Nhập link ảnh...">
+                                            <input name="thumbnail"type="text" id="towncity" class="form-control" placeholder="Nhập link ảnh..."required>
                                         </div>
                                     </div>
                                     
@@ -130,7 +130,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <input type="submit" class="btn btn-primary" value="Thêm ảnh">
+                                        <input type="submit" class="btn btn-primary" value="Thêm ảnh"required>
                                     </div>
                                 </div>
                             </form>

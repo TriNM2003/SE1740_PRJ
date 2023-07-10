@@ -68,7 +68,7 @@
     <body>
 
         <jsp:include page="header/header.jsp"></jsp:include>
-            
+        
 
         <div class="parent clearfix" style="margin-top: 100px">
                 <div class="bg-illustration">
@@ -85,7 +85,7 @@
                                 <input name="password" type="password" placeholder="Mật khẩu"required>
 
                                 <div class="remember-form"style="font-size: 16px">
-                                    <input type="checkbox">
+                                    <input type="checkbox" name="remember">
                                     <span>Remember me</span>
                                 </div>
                                 <div class="forget-pass">

@@ -98,7 +98,7 @@
                                     <div class="form-group">
                                         <div class="col-md-12">
                                             <label for="fname">Tên sản phẩm</label>
-                                            <input name="product_name" type="text" id="name" class="form-control" placeholder="Nhập tên...">
+                                            <input name="product_name" type="text" id="name" class="form-control" placeholder="Nhập tên..." required>
                                         </div>
 
                                     </div>
@@ -108,27 +108,27 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="companyname"> Category ID </label>
-                                            <input name="category_id"type="text" id="towncity" class="form-control" placeholder="Nhập Category_ID...">
+                                            <input name="category_id"type="text" id="towncity" class="form-control" placeholder="Nhập Category_ID..."required>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-md-12">
                                             <label for="stateprovince">ID thương hiệu</label>
-                                            <input name="brand_id"type="text" id="fname" class="form-control" placeholder="Nhập ID thương hiệu..">
+                                            <input name="brand_id"type="text" id="fname" class="form-control" placeholder="Nhập ID thương hiệu.."required>
                                         </div>
 
                                     </div>
                                     <div class="form-group">
                                         <div class="col-md-12">
                                             <label for="stateprovince">Giá</label>
-                                            <input name="price"type="text" id="fname" class="form-control" placeholder="Nhập giá sản phẩm...">
+                                            <input name="price"type="text" id="fname" class="form-control" placeholder="Nhập giá sản phẩm..."required>
                                         </div>
 
                                     </div>
                                     <div class="form-group">
                                         <div class="col-md-12">
                                             <label for="stateprovince">Ảnh</label>
-                                            <input name="thumbnail"type="text" id="fname" class="form-control" placeholder="Nhập link ảnh ...">
+                                            <input name="thumbnail"type="text" id="fname" class="form-control" placeholder="Nhập link ảnh ..."required>
                                         </div>
 
                                     </div>

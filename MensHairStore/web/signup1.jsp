@@ -70,7 +70,7 @@
         <jsp:include page="header/header.jsp"></jsp:include>
             
 
-        <div class="parent clearfix" style="margin-top: 100px">
+            <div class="parent clearfix" style="margin-top: 100px">
                 <div class="bg-illustration">
 
                 </div>
@@ -81,24 +81,24 @@
 
                         <div class="login-form">
                             <form action="<c:url value='/SignupServlet'/>" method="POST" >
-                                <input name="username" type="username" placeholder="Tên tài khoản "required>
-                                <input name="gmail" type="username" placeholder="E-mail "required>
-                                <input name="password" type="password" placeholder="Mật khẩu"required>
-                                <input name="re_password" type="password" placeholder="Xác nhận mật khẩu"required>
+                            <input name="username" type="username" placeholder="Tên tài khoản "required>
+                            <input name="gmail" type="username" placeholder="E-mail "required>
+                            <input name="password" type="password" placeholder="Mật khẩu"required>
+                            <input name="re_password" type="password" placeholder="Xác nhận mật khẩu"required>
 
-                                                            
 
-                                <button type="submit">Đăng ký</button>
-                                
-                                <div class="remember-form" style="font-size: 16px">
-                                    Đã có tài khoản?<a href="login1.jsp">Đăng nhập</a>
-                                </div>
-                            </form>
-                        </div>
 
+                            <button type="submit">Đăng ký</button>
+
+                            <div class="remember-form" style="font-size: 16px">
+                                Đã có tài khoản?<a href="login1.jsp">Đăng nhập</a>
+                            </div>
+                        </form>
                     </div>
+
                 </div>
             </div>
+        </div>
         <jsp:include page="footer/footer.jsp"></jsp:include>
 
 

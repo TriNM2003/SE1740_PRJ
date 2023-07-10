@@ -2,10 +2,10 @@
 --create database hairshop
 create table [Account](
 	[id] int not null identity(1,1) primary key,
-	[username] varchar(32) ,
-	[password] varchar(32) ,
-	[gmail] varchar(150),
-	[role_name] varchar(20) 
+	[username] nvarchar(32) ,
+	[password] nvarchar(32) ,
+	[gmail] nvarchar(150),
+	[role_id] int 
 	
 );
 create table [User](
@@ -32,7 +32,7 @@ create table [Order](
 	[gmail] varchar(150),
 	[phone_number] varchar(20),
 	[note] nvarchar(1000) ,
-	[oder_date] DATETIME ,
+	[order_date] DATETIME ,
 	[status] int ,
 	[total_money] float ,
 	FOREIGN KEY (user_id) REFERENCES [User](user_id)
@@ -105,6 +105,25 @@ create table [Feedback](
 
 select*from Account
 
+
+--Account
+
+insert into [Account]([username],[password],gmail,role_id)
+values(N'nguyentri16112003',N'minhtri16112003',N'nguyentri16112003@gmail.com',1)
+insert into [User]([user_id],[fullname],[address],phone_number,create_time,update_time)
+values(1,N'Nguyễn Minh Trí',N'Trường ĐH FPT cơ sở Hòa Lạc',0986669003,getDate(),getDate())
+
+insert into [Account]([username],[password],gmail,role_id)
+values(N'datngooo',N'123456',N'datngoo@gmail.com',2)
+insert into [User]([user_id],[fullname],[address],phone_number,create_time,update_time)
+values(2,N'Nguyễn Đức Đạt',N'Cẩm Phả, Quảng Ninh',0986643257,getDate(),getDate())
+
+insert into [Account]([username],[password],gmail,role_id)
+values(N'hung12345',N'123456',N'hung12345@gmail.com',2)
+insert into [User]([user_id],[fullname],[address],phone_number,create_time,update_time)
+values(3,N'Trần Đức Hùng',N'Quốc Oai, Hà Nội',0983443257,getDate(),getDate())
+
+select * from Account
 --Category
 insert into[Category](category_name)values(N'Sản phẩm tạo kiểu')
 insert into[Category](category_name)values(N'Sản phẩm gội rửa')
@@ -159,6 +178,7 @@ insert into [Brand](brand_name,brand_address)values('TOM FORD',N'Pháp')
 insert into [Brand](brand_name,brand_address)values('Dior',N'Pháp')
 insert into [Brand](brand_name,brand_address)values('CREED',N'Pháp')
 insert into [Brand](brand_name,brand_address)values('LE LABO',N'Pháp')
+insert into [Brand](brand_name,brand_address)values('GIORGIO ARMANI',N'Pháp')
 
 --Thuc pham chuc nang
 insert into [Brand](brand_name,brand_address)values('SUGARBEARHAIR',N'Mỹ')
@@ -482,7 +502,35 @@ N'Làm sạch tóc bằng nước và dầu gội
 Cho một ít dầu xả ra tay, xoa đều lên tóc 
 Rửa sạch lại với nước. ')
 
+-- Forte series
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
+values(N'Forte Series Molding Paste',1,10,55,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2020/10/Forte-Series-Molding-Paste-768x768.jpg' )
 
+insert into Gallery(product_id,thumbnail) 
+values(22,'https://clmensstore.com/wp-content/uploads/2020/10/paste_2048x2048.png')
+
+
+insert into Info(info_id,capacity,fragrance,title,des1,manual)
+values(22,75,N'Cam chanh',N'Forte Series Molding Paste – Phiên bản mới 2023',
+N'Forte Series Molding Paste mang lại vẻ ngoài đầy đặn và dày hơn cho tóc mỏng từ trung bình đến mỏng, đồng thời đóng vai trò là Pre-styling nếu bạn cần thiết. Công thức hòa tan trong nước giúp tóc bạn không bị bết dính hoặc bóng nhờn và gội sạch một cách dễ dàng. Được thiết kế và sản xuất tại Mỹ. Không chứa paraben và sulfat. Độ giữ nếp: High hold (cao) Linh hoạt, nhẹ tóc và dễ dàng re-style lại Tăng thêm Volume khi dùng để Pre-styling Làm tóc bạn trở nên dày hơn, rất phù hợp với tóc mỏng Dễ dàng gội rửa với nước Apply lên tóc dễ dàng, hạn chế bị đứt tóc Sản xuất tại Mỹ',
+N'Bước 1: Gội sạch tóc, dùng khăn lau tóc (để tóc ẩm) 
+Bước 2: Dùng 1/3 đốt tay lượng sáp để Pre-styling hoặc dùng các sản phẩm Pre-styling tại HsMen. Apply lên tóc và sấy + tạo kiểu với lược phồng 
+Bước 3: Sau khi sấy xong, Dùng 1/2 đốt tay sáp  tạo kiểu lại. Có thể dùng 1/2 đốt tay hoặc 1/3 đốt tay để tạo kiểu, tùy độ giữ nếp bạn muốn')
+
+
+-- Nuoc hoa 
+
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
+values(N'Acqua Di Giò',3,17,100,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2019/03/ACQUA-DI-GIO-%E2%80%93-EDT-1.png' )
+
+insert into Gallery(product_id,thumbnail) 
+values(23,'https://clmensstore.com/wp-content/uploads/2019/03/5ad55d5b-5546-4ed3-997a-10d382b718ad_1.46c9197e274dd9c61487512503cb1a3d-247x247.jpeg')
+
+
+insert into Info(info_id,capacity,fragrance,title,des1,manual)
+values(23,100,N'Quả cam, Quả chanh xanh, Quả quýt hồng, Hoa nhài, Cam Bergamot, Quả chanh vàng, Hoa cam Neroli',N'Acqua Di Giò Pour Homme EDT by Giorgio Armani (giò trắng)  – Phiên bản mới 2023',
+N'Hương thơm Acqua di Giò được chế tạo ra vào năm 1996 bởi Alberto Morillas. Lấy cảm hứng từ vẻ đẹp của Pantellerie, nơi ông đã trải qua kỳ nghỉ của mình, Armani tạo ra mùi thơm của Aqua di Gio cho cả nam giới lẫn nữ giới. Hương thơm dành cho nam giới là một mùi hương của sự tự do, đầy gió và nước. Hỗn hợp mùi hương này được hình thành từ sự hòa hợp hoàn hảo giữa mùi hương ngòn ngọt mằn mặn của nước biển và ánh nắng ấm áp mơn trớn trên làn da của bạn. Aqua di Gio đầy ánh nắng mặt trời Địa Trung Hải nóng như thiêu đốt. Hương cam quýt đăng đắng với hương thơm của hương thảo quyện với vị mặn của biển và tinh chất hoa nhài trong suốt. Tầng hương cuối thơm mùi gỗ lưu lại mùi xạ hương ấm áp làm cho các mùi hương gay gắt của gia vị trở nên mềm mại hơn.Acqua Di Giò là một kiệt tác và là một tác phẩm kinh điển. Mùi hương này đã đứng vững qua thử thách của thời gian. Và được bán chạy ở khắp mọi nơi. Một mùi hương khiến người người hài lòng và luôn nhận được nhiều lời khen. Đây là một mùi hương rất thơm và tuyệt đối an toàn, khuyến khích dành cho những người làm việc trong văn phòng hoặc sử dụng trong những ngày hè.',
+N'Thời điểm khuyên dùng: Ngày, Đêm, Hạ. Xịt lên các phần như cổ, cổ tay,..(Lưu hương lâu hơn trên quần áo)')
 
 
 

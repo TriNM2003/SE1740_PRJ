@@ -8,9 +8,11 @@ import DAL.AccountDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import model.Account;
 
 /**
@@ -71,15 +73,35 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         AccountDAO acd = new AccountDAO();
         String user = request.getParameter("username");
         String pass = request.getParameter("password");
-        Account a = acd.getAccount(user,pass);
+        
+        Account a = acd.getAccount(user, pass);
         
         
         if ( a !=null ) {
-            response.sendRedirect("home.jsp");
+            String remember= request.getParameter("remember"); 
+            if(remember!= null){
+                Cookie c_user = new Cookie("username", user);
+                Cookie c_pass = new Cookie("password", pass);
+                
+                c_user.setMaxAge(3600*24*30);
+                c_pass.setMaxAge(3600*24*30);
+                
+                response.addCookie(c_pass);
+                response.addCookie(c_user);
+            }
+            HttpSession session = request.getSession();
+            session.setAttribute("account", a);
+            if(a.getRole_id()==1){
+                request.getRequestDispatcher("manageProduct").forward(request, response);
+            }else{
+                request.getRequestDispatcher("home").forward(request, response);
+            }
+                
             
         } else {
             Account ac = new Account();

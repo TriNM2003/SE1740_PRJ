@@ -23,7 +23,7 @@ public class AccountDAO extends BaseDAO{
                     + "           ([username]\n"
                     + "           ,[password]\n"
                     + "           ,[gmail]\n"
-                    + "           ,[role_name])\n"
+                    + "           ,[role_id])\n"
                     + "     VALUES\n"
                     + "           (?\n"                    
                     + "           ,?\n"
@@ -34,7 +34,7 @@ public class AccountDAO extends BaseDAO{
             statement.setString(1, ac.getUsername());
             statement.setString(2, ac.getPassword());
             statement.setString(3, ac.getGmail());
-            statement.setString(4, ac.getRole_name());
+            statement.setInt(4, ac.getRole_id());
             statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -51,7 +51,7 @@ public class AccountDAO extends BaseDAO{
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
                 
-                Account a = new Account(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+                Account a = new Account(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5));
                 return a;
             }
 
@@ -68,7 +68,7 @@ public class AccountDAO extends BaseDAO{
             statement.setString(1, gmail);
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
-                Account a = new Account(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+                Account a = new Account(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5));
 
                 return a;
             }
@@ -80,9 +80,9 @@ public class AccountDAO extends BaseDAO{
     }
     public static void main(String[] args) {
         AccountDAO ad= new AccountDAO();
-        Account ac = ad.getAccountByGmail("minhtri147963@gmail.com");
-        Account a = ad.getAccount("123456", "123456");
-        System.out.println(ac);
+//        Account ac = ad.getAccountByGmail("minhtri147963@gmail.com");
+        Account a = ad.getAccount("nguyentri16112003", "minhtri16112003");
+//        System.out.println(ac);
         System.out.println(a);
     }
 }

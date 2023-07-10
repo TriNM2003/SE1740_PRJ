@@ -81,18 +81,16 @@ public class SignupServlet extends HttpServlet {
             String gmail= request.getParameter("gmail");
             String re_pass = request.getParameter("re_password");
 
-            String role_name = "US";
+            int role_id = 2;
             if (!pass.equals(re_pass)) {
-                Account ac=new Account();
-                
-                
+                Account ac=new Account();               
                 response.sendRedirect("signup1.jsp");
                 
             }else{
                 a.setUsername(user);
                 a.setPassword(pass);
                 a.setGmail(gmail);
-                a.setRole_name(role_name);
+                a.setRole_id(role_id);
                 acd.insertAccount(a);
                 response.sendRedirect("login1.jsp");
             }

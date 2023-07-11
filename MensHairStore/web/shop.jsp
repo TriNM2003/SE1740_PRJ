@@ -116,12 +116,9 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <ul class="pagination">
-                                        <li class="disabled"><a href="#">&laquo;</a></li>
-                                        <li class="active"><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">&raquo;</a></li>
+                                    <c:forEach begin="1" end="${endPage}" var="i">
+                                        <li class=" ${index == i ? "active":""} "><a href="shop?index=${i}">${i}</a></li>                                        
+                                     </c:forEach>
                                     </ul>
                                 </div>
                             </div>

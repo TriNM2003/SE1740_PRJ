@@ -35,25 +35,48 @@ public class shop extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         ProductDAO pd = new ProductDAO();
-        ArrayList<Product> pro= pd.AllProduct();
-        request.setAttribute("product",pro);
-
+        int all=pd.TotalProduct();
+        int endPage = all/9;
+        if(all%9 != 0  ){
+            endPage++;
+        }
+        request.setAttribute("endPage", endPage);
+        
+        
+        String index= request.getParameter("index");
+        if(index == null){
+            
+            ArrayList<Product> pro= pd.GetProductByPaging(1);
+            request.setAttribute("product",pro);
+            request.setAttribute("index",1);
+        }else{
+            ArrayList<Product> pro= pd.GetProductByPaging(Integer.parseInt(index));
+            request.setAttribute("product",pro);
+            request.setAttribute("index",index);
+        }
+        
         CategoryDAO cd= new CategoryDAO();
 
         
         ArrayList<Category> cate= cd.getCategory();
         request.setAttribute("cate",cate);
         
+        
+        
 
         
         request.getRequestDispatcher("shop.jsp").forward(request, response);
     } 
     public static void main(String[] args) {
-        CategoryDAO dao = new CategoryDAO();
-        ArrayList<Category> list= dao.getCategory();
-        for(Category o: list){
+        ProductDAO dao = new ProductDAO();
+        ArrayList<Product> list= dao.GetProductByPaging(1);
+       
+        for(Product o: list){
             System.out.println(o);
         }
+//        Product p = dao.GetProductById("4");
+//        System.out.println(p);
+//          System.out.println(dao.TotalProduct());  
     }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 

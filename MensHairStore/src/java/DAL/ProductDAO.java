@@ -233,16 +233,55 @@ public class ProductDAO  extends BaseDAO {
             Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public int TotalProduct() {
+        
+        try {
+            String sql = "select count(*)  from [Product]";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
+    public ArrayList<Product> GetProductByPaging(int index) {
+        ArrayList<Product> list=new ArrayList<>();
+        
+        try {
+            String sql = "select * from product order by product_id offset ? rows fetch next 9 rows only";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1,(index-1)*9);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                 list.add(new Product(rs.getInt(1),
+                                    rs.getString(2),
+                                    rs.getInt(3),
+                                    rs.getInt(4),
+                                    rs.getFloat(5),
+                                    rs.getDate(6),
+                                    rs.getDate(7),
+                                    rs.getString(8)
+                                    ));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
     
     
     public static void main(String[] args) {
         ProductDAO dao = new ProductDAO();
-        ArrayList<Product> list= dao.GetProductBySearch("han");
+        ArrayList<Product> list= dao.GetProductByPaging(1);
        
         for(Product o: list){
             System.out.println(o);
         }
 //        Product p = dao.GetProductById("4");
 //        System.out.println(p);
+//          System.out.println(dao.TotalProduct());  
     }
 }

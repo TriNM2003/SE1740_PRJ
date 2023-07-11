@@ -234,6 +234,7 @@ public class ProductDAO  extends BaseDAO {
         }
     }
     
+    
     public static void main(String[] args) {
         ProductDAO dao = new ProductDAO();
         ArrayList<Product> list= dao.GetProductBySearch("han");

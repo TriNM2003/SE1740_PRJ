@@ -12,16 +12,14 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import java.util.ArrayList;
-import model.Account;
+import model.OrderDetails;
 import model.Product;
 
 /**
  *
  * @author DELL
  */
-public class manageProduct extends HttpServlet {
+public class orderDetail extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -32,32 +30,16 @@ public class manageProduct extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        HttpSession session= request.getSession();
-        Account ac = (Account)session.getAttribute("account");
-        int role_id= ac.getRole_id();
-        if(ac!= null ){
-            if(role_id==1){
-                response.setContentType("text/html;charset=UTF-8");
-
-                ProductDAO pd = new ProductDAO();
-                ArrayList<Product> pro= pd.AllProduct();
-                request.setAttribute("product",pro);
-                request.getRequestDispatcher("admin.jsp").forward(request, response);
-            }else{
-               response.sendRedirect("home"); 
-            }
-        }else{
-            response.sendRedirect("login1.jsp");
-        }
-    } 
-    public static void main(String[] args) {
-        ProductDAO dao = new ProductDAO();
-        ArrayList<Product> list= dao.AllProduct();
+        response.setContentType("text/html;charset=UTF-8");
+        String p_id =request.getParameter("p_id");
+        ProductDAO pd = new ProductDAO();
+        Product p= new Product();
+        p=pd.GetProductById(p_id);
+        int quantity = 1;
+        float subtotal = p.getPrice()*quantity;
+        OrderDetails od=new OrderDetails();
         
-        for(Product o: list){
-            System.out.println(o);
-        }
-    }
+    } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 

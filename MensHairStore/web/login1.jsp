@@ -78,12 +78,14 @@
                 <div class="login">
                     <div class="container">
                         <h1>Đăng nhập</h1>
-
+                        <c:if test="${mess !=null}">
+                                    <p style="color: red; font-size: 18px;font-weight: 700; margin: 0">${mess}</p>
+                                </c:if>
                         <div class="login-form">
                             <form action="<c:url value='/LoginServlet'/>" method="POST">
                                 <input name="username" type="username" placeholder="Tên tài khoản " required>
                                 <input name="password" type="password" placeholder="Mật khẩu"required>
-
+                                
                                 <div class="remember-form"style="font-size: 16px">
                                     <input type="checkbox" name="remember">
                                     <span>Remember me</span>

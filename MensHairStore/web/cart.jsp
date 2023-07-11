@@ -60,7 +60,15 @@
         <!--[if lt IE 9]>
         <script src="js/respond.min.js"></script>
         <![endif]-->
-
+        <script type="text/javascript">
+            function confirmDelete(id) {
+                if (confirm("Xóa sản phẩm id=" + id + "?")) {
+                    
+                  window.location= "deleteOrderDetail?id=" + id;
+                        
+                }
+            }
+        </script>
     </head>
     <body>
 
@@ -113,40 +121,28 @@
                                     <table class="table table-striped table-hover">
                                         <thead>
                                             <tr>
-                                                <th>ID</th>
-                                                <th>Tên</th>
-                                                <th>Loại</th>
-                                                <th>Thương hiệu</th>
+                                                <th></th>
+                                                <th>Tên</th>                                               
+                                                <th>Số lượng</th>                                                
                                                 <th>Giá</th>
-                                                <th>Ngày tạo</th>
-                                                <th>Cập nhật</th>
-                                                <th>Thêm ảnh</th> 
-                                                <th>Chi tiết</th>
+                                                <th>Tổng(sản phẩm)</th>
+                                                
                                                 <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                         <c:forEach items="${product}" var="o">
                                         <tr>
-                                            <td>${o.product_id}</td>
-                                            <td>${o.product_name}</td>
-                                            <td>${o.category_id}</td>
-                                            <td>${o.brand_id}</td>
-                                            <td>${o.price}</td>
-                                            <td>${o.create_time}</td>
-                                            <td>${o.update_time}</td>
-                                            <td>
-                                                <a href="addgallery?p_id=${o.product_id}" class="edit" data-toggle="modal"><i class="icon-image" data-toggle="tooltip" title="Thêm ảnh"></i></a>
-
-                                            </td>
-                                            <td>
-                                                <a href="addInfo?p_id=${o.product_id}" class="edit" data-toggle="modal"><i class="icon-info" data-toggle="tooltip" title="Thêm thông tin"></i></a>
-
-                                            </td>
+                                            <td>Ảnh</td>
+                                            <td>Quicksand</td>
+                                            <td><input name="price" type="number" value="2" style="width: 20%"></td>
+                                            <td>$55</td>
+                                            <td>200</td>
+                                            
+                                            
                                             <td>
 
-                                                <a href="updateproduct?p_id=${o.product_id}" class="edit" data-toggle="modal"><i class="icon-edit" data-toggle="tooltip" title="Thay đổi thông tin"></i></a>
-                                                <a href="#" onclick="confirmDelete(${o.product_id})" class="delete" data-toggle="modal"><i class="icon-delete" data-toggle="tooltip" title="Xóa sản phẩm"></i></a>
+                                                <a href="#" onclick="confirmDelete(${o.product_id})" class="delete" data-toggle="modal"><i class="icon-bin" data-toggle="tooltip" title="Xóa sản phẩm"></i></a>
                                             </td>
                                         </tr>
                                     </c:forEach> 
@@ -190,94 +186,7 @@
                     </div>
                 </div>
 
-                <div class="colorlib-shop">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6 col-md-offset-3 text-center colorlib-heading">
-                                <h2><span>Recommended Products</span></h2>
-                                <p>We love to tell our successful far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3 text-center">
-                                <div class="product-entry">
-                                    <div class="product-img" style="background-image: url(images/item-5.jpg);">
-                                        <p class="tag"><span class="new">New</span></p>
-                                        <div class="cart">
-                                            <p>
-                                                <span class="addtocart"><a href="#"><i class="icon-shopping-cart"></i></a></span> 
-                                                <span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
-                                                <span><a href="#"><i class="icon-heart3"></i></a></span>
-                                                <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="desc">
-                                        <h3><a href="shop">Floral Dress</a></h3>
-                                        <p class="price"><span>$300.00</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 text-center">
-                                <div class="product-entry">
-                                    <div class="product-img" style="background-image: url(images/item-6.jpg);">
-                                        <p class="tag"><span class="new">New</span></p>
-                                        <div class="cart">
-                                            <p>
-                                                <span class="addtocart"><a href="#"><i class="icon-shopping-cart"></i></a></span> 
-                                                <span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
-                                                <span><a href="#"><i class="icon-heart3"></i></a></span>
-                                                <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="desc">
-                                        <h3><a href="shop">Floral Dress</a></h3>
-                                        <p class="price"><span>$300.00</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 text-center">
-                                <div class="product-entry">
-                                    <div class="product-img" style="background-image: url(images/item-7.jpg);">
-                                        <p class="tag"><span class="new">New</span></p>
-                                        <div class="cart">
-                                            <p>
-                                                <span class="addtocart"><a href="#"><i class="icon-shopping-cart"></i></a></span> 
-                                                <span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
-                                                <span><a href="#"><i class="icon-heart3"></i></a></span>
-                                                <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="desc">
-                                        <h3><a href="shop">Floral Dress</a></h3>
-                                        <p class="price"><span>$300.00</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 text-center">
-                                <div class="product-entry">
-                                    <div class="product-img" style="background-image: url(images/item-8.jpg);">
-                                        <p class="tag"><span class="new">New</span></p>
-                                        <div class="cart">
-                                            <p>
-                                                <span class="addtocart"><a href="#"><i class="icon-shopping-cart"></i></a></span> 
-                                                <span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
-                                                <span><a href="#"><i class="icon-heart3"></i></a></span>
-                                                <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="desc">
-                                        <h3><a href="shop">Floral Dress</a></h3>
-                                        <p class="price"><span>$300.00</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
 
 
                 <jsp:include page="footer/footer.jsp"></jsp:include>

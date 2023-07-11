@@ -14,18 +14,18 @@ public class OrderDetails {
     private int product_id;
     private float price;
     private int quantity;
-    private float total_money;
+    private float subtotal;
 
     public OrderDetails() {
     }
 
-    public OrderDetails(int od_id, int order_id, int product_id, float price, int quantity, float total_money) {
+    public OrderDetails(int od_id, int order_id, int product_id, float price, int quantity, float subtotal) {
         this.od_id = od_id;
         this.order_id = order_id;
         this.product_id = product_id;
         this.price = price;
         this.quantity = quantity;
-        this.total_money = total_money;
+        this.subtotal = subtotal;
     }
 
     public int getOd_id() {
@@ -68,17 +68,17 @@ public class OrderDetails {
         this.quantity = quantity;
     }
 
-    public float getTotal_money() {
-        return total_money;
+    public float getSubtotal() {
+        return subtotal;
     }
 
-    public void setTotal_money(float total_money) {
-        this.total_money = total_money;
+    public void setSubtotal(float subtotal) {
+        this.subtotal = subtotal;
     }
 
     @Override
     public String toString() {
-        return "OderDetails{" + "od_id=" + od_id + ", order_id=" + order_id + ", product_id=" + product_id + ", price=" + price + ", quantity=" + quantity + ", total_money=" + total_money + '}';
+        return "OderDetails{" + "od_id=" + od_id + ", order_id=" + order_id + ", product_id=" + product_id + ", price=" + price + ", quantity=" + quantity + ", subtotal=" + subtotal + '}';
     }
     
 }

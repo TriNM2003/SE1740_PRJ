@@ -83,8 +83,9 @@ public class SignupServlet extends HttpServlet {
 
             int role_id = 2;
             if (!pass.equals(re_pass)) {
-                Account ac=new Account();               
-                response.sendRedirect("signup1.jsp");
+                Account ac=new Account(); 
+                request.setAttribute("mess", "Mật khẩu không trùng khớp!");
+                request.getRequestDispatcher("signup1.jsp").forward(request, response);
                 
             }else{
                 a.setUsername(user);

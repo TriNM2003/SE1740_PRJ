@@ -5,6 +5,8 @@
 
 package controller;
 
+import DAL.GalleryDAO;
+import DAL.InfoDAO;
 import DAL.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,6 +14,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.Info;
 
 /**
  *
@@ -31,6 +34,10 @@ public class deleteproduct extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String p_id=request.getParameter("id");
         ProductDAO pd= new ProductDAO();
+        GalleryDAO gd= new GalleryDAO();
+        InfoDAO ifd= new InfoDAO();
+        gd.deleteGallery(p_id);
+        ifd.deleteInfo(p_id);
         pd.deleteProduct(p_id);
         response.sendRedirect("manageProduct");
     } 

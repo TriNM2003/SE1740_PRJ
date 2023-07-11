@@ -114,6 +114,7 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
+                                
                                 <th>Tên</th>
                                 <th>Loại</th>
                                 <th>Thương hiệu</th>
@@ -129,6 +130,7 @@
                         <c:forEach items="${product}" var="o">
                                 <tr>
                                 <td>${o.product_id}</td>
+                                
                                 <td>${o.product_name}</td>
                                 <td>${o.category_id}</td>
                                 <td>${o.brand_id}</td>
@@ -146,7 +148,7 @@
                                 <td>
                                     
                                     <a href="updateproduct?p_id=${o.product_id}" class="edit" data-toggle="modal"><i class="icon-edit" data-toggle="tooltip" title="Thay đổi thông tin"></i></a>
-                                    <a href="#" onclick="confirmDelete(${o.product_id})" class="delete" data-toggle="modal"><i class="icon-delete" data-toggle="tooltip" title="Xóa sản phẩm"></i></a>
+                                    <a href="#" onclick="confirmDelete(${o.product_id})" class="delete" data-toggle="modal"><i class="icon-bin" data-toggle="tooltip" title="Xóa sản phẩm"></i></a>
                                 </td>
                             </tr>
                         </c:forEach> 

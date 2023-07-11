@@ -1,11 +1,14 @@
 <%-- 
-    Document   : header
-    Created on : 20-06-2023, 21:16:34
+    Document   : header2
+    Created on : 10-07-2023, 16:30:08
     Author     : DELL
 --%>
 
+
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -77,7 +80,7 @@
                             <div class="col-xs-10 text-right menu-1">
                                 <ul>
 
-
+                                    
                                     <li class="active"><a href="home">Trang chủ</a></li>
                                     <li class="has-dropdown">
                                         <a href="shop">Cửa hàng</a>
@@ -86,41 +89,21 @@
                                             <li><a href="category?c_id=2">SP gội rửa</a></li>
                                             <li><a href="category?c_id=3">Nước hoa</a></li>
                                             <li><a href="category?c_id=4">SP dưỡng tóc</a></li>
+                                            
+                                        </ul>
+                                    </li>
 
+                                    <li><a href="about.jsp">Giới thiệu</a></li>
+                                    <li><a href="contact.jsp">Liên hệ</a></li>
+                                    <li><a href="cart.jsp"><i class="icon-shopping-cart2"></i> Giỏ hàng</a></li>  
+                                    <li class="has-dropdown">
+                                        <a href="shop">Tên tài khoản</a>
+                                        <ul class="dropdown">
+                                            <li><a href="category?c_id=1">Thông tin tài khoản</a></li>
+                                            <li><a href="category?c_id=2">Log out</a></li>
                                         </ul>
                                     </li>
                                     
-                                        <li><a href="about.jsp">Giới thiệu</a></li>
-                                        <li><a href="contact.jsp">Liên hệ</a></li>
-                                    <c:if test="${sessionScope.account != null}"> 
-                                    <c:if test="${sessionScope.role_id==1}"> 
-                                        <li class="has-dropdown">
-                                        <a href="manageProduct">Quản lý</a>
-                                        <ul class="dropdown">
-                                            <li><a href="#">Người dùng</a></li>
-                                            <li><a href="manageProduct">Sản phẩm</a></li>
-                                            <li><a href="#">Đơn hàng</a></li>
-                                           
-                                        </ul>
-                                    </li>
-                                    </c:if>
-                                    </c:if> 
-                                    <li><a href="cart.jsp"><i class="icon-shopping-cart2"></i> Giỏ hàng</a></li>
-                                    <c:if test="${sessionScope.account == null}">
-                                        <li><a href="login1.jsp"><i class="icon-user2"></i>Đăng nhập</a>/<a href="signup1.jsp">Đăng ký</a></li>
-                                    </c:if>   
-                                    <c:if test="${sessionScope.account != null}">    
-                                        <li class="has-dropdown">
-                                            <a href="#"><i class="icon-user2"></i>${sessionScope.username}</a>
-                                            <ul class="dropdown">
-                                               
-                                                <li><a href="profile.jsp"><i class="icon-profile-male" ></i>Profile</a></li>
-                                                <li><a href="logout"><i class="icon-log-out" ></i>Đăng xuất</a></li>
-                                                
-
-                                            </ul>
-                                        </li>
-                                    </c:if>
                                 </ul>
                             </div>
                         </div>
@@ -172,3 +155,4 @@
             <script src="js/main.js"></script>
     </body>
 </html>
+

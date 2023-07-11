@@ -124,6 +124,7 @@ insert into [User]([user_id],[fullname],[address],phone_number,create_time,updat
 values(3,N'Trần Đức Hùng',N'Quốc Oai, Hà Nội',0983443257,getDate(),getDate())
 
 select * from Account
+select* from [User] where [user_id] = 4
 --Category
 insert into[Category](category_name)values(N'Sản phẩm tạo kiểu')
 insert into[Category](category_name)values(N'Sản phẩm gội rửa')
@@ -517,6 +518,60 @@ N'Bước 1: Gội sạch tóc, dùng khăn lau tóc (để tóc ẩm)
 Bước 2: Dùng 1/3 đốt tay lượng sáp để Pre-styling hoặc dùng các sản phẩm Pre-styling tại HsMen. Apply lên tóc và sấy + tạo kiểu với lược phồng 
 Bước 3: Sau khi sấy xong, Dùng 1/2 đốt tay sáp  tạo kiểu lại. Có thể dùng 1/2 đốt tay hoặc 1/3 đốt tay để tạo kiểu, tùy độ giữ nếp bạn muốn')
 
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
+values(N'Forte Series Styling Cream',1,10,55,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2021/05/sprayshopifygradient_2048x2048-1-768x768.jpg' )
+
+insert into Gallery(product_id,thumbnail) 
+values(23,'https://clmensstore.com/wp-content/uploads/2021/05/sprayshopifygradient_2048x2048-1-768x768.jpg')
+
+
+insert into Info(info_id,capacity,fragrance,title,des1,manual)
+values(23,85,N'Cam chanh',N'Forte Series Styling Cream – Phiên bản mới 2023',
+N'Được làm giàu với biotin, lô hội và dầu argan, loại kem tạo kiểu tan trong nước này sẽ giúp tóc bạn chắc khỏe hơn sau mỗi lần sử dụng. Đây là sản phẩm tạo kiểu tóc hoàn hảo cho những chàng trai có mái tóc từ trung bình đến mỏng muốn đạt được kiểu tóc dày và bồng bềnh. Thông tin về Forte Series Styling Cream Độ giữ nếp: Medium hold (trung bình) Linh hoạt, nhẹ tóc và dễ dàng re-style lại Làm tóc bạn trở nên dày hơn, rất phù hợp với tóc mỏng Dễ dàng gội rửa với nước Apply lên tóc dễ dàng, mượt mà Sản xuất tại Mỹ',
+N'Bước 1: Gội sạch tóc, dùng khăn lau tóc (để tóc ẩm) 
+Bước 2: Dùng 1/3 đốt tay lượng sáp để Pre-styling hoặc dùng các sản phẩm Pre-styling tại HsMen. Apply lên tóc và sấy + tạo kiểu với lược phồng 
+Bước 3: Sau khi sấy xong, Dùng 1/2 đốt tay sáp  tạo kiểu lại. Có thể dùng 1/2 đốt tay hoặc 1/3 đốt tay để tạo kiểu, tùy độ giữ nếp bạn muốn')
+
+
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
+values(N'Bột tạo phồng Forte Series Texture Powder',1,10,55,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2022/08/powder_WB_REF_2048x2048-copy.jpg' )
+
+insert into Gallery(product_id,thumbnail) 
+values(24,'https://clmensstore.com/wp-content/uploads/2022/08/5k4a7875edit-1657048261648-768x1151.webp')
+
+
+insert into Info(info_id,capacity,fragrance,title,des1,manual)
+values(24,3,N'Cam chanh',N'Bột tạo phồng Forte Series Texture Powder– Phiên bản mới 2023',
+N'Độ giữ nếp:  Medium Hold Hiệu năng: Khô, hút dầu tốt. Tăng độ dày cho tóc, trông tóc dày lên khi sử dụng loại bột này Tăng độ phồng và Kết cấu (Texture) cho tóc cực cao Độ bóng: Matte Finish – Không bóng Dung tích: 3g Làm phồng và dày các sợi tóc của bạn mà không để lại vảy, bột trắng trên tóc. Dễ dàng gội rửa.',
+N'Bước 1: Làm khô tóc kỹ lưỡng từ gốc đến ngọn. Bước 2. Rắc trực tiếp 3-5 lần hỗn hợp bột tạo phồng này lên trực tiếp chân tóc Bước 3: Sử dụng tay uốn cong để tạo ra kiểu tóc và độ phồng Bước 4: Dùng ngón tay, khéo léo kéo các phần tóc để tạo kết cấu (texture)')
+
+
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
+values(N'Dầu dưỡng tóc Forte Series Hydrating Argan Oil',4,10,55,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2020/10/Oil02_2048x2048-e1602075248356-768x768.jpg' )
+
+insert into Gallery(product_id,thumbnail) 
+values(25,'https://clmensstore.com/wp-content/uploads/2020/10/107993151_2138879256246273_731431349211435571_o-1228x1536.jpg')
+
+
+insert into Info(info_id,capacity,fragrance,title,des1,manual)
+values(25,75,N'Cam chanh',N'Dầu dưỡng tóc Forte Series Hydrating Argan Oil – Phiên bản mới 2023',
+N'Dầu dưỡng nhẹ sang trọng giúp dễ dàng thoa và rửa sạch. Giống như một tấm chắn bảo vệ, nó đóng vai trò như một lớp lót hoàn hảo trước khi sử dụng các công cụ tạo nhiệt như máy sấy, máy ép tóc, máy uốn tóc. Dầu dưỡng hằng ngày của Forte Series là sản phẩm chăm sóc sức khỏe tóc cần thiết tuyệt đối cho thói quen chải chuốt hàng ngày của bạn. Thông tin Dầu dưỡng tóc Forte Series Hydrating Argan Oil Bảo vệ tóc khỏi thiệt hại do nhiệt nóng gây ra từ máy sấy Kiểm soát tóc rối, gỡ rối tóc Công thức đặc quyền, giúp tóc bạn không cảm thấy nặng khi sử dụng sản phẩm Apply dễ dàng lên tóc Dễ dàng gội rủa với nước Đủ dùng trong 3-4 tháng liên tục Không có hóa chất độc hại (không chứa sulphat và paraben)',
+N'Bóp một lượng nhỏ cỡ đồng xu vào tay bạn Xoa và thoa đều dầu trong lòng bàn tay của bạn Thoa đều lên tóc khô 45-60 phút sau gội lại với nước')
+
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
+values(N'Dầu gội Forte Series Clarifying Shampoo',2,10,55,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2020/10/Shampoo02_2048x2048-e1602073423305-768x768.jpg' )
+
+insert into Gallery(product_id,thumbnail) 
+values(25,'https://clmensstore.com/wp-content/uploads/2020/10/103427413_2102430663224466_5267254909848677023_o-1228x1536.jpg')
+
+
+insert into Info(info_id,capacity,fragrance,title,des1,manual)
+values(25,75,N'Cam chanh',N'Dầu gội Forte Series Clarifying Shampoo – Phiên bản mới 2023',
+N'Một loại dầu gội được thiết kế để loại bỏ những chất bụi bẩn đầu tích tụ trên tóc của bạn khỏi các sản phẩm tạo kiểu tóc như đất sét, sáp hoặc pomade. (có thể hiểu là xóa Build-up) Được hoàn thiện với các thành phần có nguồn gốc tự nhiên như giấm táo, lô hội, dầu bạc hà và bơ hạt mỡ, Forte Series Clarifying Shampoo nuôi dưỡng da đầu của bạn đồng thời cung cấp khả năng làm sạch sâu từ gốc đến ngọn. Thêm loại dầu gội có khả năng khử độc mạnh này vào thói quen tắm của bạn để trẻ hóa tóc và chuẩn bị cho việc tạo kiểu của bạn.',
+N'Làm ướt tóc (khuyến nghị dùng nước lạnh) Cho một lượng dầu gội vào lòng bàn tay bằng một phần tư Tác động vào chân tóc trong khi xoa bóp da đầu Xả sạch với nước Để có kết quả tốt nhất, hãy sử dụng kèm với Dầu xả dưỡng ẩm dòng Forte Series')
+
+
+
 
 -- Nuoc hoa 
 
@@ -524,12 +579,24 @@ insert into Product(product_name,category_id,brand_id,price ,create_time,update_
 values(N'Acqua Di Giò',3,17,100,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2019/03/ACQUA-DI-GIO-%E2%80%93-EDT-1.png' )
 
 insert into Gallery(product_id,thumbnail) 
-values(23,'https://clmensstore.com/wp-content/uploads/2019/03/5ad55d5b-5546-4ed3-997a-10d382b718ad_1.46c9197e274dd9c61487512503cb1a3d-247x247.jpeg')
+values(26,'https://clmensstore.com/wp-content/uploads/2019/03/5ad55d5b-5546-4ed3-997a-10d382b718ad_1.46c9197e274dd9c61487512503cb1a3d-247x247.jpeg')
 
 
 insert into Info(info_id,capacity,fragrance,title,des1,manual)
-values(23,100,N'Quả cam, Quả chanh xanh, Quả quýt hồng, Hoa nhài, Cam Bergamot, Quả chanh vàng, Hoa cam Neroli',N'Acqua Di Giò Pour Homme EDT by Giorgio Armani (giò trắng)  – Phiên bản mới 2023',
+values(26,100,N'Quả cam, Quả chanh xanh, Quả quýt hồng, Hoa nhài, Cam Bergamot, Quả chanh vàng, Hoa cam Neroli',N'Acqua Di Giò Pour Homme EDT by Giorgio Armani (giò trắng)  – Phiên bản mới 2023',
 N'Hương thơm Acqua di Giò được chế tạo ra vào năm 1996 bởi Alberto Morillas. Lấy cảm hứng từ vẻ đẹp của Pantellerie, nơi ông đã trải qua kỳ nghỉ của mình, Armani tạo ra mùi thơm của Aqua di Gio cho cả nam giới lẫn nữ giới. Hương thơm dành cho nam giới là một mùi hương của sự tự do, đầy gió và nước. Hỗn hợp mùi hương này được hình thành từ sự hòa hợp hoàn hảo giữa mùi hương ngòn ngọt mằn mặn của nước biển và ánh nắng ấm áp mơn trớn trên làn da của bạn. Aqua di Gio đầy ánh nắng mặt trời Địa Trung Hải nóng như thiêu đốt. Hương cam quýt đăng đắng với hương thơm của hương thảo quyện với vị mặn của biển và tinh chất hoa nhài trong suốt. Tầng hương cuối thơm mùi gỗ lưu lại mùi xạ hương ấm áp làm cho các mùi hương gay gắt của gia vị trở nên mềm mại hơn.Acqua Di Giò là một kiệt tác và là một tác phẩm kinh điển. Mùi hương này đã đứng vững qua thử thách của thời gian. Và được bán chạy ở khắp mọi nơi. Một mùi hương khiến người người hài lòng và luôn nhận được nhiều lời khen. Đây là một mùi hương rất thơm và tuyệt đối an toàn, khuyến khích dành cho những người làm việc trong văn phòng hoặc sử dụng trong những ngày hè.',
+N'Thời điểm khuyên dùng: Ngày, Đêm, Hạ. Xịt lên các phần như cổ, cổ tay,..(Lưu hương lâu hơn trên quần áo)')
+
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
+values(N'Armani Code Parfum by Giorgio Armani',3,17,100,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2019/03/ACQUA-DI-GIO-%E2%80%93-EDT-1.png' )
+
+insert into Gallery(product_id,thumbnail) 
+values(26,'https://clmensstore.com/wp-content/uploads/2019/03/5ad55d5b-5546-4ed3-997a-10d382b718ad_1.46c9197e274dd9c61487512503cb1a3d-247x247.jpeg')
+
+
+insert into Info(info_id,capacity,fragrance,title,des1,manual)
+values(26,100,N'Đậu tonka, gỗ tuyết tùng',N'Armani Code Parfum by Giorgio Armani  – Phiên bản mới 2023',
+N'Hương thơm Armani Code Parfum mang một mùi hương cực kì mạnh mẽ và tràn đầy sinh lực, Armani Code Parfum là sự tái tạo lại dấu ấn đặc trưng của dòng nước hoa Armani Code Eau de Toilette nổi tiếng. Vẫn giữ được bản sắc gợi cảm của dòng CODE là hương gỗ, ARMANI CODE PARFUM tiếp tục phát huy các tinh hoa của ARMANI CODE. Điều này được thể hiện trong lớp hương đầu thơm mát và lớp hương cuối nam tính mạnh mẽ của nước hoa. Nếu như phiên bản Eau de Toilette thể hiện một mùi hương tràn đầy nam tính, có phần trẻ trung bởi các hương tươi mát mạnh mẽ thì phiên bản Parfum lại mang một trải nghiệm có phần trưởng thành hơn với hương thơm ngọt của hoa diên vỹ khi drydown và sự ấm áp của đậu tonka. Những nốt hương hăng hắc của da thuộc và thuốc lá đã bị loại bỏ, Parfum khi drydown xuống là một phiên bản ngọt ngào, ấm áp của một người đàn ông trưởng thành, có thể đứng ra che chở cho những người mà họ quan tâm.',
 N'Thời điểm khuyên dùng: Ngày, Đêm, Hạ. Xịt lên các phần như cổ, cổ tay,..(Lưu hương lâu hơn trên quần áo)')
 
 

@@ -84,28 +84,26 @@ public class LoginServlet extends HttpServlet {
         
         if ( a !=null ) {
             String remember= request.getParameter("remember"); 
-            if(remember!= null){
-                Cookie c_user = new Cookie("username", user);
-                Cookie c_pass = new Cookie("password", pass);
-                
-                c_user.setMaxAge(3600*24*30);
-                c_pass.setMaxAge(3600*24*30);
-                
-                response.addCookie(c_pass);
-                response.addCookie(c_user);
-            }
             HttpSession session = request.getSession();
             session.setAttribute("account", a);
+            session.setAttribute("username", user);
+            session.setAttribute("password", pass);
+            session.setAttribute("gmail", a.getGmail());
+            session.setAttribute("role_id", a.getRole_id());
+            session.setAttribute("id", a.getUserId());
+            session.setMaxInactiveInterval(30*24*60*60);
+            
             if(a.getRole_id()==1){
-                request.getRequestDispatcher("manageProduct").forward(request, response);
+                response.sendRedirect("manageProduct");
             }else{
-                request.getRequestDispatcher("home").forward(request, response);
+                response.sendRedirect("home");
             }
                 
             
         } else {
             Account ac = new Account();
-            response.sendRedirect("login1.jsp");
+            request.setAttribute("mess", "Sai tên đăng nhập hoạc mật khẩu. Vui lòng đăng nhập lại!");
+            request.getRequestDispatcher("login1.jsp").forward(request, response);
         }
 
     }

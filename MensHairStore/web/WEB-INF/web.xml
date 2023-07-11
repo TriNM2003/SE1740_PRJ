@@ -56,6 +56,22 @@
         <servlet-name>addInfo</servlet-name>
         <servlet-class>controller.addInfo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>orderDetail</servlet-name>
+        <servlet-class>controller.orderDetail</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>logout</servlet-name>
+        <servlet-class>controller.logout</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>profile</servlet-name>
+        <servlet-class>controller.profile</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Order</servlet-name>
+        <servlet-class>controller.Order</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -111,6 +127,22 @@
     <servlet-mapping>
         <servlet-name>addInfo</servlet-name>
         <url-pattern>/addInfo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>orderDetail</servlet-name>
+        <url-pattern>/orderDetail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>profile</servlet-name>
+        <url-pattern>/profile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Order</servlet-name>
+        <url-pattern>/Order</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

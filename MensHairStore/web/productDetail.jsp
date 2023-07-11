@@ -95,49 +95,51 @@
                                     <div class="col-md-5">
                                         <div class="product-entry">
                                             <div class="product-img" style="background-image: url(${detail.thumbnail});">
-                                                <p class="tag"><span class="sale">New</span></p>
-                                            </div>
-                                            <div class="thumb-nail">
-                                                <c:forEach items="${gall}" var="o">
-                                                    <a  class="thumb-img" style="background-image: url(${o.thumbnail});"></a>
-                                                </c:forEach>
-                                            </div>
+                                            <p class="tag"><span class="sale">New</span></p>
+                                        </div>
+                                        <div class="thumb-nail">
+                                            <c:forEach items="${gall}" var="o">
+                                                <a  class="thumb-img" style="background-image: url(${o.thumbnail});"></a>
+                                            </c:forEach>
                                         </div>
                                     </div>
-                                    <div class="col-md-7">
-                                        <div class="desc">
+                                </div>
+                                <div class="col-md-7">
+
+                                    <div class="desc">
+                                        
                                             <h2>${detail.product_name}</h2>
                                             <p class="price">
                                                 <span>$${detail.price}</span> 
-                                                
+
                                             </p>
                                             <!-- <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p> -->
                                             <div class="color-wrap">
                                                 <p class="color-desc">
                                                     Thương hiệu: <span style="margin-left: 15px; color: orange    ">${brand.brand_name}</span>
-                                                    
+
                                                 </p>
                                             </div>
                                             <div class="color-wrap">
                                                 <p class="color-desc">
                                                     Xuất xứ: <span style="margin-left: 50px; color: orange    ">${brand.brand_address}</span>
-                                                    
+
                                                 </p>
                                             </div>
                                             <div class="color-wrap">
                                                 <p class="color-desc">
                                                     Dung tích: <span style="margin-left: 35px; color: orange    "> ${info.capacity} gram</span>
-                                                    
+
                                                 </p>
                                             </div>
                                             <div class="color-wrap">
                                                 <p class="color-desc">
                                                     Mùi hương: <span style="margin-left: 30px; color: orange    ">${info.fragrance}</span>
-                                                    
+
                                                 </p>
                                             </div>
-                                            
-                                            <div class="row row-pb-sm">
+
+                                            <!--<div class="row row-pb-sm">
                                                 <div class="col-md-4">
                                                     <div class="input-group">
                                                         <span class="input-group-btn">
@@ -145,7 +147,7 @@
                                                                 <i class="icon-minus2"></i>
                                                             </button>
                                                         </span>
-                                                        <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="100">
+                                                        <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" >
                                                         <span class="input-group-btn">
                                                             <button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
                                                                 <i class="icon-plus2"></i>
@@ -153,102 +155,103 @@
                                                         </span>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <p><a href="cart.html" class="btn btn-primary btn-addtocart"><i class="icon-shopping-cart"></i> Thêm vào giỏ hàng</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-10 col-md-offset-1">
-                            <div class="row">
-                                <div class="col-md-12 tabulation">
-                                    <ul class="nav nav-tabs">
-                                        <li class="active"><a data-toggle="tab" href="#description">Mô tả</a></li>
-                                        <li><a data-toggle="tab" href="#manufacturer">Cách sử dụng</a></li>
-                                        <li><a data-toggle="tab" href="#review">Nhận xét </a></li>
-                                    </ul>
-                                    <div class="tab-content">
-                                        <div id="description" class="tab-pane fade in active">
-                                            <p>${info.title}</p>
-                                            <p>${info.des1}</p>
-                                        </div>
-                                        <div id="manufacturer" class="tab-pane fade">
-                                            <p>${info.manual}</p>
-                                        </div>
-                                        <div id="review" class="tab-pane fade">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <h3>23 Reviews</h3>
-                                                    
-                                                    <div class="review">
-                                                        <div class="user-img" style="background-image: url(images/person1.jpg)"></div>
-                                                        <div class="desc">
-                                                            <h4>
-                                                                <span class="text-left">Jacob Webb</span>
-                                                                <span class="text-right">14 March 2018</span>
-                                                            </h4>
-                                                            <p class="star">
-                                                                <span>
-                                                                    <i class="icon-star-full"></i>
-                                                                    <i class="icon-star-full"></i>
-                                                                    <i class="icon-star-full"></i>
-                                                                    <i class="icon-star-half"></i>
-                                                                    <i class="icon-star-empty"></i>
-                                                                </span>
-                                                                <span class="text-right"><a href="#" class="reply"><i class="icon-reply"></i></a></span>
-                                                            </p>
-                                                            <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrov</p>
-                                                        </div>
-                                                    </div>
-                                                    
-                                                </div>
-                                                
-                                            </div>
-                                        </div>
+                                            </div>-->
+                                                    <input type="submit" href="orderDetail?p_id=${detail.product_id}" class="btn btn-primary btn-addtocart " value="Thêm vào giỏ hàng">
+                                        
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="row">
+                            <div class="col-md-12 tabulation">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a data-toggle="tab" href="#description">Mô tả</a></li>
+                                    <li><a data-toggle="tab" href="#manufacturer">Cách sử dụng</a></li>
+                                    <li><a data-toggle="tab" href="#review">Nhận xét </a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div id="description" class="tab-pane fade in active">
+                                        <p>${info.title}</p>
+                                        <p>${info.des1}</p>
+                                    </div>
+                                    <div id="manufacturer" class="tab-pane fade">
+                                        <p>${info.manual}</p>
+                                    </div>
+                                    <div id="review" class="tab-pane fade">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h3>23 Reviews</h3>
 
-            <div class="colorlib-shop">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 col-md-offset-3 text-center colorlib-heading">
-                            <h2><span>Sản phẩm tương tự</span></h2>
-                            
-                        </div>
-                    </div>
-                    <div class="row">
-                        <c:forEach items="${product}" var="o">
-                                    <div class="col-md-4 text-center">
-                                    <div class="product-entry">
-                                        <div class="product-img" style="background-image: url(${o.thumbnail});">
-                                            <p class="tag"><span class="new">New</span></p>
-                                            <div class="cart">
-                                                <p>
-                                                    <span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
-                                                    <span><a href="detail?p_id=${o.product_id}"><i class="icon-eye"></i></a></span> 
-                                                    <span><a href="#"><i class="icon-heart3"></i></a></span>
-                                                    <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
-                                                </p>
+                                                <div class="review">
+                                                    <div class="user-img" style="background-image: url(images/person1.jpg)"></div>
+                                                    <div class="desc">
+                                                        <h4>
+                                                            <span class="text-left">Jacob Webb</span>
+                                                            <span class="text-right">14 March 2018</span>
+                                                        </h4>
+                                                        <p class="star">
+                                                            <span>
+                                                                <i class="icon-star-full"></i>
+                                                                <i class="icon-star-full"></i>
+                                                                <i class="icon-star-full"></i>
+                                                                <i class="icon-star-half"></i>
+                                                                <i class="icon-star-empty"></i>
+                                                            </span>
+                                                            <span class="text-right"><a href="#" class="reply"><i class="icon-reply"></i></a></span>
+                                                        </p>
+                                                        <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrov</p>
+                                                    </div>
+                                                </div>
+
                                             </div>
-                                        </div>
-                                        <div class="desc">
-                                            <h3><a href="detail?p_id=${o.product_id}">${o.product_name}</a></h3>
-                                            <p class="price"><span>$${o.price}</span></p>
+
                                         </div>
                                     </div>
                                 </div>
-                                </c:forEach>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="colorlib-shop">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3 text-center colorlib-heading">
+                        <h2><span>Sản phẩm tương tự</span></h2>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <c:forEach items="${product}" var="o">
+                        <div class="col-md-4 text-center">
+                            <div class="product-entry">
+                                <div class="product-img" style="background-image: url(${o.thumbnail});">
+                                    <p class="tag"><span class="new">New</span></p>
+                                    <div class="cart">
+                                        <p>
+                                            <span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
+                                            <span><a href="detail?p_id=${o.product_id}"><i class="icon-eye"></i></a></span> 
+                                            <span><a href="#"><i class="icon-heart3"></i></a></span>
+                                            <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="desc">
+                                    <h3><a href="detail?p_id=${o.product_id}">${o.product_name}</a></h3>
+                                    <p class="price"><span>$${o.price}</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </c:forEach>
+                </div>
+            </div>
+        </div>
 
         <jsp:include page="footer/footer.jsp"></jsp:include>
 

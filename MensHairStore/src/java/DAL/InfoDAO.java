@@ -56,6 +56,18 @@ public class InfoDAO extends BaseDAO{
             Logger.getLogger(InfoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public void deleteInfo(String p_id) {
+        try {
+            String sql = "delete from Info where info_id=?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            
+            statement.setString(1, p_id );
+            
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     public static void main(String[] args) {
         InfoDAO dao = new InfoDAO();
 //        ArrayList<Info> list= dao.getInfo("1");

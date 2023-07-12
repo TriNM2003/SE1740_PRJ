@@ -40,7 +40,10 @@ public class Buy extends HttpServlet {
         ArrayList<Product>  list= dp.AllProduct();
         HttpSession session = request.getSession();
         Account acc =(Account) session.getAttribute("account");
-        String user_id= Integer.toString(acc.getUser_id());
+        String user_id="";
+        if(acc !=null){
+            user_id= Integer.toString(acc.getUser_id());
+        }
         Cookie[] arr=request.getCookies();
         String txt="";
         if(arr!= null){
@@ -52,12 +55,12 @@ public class Buy extends HttpServlet {
                 }
             }
         }
-        int num = 1;
+        String num = request.getParameter("num");
         String id=request.getParameter("p_id");
         if(txt.isEmpty()){
-            txt= id+":"+ Integer.toString(num);
+            txt= id+":"+ num;
         }else{
-            txt = txt+","+id+":"+num;
+            txt = txt+"-"+id+":"+num;
         }
         Cookie c= new Cookie("cart"+user_id, txt);
         c.setMaxAge(30*24*60*60);

@@ -105,7 +105,7 @@
                                     </li>
                                     </c:if>
                                     </c:if> 
-                                    <li><a href="cart.jsp"><i class="icon-shopping-cart2"></i> Giỏ hàng</a></li>
+                                    <li><a href="CartControll"><i class="icon-shopping-cart2"></i> Giỏ hàng</a></li>
                                     <c:if test="${sessionScope.account == null}">
                                         <li><a href="login1.jsp"><i class="icon-user2"></i>Đăng nhập</a>/<a href="signup1.jsp">Đăng ký</a></li>
                                     </c:if>   

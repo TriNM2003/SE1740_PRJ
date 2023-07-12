@@ -55,8 +55,13 @@ public class Cart {
     public float getTotalMoney() {
         float t = 0;
         for (Item i : items) {
-            t += (i.getQuantity() * i.getPrice());
+            if(i.product.getDiscount()!=0){
+                t += (i.getQuantity() * i.getPrice() *i.product.getDiscount());
+            }else{
+                t += (i.getQuantity() * i.getPrice());
+            }
         }
+        
         return t;
     }
 
@@ -74,7 +79,7 @@ public class Cart {
         items = new ArrayList<>();
         try {
             if (txt != null && txt.length() != 0) {
-                String[] s = txt.split(",");
+                String[] s = txt.split("-");
                 for (String i : s) {
                     String[] n = i.split(":");
                     int id = Integer.parseInt(n[0]);

@@ -57,20 +57,12 @@
         <servlet-class>controller.addInfo</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>orderDetail</servlet-name>
-        <servlet-class>controller.orderDetail</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>logout</servlet-name>
         <servlet-class>controller.logout</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>profile</servlet-name>
         <servlet-class>controller.profile</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>Order</servlet-name>
-        <servlet-class>controller.Order</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>manageAccount</servlet-name>
@@ -81,8 +73,8 @@
         <servlet-class>controller.setadmin</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Cart</servlet-name>
-        <servlet-class>controller.Cart</servlet-class>
+        <servlet-name>CartControll</servlet-name>
+        <servlet-class>controller.CartControll</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Buy</servlet-name>
@@ -153,20 +145,12 @@
         <url-pattern>/addInfo</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>orderDetail</servlet-name>
-        <url-pattern>/orderDetail</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>logout</servlet-name>
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>profile</servlet-name>
         <url-pattern>/profile</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Order</servlet-name>
-        <url-pattern>/Order</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>manageAccount</servlet-name>
@@ -177,8 +161,8 @@
         <url-pattern>/setadmin</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Cart</servlet-name>
-        <url-pattern>/Cart</url-pattern>
+        <servlet-name>CartControll</servlet-name>
+        <url-pattern>/CartControll</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Buy</servlet-name>

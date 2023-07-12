@@ -100,7 +100,7 @@
                                             </c:if>
                                             <div class="cart">
                                                 <p>
-                                                    <span class="addtocart"><a href="Buy?p_id=${o.product_id}"><i class="icon-shopping-cart"></i></a></span> 
+                                                    <span class="addtocart"><a href="Buy?p_id=${o.product_id}&num=1"><i class="icon-shopping-cart"></i></a></span> 
                                                     <span><a href="detail?p_id=${o.product_id}"><i class="icon-eye"></i></a></span> 
                                                     <span><a href="#"><i class="icon-heart3"></i></a></span>
                                                     <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>

@@ -5,21 +5,28 @@
 
 package controller;
 
+import DAL.CategoryDAO;
 import DAL.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.OrderDetails;
+import jakarta.servlet.http.HttpSession;
+import java.util.ArrayList;
+import model.Account;
+import model.Cart;
+import model.Item;
+
 import model.Product;
 
 /**
  *
  * @author DELL
  */
-public class orderDetail extends HttpServlet {
+public class CartControll extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -31,14 +38,28 @@ public class orderDetail extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String p_id =request.getParameter("p_id");
         ProductDAO pd = new ProductDAO();
-        Product p= new Product();
-        p=pd.GetProductById(p_id);
-        int quantity = 1;
-        float subtotal = p.getPrice()*quantity;
-        OrderDetails od=new OrderDetails();
+        HttpSession session = request.getSession();
+        Account acc =(Account) session.getAttribute("account");
+        String user_id="";
+        if(acc!=null){
+            user_id= Integer.toString(acc.getUser_id());
+        }
+        Cookie[] arr=request.getCookies();
         
+        String txt="";
+        if(arr!= null){
+            for(Cookie o: arr){
+                if(o.getName().equals("cart"+user_id)){
+                        txt+=o.getValue();
+                }
+            }
+        }
+        ArrayList<Product> list = pd.AllProduct();
+        
+        Cart cart = new Cart(txt,list);
+        request.setAttribute("cart", cart);
+        request.getRequestDispatcher("cart.jsp").forward(request, response);
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

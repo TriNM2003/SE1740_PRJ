@@ -62,28 +62,28 @@ public class shop extends HttpServlet {
         HttpSession session = request.getSession();
         Account acc =(Account) session.getAttribute("account");
         CategoryDAO cd= new CategoryDAO();
-//        String user_id= Integer.toString(acc.getUser_id());
-//        Cookie[] arr=request.getCookies();
-//        
-//        String txt="";
-//        if(arr!= null){
-//            for(Cookie o: arr){
-//                if(o.getName().equals("cart"+user_id)){
-//                        txt+=o.getValue();
-//                }
-//            }
-//        }
-//        ArrayList<Product> list = pd.AllProduct();
-//        
-//        Cart cart = new Cart(txt,list);
-//        int n;
-//        ArrayList<Item> listItem = cart.getItems();
-//        if(listItem != null){
-//            n= listItem.size();
-//        }else{
-//            n=0;
-//        }
-//        request.setAttribute("size", n);
+        String user_id= Integer.toString(acc.getUser_id());
+        Cookie[] arr=request.getCookies();
+        
+        String txt="";
+        if(arr!= null){
+            for(Cookie o: arr){
+                if(o.getName().equals("cart")){
+                        txt+=o.getValue();
+                }
+            }
+        }
+        ArrayList<Product> list = pd.AllProduct();
+        
+        Cart cart = new Cart(txt,list);
+        int n;
+        ArrayList<Item> listItem = cart.getItems();
+        if(listItem != null){
+            n= listItem.size();
+        }else{
+            n=0;
+        }
+        request.setAttribute("size", n);
         
         ArrayList<Category> cate= cd.getCategory();
         request.setAttribute("cate",cate);

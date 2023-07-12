@@ -61,15 +61,7 @@
         <!--[if lt IE 9]>
         <script src="js/respond.min.js"></script>
         <![endif]-->
-        <script type="text/javascript">
-            function confirmDelete(id) {
-                if (confirm("Xóa sản phẩm id=" + id + "?")) {
-                    
-                  window.location= "deleteOrderDetail?id=" + id;
-                        
-                }
-            }
-        </script>
+        
     </head>
     <body>
 
@@ -125,36 +117,36 @@
                                                 <th>No</th>
                                                 <th></th>
                                                 <th>Tên</th>                                               
-                                                <th>Số lượng</th>                                                
+                                                <th>Số lượng</th>    
+                                                <th>Giảm giá</th>
                                                 <th>Giá</th>
-                                                <th>Tổng(sản phẩm)</th>
-                                                
+                                                <th>Tổng (sản phẩm)</th>                  
                                                 <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        <c:set var="o " value="${requestScope.cart}"/>
+                                        <c:set var="o" value="${requestScope.cart}"/>
                                         <c:set var="tt" value="0"/>
-                                        <c:forEach items="o.items" var="i">
+                                        <c:forEach items="${o.items}" var="i">
                                             <c:set var="tt" value="${tt+1}"/>
                                         <tr>
                                             <td>${tt}</td>
-                                            <td>${i.product.thumbnail}</td>
+                                            <td style="width: 100px"><img src="${i.product.thumbnail} " style="width: 40%"></td>
                                             <td>${i.product.product_name}</td>
                                             
                                             <td>
-                                                <button><a href="process?num=-1&id=${i.product.product_id}">-</a></button>
+                                                <button><a href="process?num">-</a></button>
                                                 ${i.quantity}
-                                                <button><a href="process?num=+1&id=${i.product.product_id}">+</a></button>
+                                                <button><a href="#">+</a></button>
                                             </td>
-                                            
-                                            <td>${i.product.price}</td>
-                                            <td>$${i.product.price*i.quantity}</td>
+                                            <td>${i.product.discount}</td>
+                                            <td>$${i.product.price}</td>
+                                            <td>$${i.product.price*i.quantity*i.product.discount}</td>
                                             
                                             
                                             <td>
 
-                                                <a href="#" onclick="confirmDelete(${o.product_id})" class="delete" data-toggle="modal"><i class="icon-bin" data-toggle="tooltip" title="Xóa sản phẩm"></i></a>
+                                                <a href="#"  class="delete" data-toggle="modal"><i class="icon-delete" data-toggle="tooltip" title="Xóa sản phẩm"></i></a>
                                             </td>
                                         </tr>
                                     </c:forEach> 
@@ -167,30 +159,31 @@
                             <div class="col-md-10 col-md-offset-1">
                                 <div class="total-wrap">
                                     <div class="row">
-                                        <div class="col-md-8">
+                                        <div class="col-md-5 col-md-push-1 text-center">
+                                            <div class="total">
+                                                <!--<div class="sub">
+                                                    <p><span>Subtotal:</span> <span>$</span></p>
+                                                    <p><span>Delivery:</span> <span>$0.00</span></p>
+                                                    <p><span>Discount:</span> <span>$45.00</span></p>
+                                                </div>-->
+                                                <div class="grand-total">
+                                                    <p><span><strong>Tổng thanh toán:</strong></span> <span>$${requestScope.cart.getTotalMoney()}</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
                                             <form action="#">
                                                 <div class="row form-group">
                                                     <div class="col-md-9">
-                                                        <input type="text" name="quantity" class="form-control input-number" placeholder="Your Coupon Number...">
+                                                        <!--<input type="text" name="quantity" class="form-control input-number" placeholder="Your Coupon Number...">-->
                                                     </div>
                                                     <div class="col-md-3">
-                                                        <input type="submit" value="Apply Coupon" class="btn btn-primary">
+                                                        <input type="submit" value="Th  anh toán" class="btn btn-primary">
                                                     </div>
                                                 </div>
                                             </form>
                                         </div>
-                                        <div class="col-md-3 col-md-push-1 text-center">
-                                            <div class="total">
-                                                <div class="sub">
-                                                    <p><span>Subtotal:</span> <span>$200.00</span></p>
-                                                    <p><span>Delivery:</span> <span>$0.00</span></p>
-                                                    <p><span>Discount:</span> <span>$45.00</span></p>
-                                                </div>
-                                                <div class="grand-total">
-                                                    <p><span><strong>Total:</strong></span> <span>$450.00</span></p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>

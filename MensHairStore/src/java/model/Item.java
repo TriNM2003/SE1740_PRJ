@@ -9,7 +9,7 @@ package model;
  * @author DELL
  */
 public class Item {
-    private Product product;
+    Product product;
     private int quantity;
     private float price;
 

@@ -108,7 +108,12 @@
                                     <div class="form-group">
                                         <div class="col-md-12">
                                             <label for="fname">Tên đầy đủ</label>
-                                            <input name="fullname" type="text" id="name" class="form-control" placeholder="Nhập họ và tên đầy đủ..."required>
+                                            <c:if test="${us == null}">
+                                                <input name="fullname" type="text" id="name" class="form-control" placeholder="Nhập họ và tên đầy đủ..."required>
+                                            </c:if>
+                                            <c:if test="${us != null}">
+                                                <input name="fullname" type="text" id="name" class="form-control" value="${us.fullname}" readonly>
+                                            </c:if>
                                         </div>
 
                                     </div>    
@@ -118,15 +123,25 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="companyname"> Địa chỉ </label>
-                                            <input name="address"type="text" id="towncity" class="form-control" placeholder="Nhập địa chỉ cụ thể..."required>
-                                        </div>
+                                            <c:if test="${us == null}">
+                                                <input name="address"type="text" id="towncity" class="form-control" placeholder="Nhập địa chỉ cụ thể..."required>
+                                            </c:if>
+                                            <c:if test="${us != null}">
+                                                <input name="address"type="text" id="towncity" class="form-control" value="${us.address}" readonly>
+                                            </c:if>
+                                            </div>
                                     </div>
 
                                     <div class="form-group">
                                         <div class="col-md-12">
                                             <label for="stateprovince">Số điện thoại</label>
-                                            <input name="phone_number"type="text" id="fname" class="form-control" placeholder="Nhập số điện thoại.."required>
-                                        </div>
+                                            <c:if test="${us == null}">
+                                                <input name="phone_number"type="text" id="fname" class="form-control" placeholder="Nhập số điện thoại.."required>
+                                            </c:if>
+                                            <c:if test="${us != null}">
+                                                <input name="phone_number"type="text" id="fname" class="form-control" value="${us.phone_number}" readonly>
+                                            </c:if>
+                                            </div>
 
                                     </div>
                                     <div class="form-group">
@@ -143,7 +158,10 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <input type="submit" class="btn btn-primary" value="Cập nhật">
+                                        <c:if test="${us == null}">
+                                            <input type="submit" class="btn btn-primary" value="Cập nhật">
+                                        </c:if>
+                                        
                                     </div>
                                 </div>
                                 <c:if test="${mess !=null}">

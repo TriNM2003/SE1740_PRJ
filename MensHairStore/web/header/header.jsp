@@ -114,7 +114,7 @@
                                             <a href="#"><i class="icon-user2"></i>${sessionScope.username}</a>
                                             <ul class="dropdown">
                                                
-                                                <li><a href="profile.jsp"><i class="icon-profile-male" ></i>Profile</a></li>
+                                                <li><a href="profile?u_id=${sessionScope.id}"><i class="icon-profile-male" ></i>Profile</a></li>
                                                 <li><a href="logout"><i class="icon-log-out" ></i>Đăng xuất</a></li>
                                                 
 

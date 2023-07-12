@@ -78,7 +78,9 @@
                 <div class="login">
                     <div class="container">
                         <h1 style="margin:0 ; padding-top: 20px">Đăng ký</h1>
-
+                        <c:if test="${mess !=null}">
+                                    <p style="color: red; font-size: 18px;font-weight: 700; margin: 0">${mess}</p>
+                        </c:if>
                         <div class="login-form">
                             <form action="<c:url value='/SignupServlet'/>" method="POST" >
                             <input name="username" type="username" placeholder="Tên tài khoản "required>

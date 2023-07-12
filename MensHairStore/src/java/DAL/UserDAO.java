@@ -48,11 +48,11 @@ public class UserDAO extends BaseDAO {
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
                 p = new User(user_id,
-                        rs.getString("2"),
-                        rs.getString("3"),
-                        rs.getString("4"),
-                        rs.getDate("5"),
-                        rs.getDate("6"));
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getDate(5),
+                        rs.getDate(6));
                 
             }
         } catch (SQLException ex) {
@@ -128,16 +128,22 @@ public class UserDAO extends BaseDAO {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+//    public static void main(String[] args) {
+//        UserDAO dao = new UserDAO();
+//        
+//        ArrayList<User> list= dao.GetUserByPaging(0);
+//       
+//        for(User o: list){
+//            System.out.println(o);
+//        }
+//////        User p = dao.GetUserById("4");
+//////        System.out.println(p);
+////          System.out.println(dao.TotalUser());  
+//    }
     public static void main(String[] args) {
-        UserDAO dao = new UserDAO();
-        
-        ArrayList<User> list= dao.GetUserByPaging(0);
-       
-        for(User o: list){
-            System.out.println(o);
-        }
-////        User p = dao.GetUserById("4");
-////        System.out.println(p);
-//          System.out.println(dao.TotalUser());  
+        int u_id= Integer.parseInt("2");
+        UserDAO ud = new UserDAO();
+        User us =ud.GetUserById(u_id);
+        System.out.println(us);
     }
 }

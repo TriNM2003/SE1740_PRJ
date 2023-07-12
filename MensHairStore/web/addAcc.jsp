@@ -81,6 +81,9 @@
                                         <div class="slider-text-inner text-center">
                                             <h1>Thêm tài khoản</h1>                                    
                                         </div>
+                                        <c:if test="${mess !=null}">
+                                            <p style="color: red; font-size: 18px;font-weight: 700; margin: 0">${mess}</p>
+                                        </c:if>
                                     </div>
                                 </div>
                             </div>

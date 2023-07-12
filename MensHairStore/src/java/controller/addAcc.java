@@ -6,22 +6,19 @@
 package controller;
 
 import DAL.AccountDAO;
-import DAL.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import model.Account;
-import model.User;
 
 /**
  *
  * @author DELL
  */
-public class profile extends HttpServlet {
+public class addAcc extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -32,24 +29,32 @@ public class profile extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        HttpSession session=request.getSession();
         
-        int u_id= (Integer)session.getAttribute("id");
-        UserDAO ud = new UserDAO();
-        User us =ud.GetUserById(u_id);
-        request.setAttribute("us", us);
-        request.getRequestDispatcher("profile.jsp").forward(request, response);
-        
-        
-        
-        
+        response.setContentType("text/html;charset=UTF-8");
+        try ( PrintWriter out = response.getWriter()) {
+            AccountDAO acd = new AccountDAO();
+            Account a = new Account();
+            String user = request.getParameter("username");
+            String pass = request.getParameter("password");
+            String gmail= request.getParameter("gmail");
+            String re_pass = request.getParameter("re_password");
+
+            int role_id = 2;
+            if (!pass.equals(re_pass)) {
+                Account ac=new Account(); 
+                request.setAttribute("mess", "Mật khẩu không trùng khớp!");
+                request.getRequestDispatcher("addAcc.jsp").forward(request, response);
+                
+            }else{
+                a.setUsername(user);
+                a.setPassword(pass);
+                a.setGmail(gmail);
+                a.setRole_id(role_id);
+                acd.insertAccount(a);
+                response.sendRedirect("manageAccount");
+            }
+        }
     } 
-    public static void main(String[] args) {
-        int u_id= Integer.parseInt("2");
-        UserDAO ud = new UserDAO();
-        User us =ud.GetUserById(u_id);
-        System.out.println(us);
-    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
@@ -75,23 +80,7 @@ public class profile extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        String fullname=request.getParameter("fullname");
-        String address=request.getParameter("address");
-        String phone_number=request.getParameter("phone_number");
-        HttpSession session= request.getSession();
-        int id= (Integer) session.getAttribute("id");
-        
-        UserDAO ud= new UserDAO();
-        User us= new User();
-        us.setUser_id(id);
-        us.setFullname(fullname);
-        us.setAddress(address);
-        us.setPhone_number(phone_number);
-        ud.insertUser(us);
-        request.setAttribute("mess", "Cập nhật thông tin thành công!");
-        request.getRequestDispatcher("profile.jsp").forward(request, response);
-        
+        processRequest(request, response);
     }
 
     /** 

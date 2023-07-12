@@ -92,21 +92,15 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            <form action="addInfo" method="post" class="colorlib-form">
+                            <form action="addAcc" method="post" class="colorlib-form">
                                 
                                 <div class="row">
-                                    <div class="form-group">
-                                        <div class="col-md-12">
-                                            <label for="fname">ID</label>
-                                            <input name="product_id" type="text" id="name" class="form-control"  value="${detail.product_id}" readonly>
-                                        </div>
-
-                                    </div>
+                                    
                                     
                                     <div class="form-group">
                                         <div class="col-md-12">
-                                            <label for="fname">Tên sản phẩm</label>
-                                            <input name="product_name" type="text" id="name" class="form-control" value="${detail.product_name} "readonly>
+                                            <label for="fname">Tên tài khoản</label>
+                                            <input name="username" type="text" id="name" class="form-control" placeholder="Nhập tên tài khoản..." required>
                                         </div>
 
                                     </div>
@@ -115,44 +109,31 @@
 
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="companyname"> Dung tích </label>
-                                            <input name="capacity"type="text" id="towncity" class="form-control" placeholder="Nhập dung tích..." required">
+                                            <label for="companyname"> Địa chỉ E-mail </label>
+                                            <input name="gmail"type="text" id="towncity" class="form-control" placeholder="Nhập địa chỉ e-mail..." required >
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-md-12">
-                                            <label for="stateprovince">Mùi hương</label>
-                                            <input name="fragrance"type="text" id="fname" class="form-control" placeholder="Nhập mùi hương.." required">
+                                            <label for="stateprovince">Mật khẩu</label>
+                                            <input name="password"type="text" id="fname" class="form-control" placeholder="Nhập mật khẩu.." required">
                                         </div>
 
                                     </div>
                                     <div class="form-group">
                                         <div class="col-md-12">
-                                            <label for="stateprovince">Tiêu đề</label>
-                                            <input name="title"type="text" id="fname" class="form-control" placeholder="Nhập tiêu đề..." required">
+                                            <label for="stateprovince">Xác nhận mật khẩu</label>
+                                            <input name="re_password"type="text" id="fname" class="form-control" placeholder="Nhập lại mật khẩu..." required">
                                         </div>
 
                                     </div>
-                                    <div class="form-group">
-                                        <div class="col-md-12">
-                                            <label for="stateprovince">Mô tả</label>
-                                            <input name="des1"type="text" id="fname" class="form-control" placeholder="Nhập mô tả ..."required">
-                                        </div>
-
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-12">
-                                            <label for="stateprovince">Hướng dẫn sử dụng</label>
-                                            <input name="manual"type="text" id="fname" class="form-control" placeholder="Nhập hướng dẫn sử dụng ..."required">
-                                        </div>
-
-                                    </div>    
+                                        
                                     
 
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <input type="submit" class="btn btn-primary" value="Thêm thông tin">
+                                        <input type="submit" class="btn btn-primary" value="Thêm tài khoản">
                                     </div>
                                 </div>
                             </form>

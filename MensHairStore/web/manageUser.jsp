@@ -108,7 +108,7 @@
                                 <h2>Quản lý <b>Tài khoản</b></h2>
                             </div>
                             <div class="col-sm-6">
-                                <a href="#" class="btn btn-success" ><i class="icon-plus"></i> <span>Thêm tài khoản</span></a>
+                                <a href="addAcc.jsp" class="btn btn-success" ><i class="icon-plus"></i> <span>Thêm tài khoản</span></a>
                                 </div>
                         </div>
                     </div>

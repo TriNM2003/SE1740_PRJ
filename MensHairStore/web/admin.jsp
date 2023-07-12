@@ -119,6 +119,8 @@
                                 <th>Loại</th>
                                 <th>Thương hiệu</th>
                                 <th>Giá</th>
+                                <th>Giảm giá</th>
+                                <th>Tình trạng</th>
                                 <th>Ngày tạo</th>
                                 <th>Cập nhật</th>
                                 <th>Thêm ảnh</th> 
@@ -135,6 +137,8 @@
                                 <td>${o.category_id}</td>
                                 <td>${o.brand_id}</td>
                                 <td>${o.price}</td>
+                                <td>${o.discount}%</td>
+                                <td>${o.status ==1 ?"Còn hàng":"Hết hàng"}</td>
                                 <td>${o.create_time}</td>
                                 <td>${o.update_time}</td>
                                 <td>

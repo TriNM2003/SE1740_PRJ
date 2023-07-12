@@ -95,7 +95,9 @@
                                     <div class="col-md-5">
                                         <div class="product-entry">
                                             <div class="product-img" style="background-image: url(${detail.thumbnail});">
-                                            <p class="tag"><span class="sale">New</span></p>
+                                            <c:if test="${detail.discount !=0 }">
+                                                <p class="tag"><span class="new">${o.discount}%</span></p>
+                                            </c:if>
                                         </div>
                                         <div class="thumb-nail">
                                             <c:forEach items="${gall}" var="o">

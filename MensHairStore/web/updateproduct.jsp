@@ -135,6 +135,20 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="col-md-12">
+                                            <label for="stateprovince">Giảm giá</label>
+                                            <input name="discount"type="text" id="fname" class="form-control" placeholder="Nhập % giảm giá..." value="${detail.discount}">
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <label for="stateprovince">Tình trạng</label>
+                                            <input name="status"type="text" id="fname" class="form-control" placeholder="Nhập tình trạng kho hàng (1-Còn hàng)(0-Hết hàng)..." value="${detail.status}">
+                                        </div>
+
+                                    </div>    
+                                    <div class="form-group">
+                                        <div class="col-md-12">
                                             <label for="stateprovince">Ảnh</label>
                                             <input name="thumbnail"type="text" id="fname" class="form-control" placeholder="Nhập link ảnh ..." value="${detail.thumbnail}">
                                         </div>

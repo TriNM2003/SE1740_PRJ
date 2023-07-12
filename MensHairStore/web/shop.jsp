@@ -95,7 +95,9 @@
                                     <div class="col-md-4 text-center">
                                     <div class="product-entry">
                                         <div class="product-img" style="background-image: url(${o.thumbnail});">
-                                            <p class="tag"><span class="new">New</span></p>
+                                            <c:if test="${o.discount !=0 }">
+                                                <p class="tag"><span class="new">${o.discount}%</span></p>
+                                            </c:if>
                                             <div class="cart">
                                                 <p>
                                                     <span class="addtocart"><a href="Buy?p_id=${o.product_id}"><i class="icon-shopping-cart"></i></a></span> 

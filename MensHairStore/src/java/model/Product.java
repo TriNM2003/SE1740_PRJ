@@ -17,11 +17,13 @@ public class Product {
     private java.sql.Date create_time;
     private java.sql.Date update_time;
     private String thumbnail;
+    private int discount;
+    private int status;
 
     public Product() {
     }
 
-    public Product(int product_id, String product_name, int category_id, int brand_id, float price, Date create_time, Date update_time, String thumbnail) {
+    public Product(int product_id, String product_name, int category_id, int brand_id, float price, Date create_time, Date update_time, String thumbnail, int discount, int status) {
         this.product_id = product_id;
         this.product_name = product_name;
         this.category_id = category_id;
@@ -30,8 +32,29 @@ public class Product {
         this.create_time = create_time;
         this.update_time = update_time;
         this.thumbnail = thumbnail;
+        this.discount = discount;
+        this.status = status;
     }
 
+    public int getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(int discount) {
+        this.discount = discount;
+    }
+
+
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    
     
 
     public int getProduct_id() {
@@ -100,8 +123,12 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" + "product_id=" + product_id + ", product_name=" + product_name + ", category_id=" + category_id + ", brand_id=" + brand_id + ", price=" + price + ", create_time=" + create_time + ", update_time=" + update_time + ", thumbnail=" + thumbnail + '}';
+        return "Product{" + "product_id=" + product_id + ", product_name=" + product_name + ", category_id=" + category_id + ", brand_id=" + brand_id + ", price=" + price + ", create_time=" + create_time + ", update_time=" + update_time + ", thumbnail=" + thumbnail + ", discount=" + discount + ", status=" + status + '}';
     }
+
+  
+
+   
     
     
     

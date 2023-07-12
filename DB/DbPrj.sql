@@ -53,7 +53,9 @@ create table [Product](
 	[price] float ,
 	[create_time] DATETIME ,
 	[update_time] DATETIME ,
-	[thumbnail] varchar(500) 
+	[thumbnail] varchar(500),
+	discount int,
+	[status] int,
 	FOREIGN KEY (category_id) REFERENCES [Category](category_id) ,
 	FOREIGN KEY (brand_id) REFERENCES [Brand](brand_id) 
 	 
@@ -192,8 +194,8 @@ select * from brand
 
 --product
 --1 quicksand
-insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
-values(N'Hanz de Fuko Quicksand',1,1,55,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2017/04/quicksand.jpg' )
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,discount,[status],thumbnail )
+values(N'Hanz de Fuko Quicksand',1,1,55,GETDATE(),GETDATE(),5,1,'https://clmensstore.com/wp-content/uploads/2017/04/quicksand.jpg' )
 
 insert into Gallery(product_id,thumbnail) 
 values(1,'https://clmensstore.com/wp-content/uploads/2017/04/hanz-de-fuko-quicksand.png')
@@ -209,8 +211,8 @@ N'Bước 1: Gội sạch tóc, dùng khăn lau tóc (để tóc ẩm)
 Bước 2: Dùng 1/3 đốt tay lượng sáp để Pre-styling hoặc dùng các sản phẩm Pre-styling tại HsMen. Apply lên tóc và sấy + tạo kiểu với lược phồng 
 Bước 3: Sau khi sấy xong, Dùng 1/2 đốt tay sáp  tạo kiểu lại. Có thể dùng 1/2 đốt tay hoặc 1/3 đốt tay để tạo kiểu, tùy độ giữ nếp bạn muốn')
 
-insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
-values(N'Hanz de Fuko Claymation',1,1,55,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2017/04/HDF_SHOP_Products_CM_02.jpg' )
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,discount,[status],thumbnail )
+values(N'Hanz de Fuko Claymation',1,1,55,GETDATE(),GETDATE(),5,1,'https://clmensstore.com/wp-content/uploads/2017/04/HDF_SHOP_Products_CM_02.jpg' )
 
 insert into Gallery(product_id,thumbnail) 
 values(2,'https://clmensstore.com/wp-content/uploads/2017/04/hanz-de-fuko-claymation.png')
@@ -226,8 +228,8 @@ N'Bước 1: Gội sạch tóc, dùng khăn lau tóc (để tóc ẩm)
 Bước 2: Dùng 1/3 đốt tay lượng sáp để Pre-styling hoặc dùng các sản phẩm Pre-styling tại HsMen. Apply lên tóc và sấy + tạo kiểu với lược phồng 
 Bước 3: Sau khi sấy xong, Dùng 1/2 đốt tay sáp  tạo kiểu lại. Có thể dùng 1/2 đốt tay hoặc 1/3 đốt tay để tạo kiểu, tùy độ giữ nếp bạn muốn')
 
-insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
-values(N'Hanz de Fuko Natural Shampoo',2,1,55,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2017/05/hanz-de-fuko-natural-shampoo.jpg' )
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,discount,[status],thumbnail )
+values(N'Hanz de Fuko Natural Shampoo',2,1,55,GETDATE(),GETDATE(),5,1,'https://clmensstore.com/wp-content/uploads/2017/05/hanz-de-fuko-natural-shampoo.jpg' )
 insert into Gallery(product_id,thumbnail) 
 values(3,'https://clmensstore.com/wp-content/uploads/2017/05/hanz-de-fuko-natural-shampoo.jpg')
 insert into Gallery(product_id,thumbnail) 
@@ -241,8 +243,8 @@ Cho một ít dầu gội ra tay, xoa đều lên tóc
 Rửa sạch lại với nước. ')
 
 
-insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
-values(N'Hanz de Fuko Natural Conditioner ',2,1,55,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2017/05/hanz-de-fuko-natural-conditioner-1.jpg' )
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,discount,[status],thumbnail )
+values(N'Hanz de Fuko Natural Conditioner ',2,1,55,GETDATE(),GETDATE(),5,1,'https://clmensstore.com/wp-content/uploads/2017/05/hanz-de-fuko-natural-conditioner-1.jpg' )
 insert into Gallery(product_id,thumbnail) 
 values(4,'https://clmensstore.com/wp-content/uploads/2017/05/hanz-de-fuko-natural-conditioner-1.jpg')
 insert into Gallery(product_id,thumbnail) 
@@ -255,8 +257,8 @@ Cho một ít dầu xả ra tay, xoa đều lên tóc
 Rửa sạch lại với nước. ')
 
 
-insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
-values(N'Hanz de Fuko Dry Shampoo ',2,1,58,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2018/04/dry1.jpg' )
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,discount,[status],thumbnail )
+values(N'Hanz de Fuko Dry Shampoo ',2,1,58,GETDATE(),GETDATE(),5,1,'https://clmensstore.com/wp-content/uploads/2018/04/dry1.jpg' )
 insert into Gallery(product_id,thumbnail) 
 values(5,'https://clmensstore.com/wp-content/uploads/2018/04/dry1.jpg')
 insert into Gallery(product_id,thumbnail) 
@@ -268,8 +270,8 @@ N'Làm ước tóc bằng nước
 Cho một ít dầu gội ra tay, xoa đều lên tóc 
 Rửa sạch lại với nước. ')
 
-insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
-values(N'Hanz de Fuko Modify Pomade',1,1,55,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2017/11/Modify_Pomade1.jpg' )
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,discount,[status],thumbnail )
+values(N'Hanz de Fuko Modify Pomade',1,1,55,GETDATE(),GETDATE(),5,1,'https://clmensstore.com/wp-content/uploads/2017/11/Modify_Pomade1.jpg' )
 
 insert into Gallery(product_id,thumbnail) 
 values(6,'https://clmensstore.com/wp-content/uploads/2017/11/hanz-de-fuko-modify-pomade.png')
@@ -283,8 +285,8 @@ N'Bước 1: Gội sạch tóc, dùng khăn lau tóc (để tóc ẩm)
 Bước 2: Dùng 1/3 đốt tay lượng sáp để Pre-styling hoặc dùng các sản phẩm Pre-styling tại HsMen. Apply lên tóc và sấy + tạo kiểu với lược phồng 
 Bước 3: Sau khi sấy xong, Dùng 1/2 đốt tay sáp  tạo kiểu lại. Có thể dùng 1/2 đốt tay hoặc 1/3 đốt tay để tạo kiểu, tùy độ giữ nếp bạn muốn')
 
-insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
-values(N'Hanz de Fuko Style Lock Hair Spray',1,1,60,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2018/04/gom-hanz.jpg' )
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,discount,[status],thumbnail )
+values(N'Hanz de Fuko Style Lock Hair Spray',1,1,60,GETDATE(),GETDATE(),5,1,'https://clmensstore.com/wp-content/uploads/2018/04/gom-hanz.jpg' )
 
 insert into Gallery(product_id,thumbnail) 
 values(7,'https://clmensstore.com/wp-content/uploads/2018/04/gom-hanz.jpg')
@@ -298,8 +300,8 @@ N'Xịt lên tóc sau khi đã hoàn thiện kiểu tóc
 Giữ khoảng cách 20cm từ chai gôm đến tóc lúc xịt 
 Dùng tay che phần mắt để tránh gôm xịt trúng mắt ')
 
-insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
-values(N'Dầu dưỡng tóc Hanz De Fuko Hair Oil ',4,1,55,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2022/12/hanz-de-fuko-oil.jpg' )
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,discount,[status],thumbnail )
+values(N'Dầu dưỡng tóc Hanz De Fuko Hair Oil ',4,1,55,GETDATE(),GETDATE(),5,1,'https://clmensstore.com/wp-content/uploads/2022/12/hanz-de-fuko-oil.jpg' )
 insert into Gallery(product_id,thumbnail) 
 values(8,'https://clmensstore.com/wp-content/uploads/2022/12/hanz-de-fuko-oil.jpg')
 insert into Gallery(product_id,thumbnail) 
@@ -311,8 +313,8 @@ N'Dầu dưỡng tóc Hanz De Fuko Hair Oil với tỷ lệ hoàn hảo của 4 
 N'Làm sạch tóc   
 Cho một ít dầu ra tay, xoa đều lên tóc ')
 
-insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
-values(N'Hanz De Fuko Two Ton Pomade',1,1,58,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2022/12/two-ton-pomade.jpg' )
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,discount,[status],thumbnail )
+values(N'Hanz De Fuko Two Ton Pomade',1,1,58,GETDATE(),GETDATE(),5,1,'https://clmensstore.com/wp-content/uploads/2022/12/two-ton-pomade.jpg' )
 insert into Gallery(product_id,thumbnail) 
 values(9,'https://clmensstore.com/wp-content/uploads/2022/12/two-ton-pomade.jpg')
 insert into Gallery(product_id,thumbnail) 
@@ -331,8 +333,8 @@ Bước 3: Sau khi sấy xong, Dùng 1/2 đốt tay sáp  tạo kiểu lại. C�
 
 
 --2 Kevin murphy
-insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
-values(N'Kevin Murphy Rough Rider ',1,2,59,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2013/06/123123123123-e1626508675603.jpg' )
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,discount,[status],thumbnail )
+values(N'Kevin Murphy Rough Rider ',1,2,59,GETDATE(),GETDATE(),5,1,'https://clmensstore.com/wp-content/uploads/2013/06/123123123123-e1626508675603.jpg' )
 insert into Gallery(product_id,thumbnail) 
 values(10,'https://clmensstore.com/wp-content/uploads/2013/06/123123123123-e1626508675603.jpg')
 insert into Gallery(product_id,thumbnail) 
@@ -347,8 +349,8 @@ N'Bước 1: Gội sạch tóc, dùng khăn lau tóc (để tóc ẩm)
 Bước 2: Dùng 1/3 đốt tay lượng sáp để Pre-styling hoặc dùng các sản phẩm Pre-styling tại HsMen. Apply lên tóc và sấy + tạo kiểu với lược phồng 
 Bước 3: Sau khi sấy xong, Dùng 1/2 đốt tay sáp  tạo kiểu lại. Có thể dùng 1/2 đốt tay hoặc 1/3 đốt tay để tạo kiểu, tùy độ giữ nếp bạn muốn')
 
-insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
-values(N'Kevin Murphy Night Rider ',1,2,59,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2017/04/312312312-e1626508721413.jpg' )
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,discount,[status],thumbnail )
+values(N'Kevin Murphy Night Rider ',1,2,59,GETDATE(),GETDATE(),5,1,'https://clmensstore.com/wp-content/uploads/2017/04/312312312-e1626508721413.jpg' )
 insert into Gallery(product_id,thumbnail) 
 values(11,'https://clmensstore.com/wp-content/uploads/2017/04/312312312-e1626508721413.jpg')
 insert into Gallery(product_id,thumbnail) 
@@ -363,8 +365,8 @@ N'Bước 1: Gội sạch tóc, dùng khăn lau tóc (để tóc ẩm)
 Bước 2: Dùng 1/3 đốt tay lượng sáp để Pre-styling hoặc dùng các sản phẩm Pre-styling tại HsMen. Apply lên tóc và sấy + tạo kiểu với lược phồng 
 Bước 3: Sau khi sấy xong, Dùng 1/2 đốt tay sáp  tạo kiểu lại. Có thể dùng 1/2 đốt tay hoặc 1/3 đốt tay để tạo kiểu, tùy độ giữ nếp bạn muốn')
 
-insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail)
-values(N'Kevin Murphy Session Spray ',1,2,65,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2017/05/KMU505-_BEDROOMHAIR_AEROSOL_235ML-01.jpg' )
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,discount,[status],thumbnail)
+values(N'Kevin Murphy Session Spray ',1,2,65,GETDATE(),GETDATE(),5,1,'https://clmensstore.com/wp-content/uploads/2017/05/KMU505-_BEDROOMHAIR_AEROSOL_235ML-01.jpg' )
 insert into Gallery(product_id,thumbnail) 
 values(12,'https://clmensstore.com/wp-content/uploads/2017/05/KMU505-_BEDROOMHAIR_AEROSOL_235ML-01.jpg')
 insert into Gallery(product_id,thumbnail) 
@@ -377,8 +379,8 @@ N'Xịt lên tóc sau khi đã hoàn thiện kiểu tóc
 Giữ khoảng cách 20cm từ chai gôm đến tóc lúc xịt 
 Dùng tay che phần mắt để tránh gôm xịt trúng mắt ')
 
-insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
-values(N'Kevin Murphy Touchable ',1,2,65,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2022/10/Thiet-ke-chua-co-ten-1-1.png' )
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,discount,[status],thumbnail )
+values(N'Kevin Murphy Touchable ',1,2,65,GETDATE(),GETDATE(),5,1,'https://clmensstore.com/wp-content/uploads/2022/10/Thiet-ke-chua-co-ten-1-1.png' )
 insert into Gallery(product_id,thumbnail) 
 values(13,'https://clmensstore.com/wp-content/uploads/2022/10/Thiet-ke-chua-co-ten-1-1.png')
 insert into Gallery(product_id,thumbnail) 
@@ -391,8 +393,8 @@ N'Xịt lên tóc sau khi đã hoàn thiện kiểu tóc
 Giữ khoảng cách 20cm từ chai gôm đến tóc lúc xịt 
 Dùng tay che phần mắt để tránh gôm xịt trúng mắt ')
 
-insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
-values(N'Kevin Murphy Bedroom Hair – Flexible Texturising ',1,2,69,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2021/06/KMU505-_BEDROOMHAIR_AEROSOL_235ML-01.jpg' )
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,discount,[status],thumbnail )
+values(N'Kevin Murphy Bedroom Hair – Flexible Texturising ',1,2,69,GETDATE(),GETDATE(),5,1,'https://clmensstore.com/wp-content/uploads/2021/06/KMU505-_BEDROOMHAIR_AEROSOL_235ML-01.jpg' )
 insert into Gallery(product_id,thumbnail) 
 values(14,'https://clmensstore.com/wp-content/uploads/2021/06/KMU505-_BEDROOMHAIR_AEROSOL_235ML-01.jpg')
 insert into Gallery(product_id,thumbnail) 
@@ -405,8 +407,8 @@ N'Làm ước tóc bằng nước
 Cho một ít dầu gội ra tay, xoa đều lên tóc 
 Rửa sạch lại với nước. ')
 
-insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
-values(N'Kevin Murphy Body Builder ',2,2,69,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2022/01/Kevin-Smooth-Again-Wash.png' )
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,discount,[status],thumbnail )
+values(N'Kevin Murphy Body Builder ',2,2,69,GETDATE(),GETDATE(),5,1,'https://clmensstore.com/wp-content/uploads/2022/01/Kevin-Smooth-Again-Wash.png' )
 insert into Gallery(product_id,thumbnail) 
 values(15,'https://clmensstore.com/wp-content/uploads/2022/01/Kevin-Smooth-Again-Wash.png')
 insert into Gallery(product_id,thumbnail) 
@@ -419,8 +421,8 @@ N'Xịt lên tóc sau khi đã hoàn thiện kiểu tóc
 Giữ khoảng cách 20cm từ chai gôm đến tóc lúc xịt 
 Dùng tay che phần mắt để tránh gôm xịt trúng mắt ')
 
-insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
-values(N'Kevin Murphy Balancing.Wash',2,2,75,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2020/08/kevin-murphy-balancing-wash-250ml.jpg' )
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,discount,[status],thumbnail )
+values(N'Kevin Murphy Balancing.Wash',2,2,75,GETDATE(),GETDATE(),5,1,'https://clmensstore.com/wp-content/uploads/2020/08/kevin-murphy-balancing-wash-250ml.jpg' )
 insert into Gallery(product_id,thumbnail) 
 values(16,'https://clmensstore.com/wp-content/uploads/2020/08/kevin-murphy-balancing-wash-250ml.jpg')
 insert into Gallery(product_id,thumbnail) 
@@ -433,8 +435,8 @@ N'Làm ước tóc bằng nước
 Cho một ít dầu gội ra tay, xoa đều lên tóc 
 Rửa sạch lại với nước. ')
 
-insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
-values(N'Kevin Murphy Maxi.Wash',2,2,58,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2020/07/keVIN-mURPHY-MAXI.WASH_.png' )
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,discount,[status],thumbnail )
+values(N'Kevin Murphy Maxi.Wash',2,2,58,GETDATE(),GETDATE(),5,1,'https://clmensstore.com/wp-content/uploads/2020/07/keVIN-mURPHY-MAXI.WASH_.png' )
 insert into Gallery(product_id,thumbnail) 
 values(17,'https://clmensstore.com/wp-content/uploads/2020/07/keVIN-mURPHY-MAXI.WASH_.png')
 insert into Gallery(product_id,thumbnail) 
@@ -447,8 +449,8 @@ N'Làm ước tóc bằng nước
 Cho một ít dầu gội ra tay, xoa đều lên tóc 
 Rửa sạch lại với nước. ')
 
-insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
-values(N'Kevin Murphy Young.Again.Wash',2,2,65,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2020/07/Kevin-Murphy-Young.Again_.Wash-.jpg' )
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,discount,[status],thumbnail )
+values(N'Kevin Murphy Young.Again.Wash',2,2,65,GETDATE(),GETDATE(),5,1,'https://clmensstore.com/wp-content/uploads/2020/07/Kevin-Murphy-Young.Again_.Wash-.jpg' )
 insert into Gallery(product_id,thumbnail) 
 values(18,'https://clmensstore.com/wp-content/uploads/2020/07/Kevin-Murphy-Young.Again_.Wash-.jpg')
 insert into Gallery(product_id,thumbnail) 
@@ -461,8 +463,8 @@ N'Làm ước tóc bằng nước
 Cho một ít dầu gội ra tay, xoa đều lên tóc 
 Rửa sạch lại với nước. ')
 
-insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
-values(N'Kevin Murphy Repair-me.Wash',2,2,58,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2020/07/kvm021_kevinmurphy_repairmewash_1_1560x1960-x85hl.jpg' )
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,discount,[status],thumbnail )
+values(N'Kevin Murphy Repair-me.Wash',2,2,58,GETDATE(),GETDATE(),5,1,'https://clmensstore.com/wp-content/uploads/2020/07/kvm021_kevinmurphy_repairmewash_1_1560x1960-x85hl.jpg' )
 insert into Gallery(product_id,thumbnail) 
 values(19,'https://clmensstore.com/wp-content/uploads/2020/07/kvm021_kevinmurphy_repairmewash_1_1560x1960-x85hl.jpg')
 insert into Gallery(product_id,thumbnail) 
@@ -475,8 +477,8 @@ N'Làm sạch tóc bằng nước và dầu gội
 Cho một ít dầu xả ra tay, xoa đều lên tóc 
 Rửa sạch lại với nước. ')
 
-insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
-values(N'Kevin Murphy Smooth Again.Rinse',2,2,75,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2022/02/Kevin-Smooth-Again-Rinse.png' )
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,discount,[status],thumbnail )
+values(N'Kevin Murphy Smooth Again.Rinse',2,2,75,GETDATE(),GETDATE(),5,1,'https://clmensstore.com/wp-content/uploads/2022/02/Kevin-Smooth-Again-Rinse.png' )
 insert into Gallery(product_id,thumbnail) 
 values(20,'https://clmensstore.com/wp-content/uploads/2022/02/Kevin-Smooth-Again-Rinse.png')
 insert into Gallery(product_id,thumbnail) 
@@ -489,8 +491,8 @@ N'Làm sạch tóc bằng nước và dầu gội
 Cho một ít dầu xả ra tay, xoa đều lên tóc 
 Rửa sạch lại với nước. ')
 
-insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
-values(N'Kevin Murphy Young.Again.Rinse',2,2,75,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2020/07/Kevin-Murphy-Young.Again_.Rinse_.jpg' )
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,discount,[status],thumbnail )
+values(N'Kevin Murphy Young.Again.Rinse',2,2,75,GETDATE(),GETDATE(),5,1,'https://clmensstore.com/wp-content/uploads/2020/07/Kevin-Murphy-Young.Again_.Rinse_.jpg' )
 insert into Gallery(product_id,thumbnail) 
 values(21,'https://clmensstore.com/wp-content/uploads/2020/07/Kevin-Murphy-Young.Again_.Rinse_.jpg')
 insert into Gallery(product_id,thumbnail) 
@@ -504,8 +506,8 @@ Cho một ít dầu xả ra tay, xoa đều lên tóc
 Rửa sạch lại với nước. ')
 
 -- Forte series
-insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
-values(N'Forte Series Molding Paste',1,10,55,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2020/10/Forte-Series-Molding-Paste-768x768.jpg' )
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,discount,[status],thumbnail )
+values(N'Forte Series Molding Paste',1,10,55,GETDATE(),GETDATE(),5,1,'https://clmensstore.com/wp-content/uploads/2020/10/Forte-Series-Molding-Paste-768x768.jpg' )
 
 insert into Gallery(product_id,thumbnail) 
 values(22,'https://clmensstore.com/wp-content/uploads/2020/10/paste_2048x2048.png')
@@ -518,8 +520,8 @@ N'Bước 1: Gội sạch tóc, dùng khăn lau tóc (để tóc ẩm)
 Bước 2: Dùng 1/3 đốt tay lượng sáp để Pre-styling hoặc dùng các sản phẩm Pre-styling tại HsMen. Apply lên tóc và sấy + tạo kiểu với lược phồng 
 Bước 3: Sau khi sấy xong, Dùng 1/2 đốt tay sáp  tạo kiểu lại. Có thể dùng 1/2 đốt tay hoặc 1/3 đốt tay để tạo kiểu, tùy độ giữ nếp bạn muốn')
 
-insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
-values(N'Forte Series Styling Cream',1,10,55,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2021/05/sprayshopifygradient_2048x2048-1-768x768.jpg' )
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,discount,[status],thumbnail )
+values(N'Forte Series Styling Cream',1,10,55,GETDATE(),GETDATE(),5,1,'https://clmensstore.com/wp-content/uploads/2021/05/sprayshopifygradient_2048x2048-1-768x768.jpg' )
 
 insert into Gallery(product_id,thumbnail) 
 values(23,'https://clmensstore.com/wp-content/uploads/2021/05/sprayshopifygradient_2048x2048-1-768x768.jpg')
@@ -533,8 +535,8 @@ Bước 2: Dùng 1/3 đốt tay lượng sáp để Pre-styling hoặc dùng cá
 Bước 3: Sau khi sấy xong, Dùng 1/2 đốt tay sáp  tạo kiểu lại. Có thể dùng 1/2 đốt tay hoặc 1/3 đốt tay để tạo kiểu, tùy độ giữ nếp bạn muốn')
 
 
-insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
-values(N'Bột tạo phồng Forte Series Texture Powder',1,10,55,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2022/08/powder_WB_REF_2048x2048-copy.jpg' )
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,discount,[status],thumbnail )
+values(N'Bột tạo phồng Forte Series Texture Powder',1,10,55,GETDATE(),GETDATE(),5,1,'https://clmensstore.com/wp-content/uploads/2022/08/powder_WB_REF_2048x2048-copy.jpg' )
 
 insert into Gallery(product_id,thumbnail) 
 values(24,'https://clmensstore.com/wp-content/uploads/2022/08/5k4a7875edit-1657048261648-768x1151.webp')
@@ -546,8 +548,8 @@ N'Độ giữ nếp:  Medium Hold Hiệu năng: Khô, hút dầu tốt. Tăng đ
 N'Bước 1: Làm khô tóc kỹ lưỡng từ gốc đến ngọn. Bước 2. Rắc trực tiếp 3-5 lần hỗn hợp bột tạo phồng này lên trực tiếp chân tóc Bước 3: Sử dụng tay uốn cong để tạo ra kiểu tóc và độ phồng Bước 4: Dùng ngón tay, khéo léo kéo các phần tóc để tạo kết cấu (texture)')
 
 
-insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
-values(N'Dầu dưỡng tóc Forte Series Hydrating Argan Oil',4,10,55,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2020/10/Oil02_2048x2048-e1602075248356-768x768.jpg' )
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,discount,[status],thumbnail )
+values(N'Dầu dưỡng tóc Forte Series Hydrating Argan Oil',4,10,55,GETDATE(),GETDATE(),5,1,'https://clmensstore.com/wp-content/uploads/2020/10/Oil02_2048x2048-e1602075248356-768x768.jpg' )
 
 insert into Gallery(product_id,thumbnail) 
 values(25,'https://clmensstore.com/wp-content/uploads/2020/10/107993151_2138879256246273_731431349211435571_o-1228x1536.jpg')
@@ -558,8 +560,8 @@ values(25,75,N'Cam chanh',N'Dầu dưỡng tóc Forte Series Hydrating Argan Oil
 N'Dầu dưỡng nhẹ sang trọng giúp dễ dàng thoa và rửa sạch. Giống như một tấm chắn bảo vệ, nó đóng vai trò như một lớp lót hoàn hảo trước khi sử dụng các công cụ tạo nhiệt như máy sấy, máy ép tóc, máy uốn tóc. Dầu dưỡng hằng ngày của Forte Series là sản phẩm chăm sóc sức khỏe tóc cần thiết tuyệt đối cho thói quen chải chuốt hàng ngày của bạn. Thông tin Dầu dưỡng tóc Forte Series Hydrating Argan Oil Bảo vệ tóc khỏi thiệt hại do nhiệt nóng gây ra từ máy sấy Kiểm soát tóc rối, gỡ rối tóc Công thức đặc quyền, giúp tóc bạn không cảm thấy nặng khi sử dụng sản phẩm Apply dễ dàng lên tóc Dễ dàng gội rủa với nước Đủ dùng trong 3-4 tháng liên tục Không có hóa chất độc hại (không chứa sulphat và paraben)',
 N'Bóp một lượng nhỏ cỡ đồng xu vào tay bạn Xoa và thoa đều dầu trong lòng bàn tay của bạn Thoa đều lên tóc khô 45-60 phút sau gội lại với nước')
 
-insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
-values(N'Dầu gội Forte Series Clarifying Shampoo',2,10,55,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2020/10/Shampoo02_2048x2048-e1602073423305-768x768.jpg' )
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,discount,[status],thumbnail )
+values(N'Dầu gội Forte Series Clarifying Shampoo',2,10,55,GETDATE(),GETDATE(),5,1,'https://clmensstore.com/wp-content/uploads/2020/10/Shampoo02_2048x2048-e1602073423305-768x768.jpg' )
 
 insert into Gallery(product_id,thumbnail) 
 values(25,'https://clmensstore.com/wp-content/uploads/2020/10/103427413_2102430663224466_5267254909848677023_o-1228x1536.jpg')
@@ -575,8 +577,8 @@ N'Làm ướt tóc (khuyến nghị dùng nước lạnh) Cho một lượng d�
 
 -- Nuoc hoa 
 
-insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
-values(N'Acqua Di Giò',3,17,100,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2019/03/ACQUA-DI-GIO-%E2%80%93-EDT-1.png' )
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,discount,[status],thumbnail )
+values(N'Acqua Di Giò',3,17,100,GETDATE(),GETDATE(),5,1,'https://clmensstore.com/wp-content/uploads/2019/03/ACQUA-DI-GIO-%E2%80%93-EDT-1.png' )
 
 insert into Gallery(product_id,thumbnail) 
 values(26,'https://clmensstore.com/wp-content/uploads/2019/03/5ad55d5b-5546-4ed3-997a-10d382b718ad_1.46c9197e274dd9c61487512503cb1a3d-247x247.jpeg')
@@ -587,8 +589,8 @@ values(26,100,N'Quả cam, Quả chanh xanh, Quả quýt hồng, Hoa nhài, Cam 
 N'Hương thơm Acqua di Giò được chế tạo ra vào năm 1996 bởi Alberto Morillas. Lấy cảm hứng từ vẻ đẹp của Pantellerie, nơi ông đã trải qua kỳ nghỉ của mình, Armani tạo ra mùi thơm của Aqua di Gio cho cả nam giới lẫn nữ giới. Hương thơm dành cho nam giới là một mùi hương của sự tự do, đầy gió và nước. Hỗn hợp mùi hương này được hình thành từ sự hòa hợp hoàn hảo giữa mùi hương ngòn ngọt mằn mặn của nước biển và ánh nắng ấm áp mơn trớn trên làn da của bạn. Aqua di Gio đầy ánh nắng mặt trời Địa Trung Hải nóng như thiêu đốt. Hương cam quýt đăng đắng với hương thơm của hương thảo quyện với vị mặn của biển và tinh chất hoa nhài trong suốt. Tầng hương cuối thơm mùi gỗ lưu lại mùi xạ hương ấm áp làm cho các mùi hương gay gắt của gia vị trở nên mềm mại hơn.Acqua Di Giò là một kiệt tác và là một tác phẩm kinh điển. Mùi hương này đã đứng vững qua thử thách của thời gian. Và được bán chạy ở khắp mọi nơi. Một mùi hương khiến người người hài lòng và luôn nhận được nhiều lời khen. Đây là một mùi hương rất thơm và tuyệt đối an toàn, khuyến khích dành cho những người làm việc trong văn phòng hoặc sử dụng trong những ngày hè.',
 N'Thời điểm khuyên dùng: Ngày, Đêm, Hạ. Xịt lên các phần như cổ, cổ tay,..(Lưu hương lâu hơn trên quần áo)')
 
-insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )
-values(N'Armani Code Parfum by Giorgio Armani',3,17,100,GETDATE(),GETDATE(),'https://clmensstore.com/wp-content/uploads/2019/03/ACQUA-DI-GIO-%E2%80%93-EDT-1.png' )
+insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,discount,[status],thumbnail )
+values(N'Armani Code Parfum by Giorgio Armani',3,17,100,GETDATE(),GETDATE(),5,1,'https://clmensstore.com/wp-content/uploads/2019/03/ACQUA-DI-GIO-%E2%80%93-EDT-1.png' )
 
 insert into Gallery(product_id,thumbnail) 
 values(26,'https://clmensstore.com/wp-content/uploads/2019/03/5ad55d5b-5546-4ed3-997a-10d382b718ad_1.46c9197e274dd9c61487512503cb1a3d-247x247.jpeg')

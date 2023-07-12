@@ -68,6 +68,8 @@ public class updateproduct extends HttpServlet {
         int category_id= Integer.parseInt(request.getParameter("category_id"));
         int brand_id= Integer.parseInt(request.getParameter("brand_id"));
         float price= Float.parseFloat(request.getParameter("price"));
+        int discount= Integer.parseInt(request.getParameter("discount"));
+        int status= Integer.parseInt(request.getParameter("status"));
         String thumbnail= request.getParameter("thumbnail");
         
         Product p= new Product();
@@ -76,6 +78,8 @@ public class updateproduct extends HttpServlet {
         p.setCategory_id(category_id);
         p.setBrand_id(brand_id);
         p.setPrice(price);
+        p.setDiscount(discount);
+        p.setStatus(status);
         p.setThumbnail(thumbnail);
         ProductDAO pd=new ProductDAO();
         pd.updateProduct(p);

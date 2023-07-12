@@ -34,7 +34,9 @@ public class ProductDAO  extends BaseDAO {
                                     rs.getFloat(5),
                                     rs.getDate(6),
                                     rs.getDate(7),
-                                    rs.getString(8)
+                                    rs.getString(8),
+                                    rs.getInt(9),
+                                    rs.getInt(10)
                                     ));
             }
         } catch (SQLException ex) {
@@ -47,7 +49,7 @@ public class ProductDAO  extends BaseDAO {
         ArrayList<Product> list=new ArrayList<>();
         
         try {
-            String sql = "select TOP 6 * from product";
+            String sql = "select TOP 6 * from product order by discount desc";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
@@ -58,7 +60,9 @@ public class ProductDAO  extends BaseDAO {
                                     rs.getFloat(5),
                                     rs.getDate(6),
                                     rs.getDate(7),
-                                    rs.getString(8)
+                                    rs.getString(8),
+                                    rs.getInt(9),
+                                    rs.getInt(10)
                                     ));
             }
         } catch (SQLException ex) {
@@ -82,7 +86,9 @@ public class ProductDAO  extends BaseDAO {
                                     rs.getFloat(5),
                                     rs.getDate(6),
                                     rs.getDate(7),
-                                    rs.getString(8)
+                                    rs.getString(8),
+                                    rs.getInt(9),
+                                    rs.getInt(10)
                                     ));
             }
         } catch (SQLException ex) {
@@ -107,7 +113,9 @@ public class ProductDAO  extends BaseDAO {
                                     rs.getFloat(5),
                                     rs.getDate(6),
                                     rs.getDate(7),
-                                    rs.getString(8)
+                                    rs.getString(8),
+                                    rs.getInt(9),
+                                    rs.getInt(10)
                                     ));
             }
         } catch (SQLException ex) {
@@ -131,7 +139,9 @@ public class ProductDAO  extends BaseDAO {
                                     rs.getFloat(5),
                                     rs.getDate(6),
                                     rs.getDate(7),
-                                    rs.getString(8)
+                                    rs.getString(8),
+                                    rs.getInt(9),
+                                    rs.getInt(10)
                                     ));
             }
         } catch (SQLException ex) {
@@ -155,7 +165,9 @@ public class ProductDAO  extends BaseDAO {
                                     rs.getFloat(5),
                                     rs.getDate(6),
                                     rs.getDate(7),
-                                    rs.getString(8)
+                                    rs.getString(8),
+                                    rs.getInt(9),
+                                    rs.getInt(10)
                                     );
             }
         } catch (SQLException ex) {
@@ -179,7 +191,9 @@ public class ProductDAO  extends BaseDAO {
                                     rs.getFloat(5),
                                     rs.getDate(6),
                                     rs.getDate(7),
-                                    rs.getString(8)
+                                    rs.getString(8),
+                                    rs.getInt(9),
+                                    rs.getInt(10)
                                     ));
             }
         } catch (SQLException ex) {
@@ -189,8 +203,8 @@ public class ProductDAO  extends BaseDAO {
     }
     public void insertProduct(Product s) {
         try {
-            String sql = "insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail )"
-                    + "values(?,?,?,?,GETDATE(),GETDATE(),?)";
+            String sql = "insert into Product(product_name,category_id,brand_id,price ,create_time,update_time,thumbnail,discount,[status] )"
+                    + "values(?,?,?,?,GETDATE(),GETDATE(),?,?,?)";
             PreparedStatement statement = connection.prepareStatement(sql);
             
             statement.setString(1, s.getProduct_name() );
@@ -198,6 +212,9 @@ public class ProductDAO  extends BaseDAO {
             statement.setInt(3, s.getBrand_id());
             statement.setFloat(4, s.getPrice());
             statement.setString(5, s.getThumbnail());
+            statement.setInt(6, s.getDiscount());
+            statement.setInt(7, s.getStatus());
+            
             statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -206,7 +223,7 @@ public class ProductDAO  extends BaseDAO {
     
     public void updateProduct(Product s) {
         try {
-            String sql = "update Product set product_name=?,category_id=?,brand_id=?,update_time=GetDate(),price=?,thumbnail=? "
+            String sql = "update Product set product_name=?,category_id=?,brand_id=?,update_time=GetDate(),price=?,thumbnail=?,discount=?,[status]=? "
                     + "where product_id=?";
             PreparedStatement statement = connection.prepareStatement(sql);
             
@@ -215,7 +232,10 @@ public class ProductDAO  extends BaseDAO {
             statement.setInt(3, s.getBrand_id());
             statement.setFloat(4, s.getPrice());
             statement.setString(5, s.getThumbnail());
-            statement.setInt(6, s.getProduct_id());
+            statement.setInt(6, s.getDiscount());
+            statement.setInt(7, s.getStatus());
+            statement.setInt(8, s.getProduct_id());
+            
             statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -263,7 +283,9 @@ public class ProductDAO  extends BaseDAO {
                                     rs.getFloat(5),
                                     rs.getDate(6),
                                     rs.getDate(7),
-                                    rs.getString(8)
+                                    rs.getString(8),
+                                    rs.getInt(9),
+                                    rs.getInt(10)
                                     ));
             }
         } catch (SQLException ex) {

@@ -222,7 +222,9 @@
                                     <div class="col-md-4 text-center">
                                     <div class="product-entry">
                                         <div class="product-img" style="background-image: url(${o.thumbnail});">
-                                            <p class="tag"><span class="new">New</span></p>
+                                            <c:if test="${o.discount !=0 }">
+                                                <p class="tag"><span class="new">${o.discount}%</span></p>
+                                            </c:if>
                                             <div class="cart">
                                                 <p>
                                                     <span class="addtocart"><a href="orderDetail?p_id=${o.product_id}"><i class="icon-shopping-cart"></i></a></span> 
@@ -265,7 +267,7 @@
                                     </div>
                                     <div class="text-rights">
                                         <h3 class="title">Tạo kiểu tóc đẳng cấp với các sản phẩm tóc nam chất lượng cao của chúng tôi!</h3>
-                                        <p>Tặng mã giảm giá 5% tất cả các sản phẩm nhân dịp mở bán.</p>
+                                        <p>Giảm giá 5% các sản phẩm nhân dịp mở bán.</p>
                                         <p><a href="shop" class="btn btn-primary">Mua hàng ngay</a> </p>
                                     </div>
                                 </div>
@@ -281,7 +283,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6 col-md-offset-3 text-center colorlib-heading">
-                            <h2><span>Sản phẩm nổi bật</span></h2>
+                            <h2><span>Sản phẩm giảm giá</span></h2>
                             <p>Chúng tôi cam kết cung cấp các sản phẩm chất lượng với giá cả hợp lý, giúp bạn tạo kiểu tóc dễ dàng và nhanh chóng.</p>
                         </div>
                     </div>
@@ -291,7 +293,9 @@
                                     <div class="col-md-4 text-center">
                                     <div class="product-entry">
                                         <div class="product-img" style="background-image: url(${o.thumbnail});">
-                                            <p class="tag"><span class="new">New</span></p>
+                                            <c:if test="${o.discount !=0 }">
+                                                <p class="tag"><span class="new">${o.discount}%</span></p>
+                                            </c:if>
                                             <div class="cart">
                                                 <p>
                                                     <span class="addtocart"><a href="orderDetail?p_id=${o.product_id}"><i class="icon-shopping-cart"></i></a></span> 

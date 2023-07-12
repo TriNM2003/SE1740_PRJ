@@ -60,12 +60,12 @@ public class AccountDAO extends BaseDAO{
         }
         return null;
     }
-    public Account getAccountByGmail(String gmail) {
+    public Account getAccountById(String id) {
         try {
             String sql = "SELECT * FROM Account a\n"
-                    + "WHERE a.gmail = ?";
+                    + "WHERE [id] = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, gmail);
+            statement.setString(1, id);
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
                 Account a = new Account(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5));
@@ -78,11 +78,62 @@ public class AccountDAO extends BaseDAO{
         }
         return null;
     }
+    public ArrayList<Account> getAllAccount() {
+        ArrayList<Account> list=new ArrayList<>();
+        
+        try {
+            String sql = "select * from [account]";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                list.add(new Account(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(5)));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+    public void setAdmin(String u_id,String role_id){
+        try {
+            String sql ="Update [Account] set role_id=? where [id] = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, role_id);
+            statement.setString(2, u_id);
+            
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void deleteAccount(String u_id) {
+        try {
+            String sql = "delete from [Account] where id=?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            
+            statement.setString(1, u_id );
+            
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     public static void main(String[] args) {
         AccountDAO ad= new AccountDAO();
-//        Account ac = ad.getAccountByGmail("minhtri147963@gmail.com");
-        Account a = ad.getAccount("nguyentri16112003", "minhtri16112003");
+        ad.setAdmin("3","2");
+//        Account a = ad.getAccount("nguyentri16112003", "minhtri16112003");
 //        System.out.println(ac);
-        System.out.println(a);
+//        System.out.println(a);
+//        ArrayList<Account> list= ad.getAllAccount();
+//       
+//        for(Account o: list){
+//            System.out.println(o);
+//        }
+
     }
+
+    
 }

@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -121,6 +122,7 @@
                                     <table class="table table-striped table-hover">
                                         <thead>
                                             <tr>
+                                                <th>No</th>
                                                 <th></th>
                                                 <th>Tên</th>                                               
                                                 <th>Số lượng</th>                                                
@@ -131,13 +133,23 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        <c:forEach items="${product}" var="o">
+                                        <c:set var="o " value="${requestScope.cart}"/>
+                                        <c:set var="tt" value="0"/>
+                                        <c:forEach items="o.items" var="i">
+                                            <c:set var="tt" value="${tt+1}"/>
                                         <tr>
-                                            <td>Ảnh</td>
-                                            <td>Quicksand</td>
-                                            <td><input name="price" type="number" value="2" style="width: 20%"></td>
-                                            <td>$55</td>
-                                            <td>200</td>
+                                            <td>${tt}</td>
+                                            <td>${i.product.thumbnail}</td>
+                                            <td>${i.product.product_name}</td>
+                                            
+                                            <td>
+                                                <button><a href="process?num=-1&id=${i.product.product_id}">-</a></button>
+                                                ${i.quantity}
+                                                <button><a href="process?num=+1&id=${i.product.product_id}">+</a></button>
+                                            </td>
+                                            
+                                            <td>${i.product.price}</td>
+                                            <td>$${i.product.price*i.quantity}</td>
                                             
                                             
                                             <td>

@@ -1,6 +1,6 @@
 <%-- 
-    Document   : profile
-    Created on : 10-07-2023, 17:11:03
+    Document   : setAdmin
+    Created on : 11-07-2023, 20:47:43
     Author     : DELL
 --%>
 
@@ -79,7 +79,7 @@
                                 <div class="row">
                                     <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
                                         <div class="slider-text-inner text-center">
-                                            <h1>Profile</h1>                                    
+                                            <h1>Thêm ảnh</h1>                                    
                                         </div>
                                     </div>
                                 </div>
@@ -93,103 +93,82 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            <form action="profile" method="post" class="colorlib-form">
-
+                            <form action="setadmin" method="post" class="colorlib-form">
+                                
                                 <div class="row">
 
                                     <div class="form-group">
                                         <div class="col-md-12">
-                                            <label for="fname">Tên tài khoản</label>
-                                            <input name="username" type="text" id="name" class="form-control" value="${sessionScope.username}" readonly>
-                                    </div>
-                                    `                               
-                                </div>
-                                
-                                    <div class="form-group">
-                                        <div class="col-md-12">
-                                            <label for="fname">Tên đầy đủ</label>
-                                            <input name="fullname" type="text" id="name" class="form-control" placeholder="Nhập họ và tên đầy đủ..."required>
+                                            <label for="fname">ID</label>
+                                            <input name="u_id" type="text" id="name" class="form-control" value="${acc.user_id}" readonly>
                                         </div>
 
-                                    </div>    
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <label for="fname">Tên tài khoản</label>
+                                            <input name="username" type="text" id="name" class="form-control" value="${acc.username}" readonly>
+                                        </div>
+
+                                    </div>
 
 
 
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="companyname"> Địa chỉ </label>
-                                            <input name="address"type="text" id="towncity" class="form-control" placeholder="Nhập địa chỉ cụ thể..."required>
+                                            <label for="companyname"> Role ID </label>
+                                            <input name="role_id"type="text" id="towncity" class="form-control" value="${acc.role_id}"required>
                                         </div>
                                     </div>
-
-                                    <div class="form-group">
-                                        <div class="col-md-12">
-                                            <label for="stateprovince">Số điện thoại</label>
-                                            <input name="phone_number"type="text" id="fname" class="form-control" placeholder="Nhập số điện thoại.."required>
-                                        </div>
-
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-12">
-                                            <label for="stateprovince">Gmail</label>
-                                            <input name="gmail"type="text" id="fname" class="form-control" value="${sessionScope.gmail}" readonly>
-                                        </div>
-
-                                    </div>
-
-
-
+                                    
+                                    
 
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <input type="submit" class="btn btn-primary" value="Cập nhật">
+                                        <input type="submit" class="btn btn-primary" value="Thay đổi"required>
                                     </div>
                                 </div>
-                                <c:if test="${mess !=null}">
-                                    <p style="color: blue; font-size: 18px;font-weight: 700; margin: 0">${mess}</p>
-                                </c:if>      
-                            
-                            
-                    </form>
+                            </form>
+                        </div>
+
+                    </div>
                 </div>
-
             </div>
-        </div>
-    </div>
 
 
 
-    <jsp:include page="footer/footer.jsp"></jsp:include>
-
+        <jsp:include page="footer/footer.jsp"></jsp:include>
 
 
 
 
 
-    <!-- jQuery -->
-    <script src="js/jquery.min.js"></script>
-    <!-- jQuery Easing -->
-    <script src="js/jquery.easing.1.3.js"></script>
-    <!-- Bootstrap -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- Waypoints -->
-    <script src="js/jquery.waypoints.min.js"></script>
-    <!-- Flexslider -->
-    <script src="js/jquery.flexslider-min.js"></script>
-    <!-- Owl carousel -->
-    <script src="js/owl.carousel.min.js"></script>
-    <!-- Magnific Popup -->
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/magnific-popup-options.js"></script>
-    <!-- Date Picker -->
-    <script src="js/bootstrap-datepicker.js"></script>
-    <!-- Stellar Parallax -->
-    <script src="js/jquery.stellar.min.js"></script>
-    <!-- Main -->
-    <script src="js/main.js"></script>
-</script>
+
+        <!-- jQuery -->
+        <script src="js/jquery.min.js"></script>
+        <!-- jQuery Easing -->
+        <script src="js/jquery.easing.1.3.js"></script>
+        <!-- Bootstrap -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- Waypoints -->
+        <script src="js/jquery.waypoints.min.js"></script>
+        <!-- Flexslider -->
+        <script src="js/jquery.flexslider-min.js"></script>
+        <!-- Owl carousel -->
+        <script src="js/owl.carousel.min.js"></script>
+        <!-- Magnific Popup -->
+        <script src="js/jquery.magnific-popup.min.js"></script>
+        <script src="js/magnific-popup-options.js"></script>
+        <!-- Date Picker -->
+        <script src="js/bootstrap-datepicker.js"></script>
+        <!-- Stellar Parallax -->
+        <script src="js/jquery.stellar.min.js"></script>
+        <!-- Main -->
+        <script src="js/main.js"></script>
+    </script>
 
 </body>
 </html>
+
 

@@ -773,8 +773,8 @@ h1, h2, h3, h4, h5, h6, figure {
     margin-bottom: 30px;
 }
 .tab-content .review .user-img {
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;

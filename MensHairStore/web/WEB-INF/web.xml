@@ -72,6 +72,26 @@
         <servlet-name>Order</servlet-name>
         <servlet-class>controller.Order</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>manageAccount</servlet-name>
+        <servlet-class>controller.manageAccount</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>setadmin</servlet-name>
+        <servlet-class>controller.setadmin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Cart</servlet-name>
+        <servlet-class>controller.Cart</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Buy</servlet-name>
+        <servlet-class>controller.Buy</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>deleteaccount</servlet-name>
+        <servlet-class>controller.deleteaccount</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -143,6 +163,26 @@
     <servlet-mapping>
         <servlet-name>Order</servlet-name>
         <url-pattern>/Order</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>manageAccount</servlet-name>
+        <url-pattern>/manageAccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>setadmin</servlet-name>
+        <url-pattern>/setadmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Cart</servlet-name>
+        <url-pattern>/Cart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Buy</servlet-name>
+        <url-pattern>/Buy</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deleteaccount</servlet-name>
+        <url-pattern>/deleteaccount</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

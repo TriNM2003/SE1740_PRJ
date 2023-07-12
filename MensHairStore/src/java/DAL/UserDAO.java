@@ -7,9 +7,10 @@ package DAL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.Product;
+import model.User;
 import model.User;
 
 /**
@@ -34,7 +35,7 @@ public class UserDAO extends BaseDAO {
             
             statement.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     public User GetUserById(int user_id) {
@@ -55,13 +56,88 @@ public class UserDAO extends BaseDAO {
                 
             }
         } catch (SQLException ex) {
-            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
        return p;
     }
+    
+    public ArrayList<User> getUser() {
+        ArrayList<User> list=new ArrayList<>();
+        
+        try {
+            String sql = "select * from [user]";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                list.add(new User(rs.getInt(1),
+                         rs.getString(2),
+                         rs.getString(3),
+                         rs.getString(4),
+                         rs.getDate(5),
+                         rs.getDate(6)));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+    public int TotalUser() {
+        
+        try {
+            String sql = "select count(*)  from [User]";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                return rs.getInt(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
+    public ArrayList<User> GetUserByPaging(int index) {
+        ArrayList<User> list=new ArrayList<>();
+        
+        try {
+            String sql = "select * from [user] order by [user_id] offset ? rows fetch next 3 rows only";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1,(index-1)*3);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                list.add(new User(rs.getInt(1),
+                         rs.getString(2),
+                         rs.getString(3),
+                         rs.getString(4),
+                         rs.getDate(5),
+                         rs.getDate(6)));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+    public void deleteUser(String u_id) {
+        try {
+            String sql = "delete from [User] where user_id=?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            
+            statement.setString(1, u_id );
+            
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     public static void main(String[] args) {
-        UserDAO ud=new UserDAO();
-        User us= ud.GetUserById(1);
-        System.out.println(us);
+        UserDAO dao = new UserDAO();
+        
+        ArrayList<User> list= dao.GetUserByPaging(0);
+       
+        for(User o: list){
+            System.out.println(o);
+        }
+////        User p = dao.GetUserById("4");
+////        System.out.println(p);
+//          System.out.println(dao.TotalUser());  
     }
 }

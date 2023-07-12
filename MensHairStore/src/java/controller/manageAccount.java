@@ -5,21 +5,25 @@
 package controller;
 
 import DAL.AccountDAO;
+import DAL.ProductDAO;
+import DAL.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.util.ArrayList;
 import model.Account;
+import model.Product;
+import model.User;
 
 /**
  *
  * @author DELL
  */
-public class LoginServlet extends HttpServlet {
+public class manageAccount extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,18 +36,37 @@ public class LoginServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet LoginServlet</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet LoginServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        HttpSession session = request.getSession();
+        Account ac = (Account) session.getAttribute("account");
+        
+        
+        if (ac != null) {
+            int role_id = ac.getRole_id();
+            if (role_id == 1) {
+                response.setContentType("text/html;charset=UTF-8");
+
+                AccountDAO ad= new AccountDAO();
+                 ArrayList<Account> acc= ad.getAllAccount();
+                request.setAttribute("acc", acc);
+
+                request.getRequestDispatcher("manageUser.jsp").forward(request, response);
+            }else{
+                response.sendRedirect("home");
+            }
+        }else{
+            response.sendRedirect("login1.jsp");
+        }
+    }
+    public static void main(String[] args) {
+        AccountDAO ad= new AccountDAO();
+//        Account ac = ad.getAccountByGmail("minhtri147963@gmail.com");
+//        Account a = ad.getAccount("nguyentri16112003", "minhtri16112003");
+//        System.out.println(ac);
+//        System.out.println(a);
+        ArrayList<Account> list= ad.getAllAccount();
+       
+        for(Account o: list){
+            System.out.println(o);
         }
     }
 
@@ -73,39 +96,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-        AccountDAO acd = new AccountDAO();
-        String user = request.getParameter("username");
-        String pass = request.getParameter("password");
-        
-        Account a = acd.getAccount(user, pass);
-        
-        
-        if ( a !=null ) {
-            String remember= request.getParameter("remember"); 
-            HttpSession session = request.getSession();
-            session.setAttribute("account", a);
-            session.setAttribute("username", user);
-            session.setAttribute("password", pass);
-            session.setAttribute("gmail", a.getGmail());
-            session.setAttribute("role_id", a.getRole_id());
-            session.setAttribute("id", a.getUser_id());
-            session.setMaxInactiveInterval(30*24*60*60);
-            
-            if(a.getRole_id()==1){
-                response.sendRedirect("manageProduct");
-            }else{
-                response.sendRedirect("home");
-            }
-                
-            
-        } else {
-            Account ac = new Account();
-            request.setAttribute("mess", "Sai tên đăng nhập hoạc mật khẩu. Vui lòng đăng nhập lại!");
-            request.getRequestDispatcher("login1.jsp").forward(request, response);
-        }
-
+        processRequest(request, response);
     }
 
     /**

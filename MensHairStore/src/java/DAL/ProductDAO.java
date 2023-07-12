@@ -267,7 +267,7 @@ public class ProductDAO  extends BaseDAO {
                                     ));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProductDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
     }

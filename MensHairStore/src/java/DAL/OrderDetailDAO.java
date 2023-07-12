@@ -36,4 +36,16 @@ public class OrderDetailDAO extends BaseDAO {
             Logger.getLogger(OrderDetailDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public void deleteOrderDetail(int order_id) {
+        try {
+            String sql = "delete from OrderDetails where order_id=?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            
+            statement.setInt(1, order_id );
+            
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(OrderDetailDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

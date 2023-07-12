@@ -35,8 +35,9 @@ public class manageProduct extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         Account ac = (Account) session.getAttribute("account");
-        int role_id = ac.getRole_id();
+        
         if (ac != null) {
+            int role_id = ac.getRole_id();
             if (role_id == 1) {
                 response.setContentType("text/html;charset=UTF-8");
 

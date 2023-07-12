@@ -5,10 +5,9 @@
 
 package controller;
 
-import DAL.CategoryDAO;
 import DAL.ProductDAO;
-
 import java.io.IOException;
+import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
@@ -16,19 +15,16 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
-import java.util.List;
 import model.Account;
-import model.Cart;
-import model.Category;
-import model.Item;
 import model.Product;
-
+import model.Cart;
+import model.Item;
 
 /**
  *
  * @author DELL
  */
-public class shop extends HttpServlet {
+public class Buy extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -39,42 +35,34 @@ public class shop extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        ProductDAO pd = new ProductDAO();
-        int all=pd.TotalProduct();
-        int endPage = all/9;
-        if(all%9 != 0  ){
-            endPage++;
-        }
-        request.setAttribute("endPage", endPage);
-        
-        
-        String index= request.getParameter("index");
-        if(index == null){
-            
-            ArrayList<Product> pro= pd.GetProductByPaging(1);
-            request.setAttribute("product",pro);
-            request.setAttribute("index",1);
-        }else{
-            ArrayList<Product> pro= pd.GetProductByPaging(Integer.parseInt(index));
-            request.setAttribute("product",pro);
-            request.setAttribute("index",index);
-        }
+        response.setContentType("text/html;charset=UTF-8");
+        ProductDAO dp= new ProductDAO();
+        ArrayList<Product>  list= dp.AllProduct();
         HttpSession session = request.getSession();
         Account acc =(Account) session.getAttribute("account");
         String user_id= Integer.toString(acc.getUser_id());
         Cookie[] arr=request.getCookies();
-        CategoryDAO cd= new CategoryDAO();
         String txt="";
         if(arr!= null){
             for(Cookie o: arr){
                 if(o.getName().equals("cart"+user_id)){
                         txt+=o.getValue();
+                        o.getMaxAge();
+                        response.addCookie(o);
                 }
             }
         }
-        ArrayList<Product> list = pd.AllProduct();
-        
-        Cart cart = new Cart(txt,list);
+        int num = 1;
+        String id=request.getParameter("p_id");
+        if(txt.isEmpty()){
+            txt= id+":"+ Integer.toString(num);
+        }else{
+            txt = txt+","+id+":"+num;
+        }
+        Cookie c= new Cookie("cart"+user_id, txt);
+        c.setMaxAge(30*24*60*60);
+        response.addCookie(c);
+        Cart cart = new Cart(txt, list);
         int n;
         ArrayList<Item> listItem = cart.getItems();
         if(listItem != null){
@@ -83,27 +71,9 @@ public class shop extends HttpServlet {
             n=0;
         }
         request.setAttribute("size", n);
-        
-        ArrayList<Category> cate= cd.getCategory();
-        request.setAttribute("cate",cate);
-        
-        
-        
-
-        
-        request.getRequestDispatcher("shop.jsp").forward(request, response);
+        request.getRequestDispatcher("home").forward(request, response);
     } 
-    public static void main(String[] args) {
-        ProductDAO dao = new ProductDAO();
-        ArrayList<Product> list= dao.GetProductByPaging(1);
-       
-        for(Product o: list){
-            System.out.println(o);
-        }
-//        Product p = dao.GetProductById("4");
-//        System.out.println(p);
-//          System.out.println(dao.TotalProduct());  
-    }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
      * Handles the HTTP <code>GET</code> method.

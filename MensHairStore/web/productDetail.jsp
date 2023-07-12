@@ -187,25 +187,32 @@
                                                 <h3>23 Reviews</h3>
 
                                                 <div class="review">
-                                                    <div class="user-img" style="background-image: url(images/person1.jpg)"></div>
+                                                    <div class="user-img" style="background-image: url(image/pexels-nitin-khajotia-1485994.jpg )"></div>
                                                     <div class="desc">
                                                         <h4>
                                                             <span class="text-left">Jacob Webb</span>
                                                             <span class="text-right">14 March 2018</span>
                                                         </h4>
                                                         <p class="star">
-                                                            <span>
-                                                                <i class="icon-star-full"></i>
-                                                                <i class="icon-star-full"></i>
-                                                                <i class="icon-star-full"></i>
-                                                                <i class="icon-star-half"></i>
-                                                                <i class="icon-star-empty"></i>
-                                                            </span>
-                                                            <span class="text-right"><a href="#" class="reply"><i class="icon-reply"></i></a></span>
+                                                            
+                                                            
                                                         </p>
                                                         <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrov</p>
                                                     </div>
                                                 </div>
+                                                <form action="action">
+                                                <div class="review">
+                                                    <div class="user-img" style="background-image: url(  image/pexels-nitin-khajotia-1485994.jpg ) "></div>
+                                                    <div class="desc">
+                                                        <h4>
+                                                            <span class="text-left">Jacob Webb</span>
+                                                            <span class="text-right">14 March 2018</span>
+                                                        </h4>
+                                                        <textarea rows="4"name="feedback" type="text" style="width: 100% ;border: 1px solid orange" placeholder="Nhận xét sản phẩm..."></textarea>
+                                                        <input type="submit" value="Đăng" style="color: white;width: 80px;border: 1px solid orange;background-color: orange">
+                                                    </div>
+                                                </div>
+                                                </form>
 
                                             </div>
 

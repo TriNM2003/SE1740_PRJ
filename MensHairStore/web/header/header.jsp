@@ -95,9 +95,9 @@
                                     <c:if test="${sessionScope.account != null}"> 
                                     <c:if test="${sessionScope.role_id==1}"> 
                                         <li class="has-dropdown">
-                                        <a href="manageProduct">Quản lý</a>
+                                        <a href="#">Quản lý</a>
                                         <ul class="dropdown">
-                                            <li><a href="#">Người dùng</a></li>
+                                            <li><a href="manageAccount">Người dùng</a></li>
                                             <li><a href="manageProduct">Sản phẩm</a></li>
                                             <li><a href="#">Đơn hàng</a></li>
                                            

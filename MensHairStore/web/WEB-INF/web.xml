@@ -88,6 +88,14 @@
         <servlet-name>addAcc</servlet-name>
         <servlet-class>controller.addAcc</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>process</servlet-name>
+        <servlet-class>controller.process</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>nhap</servlet-name>
+        <servlet-class>controller.nhap</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -175,6 +183,14 @@
     <servlet-mapping>
         <servlet-name>addAcc</servlet-name>
         <url-pattern>/addAcc</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>process</servlet-name>
+        <url-pattern>/process</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>nhap</servlet-name>
+        <url-pattern>/nhap</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

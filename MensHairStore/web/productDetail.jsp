@@ -158,7 +158,7 @@
                                                     </div>
                                                 </div>
                                             </div>-->
-                                                    <input type="submit" href="Buy?p_id=${detail.product_id}&num=1" class="btn btn-primary btn-addtocart " value="Thêm vào giỏ hàng">
+                                            <a href="Buy?p_id=${detail.product_id}&num=1" class="btn btn-primary btn-addtocart " ><i class="icon-shopping-cart"></i>Thêm vào giỏ hàng</a>
                                         
                                     </div>
                                 </div>

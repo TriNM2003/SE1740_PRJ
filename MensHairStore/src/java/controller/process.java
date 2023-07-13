@@ -16,15 +16,15 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import model.Account;
-import model.Product;
 import model.Cart;
 import model.Item;
+import model.Product;
 
 /**
  *
  * @author DELL
  */
-public class Buy extends HttpServlet {
+public class process extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -36,8 +36,8 @@ public class Buy extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        ProductDAO dp= new ProductDAO();
-        ArrayList<Product>  list= dp.AllProduct();
+        ProductDAO pd= new ProductDAO();
+        ArrayList<Product>  list= pd.AllProduct();
         HttpSession session = request.getSession();
         Account acc =(Account) session.getAttribute("account");
         String user_id="";
@@ -50,32 +50,58 @@ public class Buy extends HttpServlet {
             for(Cookie o: arr){
                 if(o.getName().equals("cart"+user_id)){
                         txt+=o.getValue();
-                        o.getMaxAge();
+                        o.setMaxAge(0); 
                         response.addCookie(o);
                 }
             }
         }
-        String num = request.getParameter("num");
-        String id=request.getParameter("p_id");
-        if(txt.isEmpty()){
-            txt= id+":"+ num;
-        }else{
-            txt = txt+"-"+id+":"+num;
-        }
-        Cookie c= new Cookie("cart"+user_id, txt);
-        c.setMaxAge(30*24*60*60);
-        response.addCookie(c);
-        Cart cart = new Cart(txt, list);
-        int n;
-        ArrayList<Item> listItem = cart.getItems();
-        if(listItem != null){
-            n= listItem.size();
-        }else{
-            n=0;
-        }
-        request.setAttribute("size", n);
-        request.getRequestDispatcher("shop").forward(request, response);
+        
+        
+        Cart cart = new Cart(txt,list);
+        String num_raw=request.getParameter("num");
+        String id_raw=request.getParameter("p_id");
+        int p_id;
+        int num=0;
+        try {
+                p_id = Integer.parseInt(id_raw);
+                Product product = pd.GetProductById(id_raw);
+                num = Integer.parseInt(num_raw);
+                if ((num == -1) && (cart.getQuantityById(p_id) <= 1)) {
+                    cart.removeItem(p_id);
+                }else{
+                    float price = product.getPrice();
+                    Item item = new Item(product, num, price);
+                    cart.addItem(item);
+                }
+            } catch (Exception e) {
+            }
+
+            ArrayList<Item> items = cart.getItems();
+            // cart inf are now in cart so reset text and write cart to text and save in cookie
+            txt = "";
+            if(items.size() > 0){
+                txt = items.get(0).getProduct().getProduct_id() + ":" + items.get(0).getQuantity();
+                for (int i = 1; i < items.size(); i++) {
+                    txt += "-" + items.get(i).getProduct().getProduct_id() + ":" + items.get(i).getQuantity();
+                }
+            }
+            Cookie c = new Cookie("cart" + user_id, txt);
+            c.setMaxAge(30*24*60*60);
+            response.addCookie(c);
+            request.setAttribute("cart", cart);
+        
+        request.getRequestDispatcher("cart.jsp").forward(request, response);
+        
+        
+             
     } 
+    public static void main(String[] args) {
+        ProductDAO pd= new ProductDAO();
+        ArrayList<Product>  list= pd.AllProduct();
+        for(Product o:list){
+            System.out.println(o);
+        }
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
@@ -89,6 +115,7 @@ public class Buy extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         processRequest(request, response);
+       
     } 
 
     /** 

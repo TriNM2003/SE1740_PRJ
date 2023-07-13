@@ -17,8 +17,8 @@ public class Product {
     private java.sql.Date create_time;
     private java.sql.Date update_time;
     private String thumbnail;
-    private int discount;
-    private int status;
+    int discount;
+    int status;
 
     public Product() {
     }

@@ -7,6 +7,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  *
  * @author DELL
@@ -55,8 +56,8 @@ public class Cart {
     public float getTotalMoney() {
         float t = 0;
         for (Item i : items) {
-            if(i.product.getDiscount()!=0){
-                t += (i.getQuantity() * i.getPrice() *i.product.getDiscount());
+            if(i.getProduct().getDiscount()!=0){
+                t += (i.getQuantity() * i.getPrice() *(1-(i.getProduct().getDiscount()*0.01)));
             }else{
                 t += (i.getQuantity() * i.getPrice());
             }

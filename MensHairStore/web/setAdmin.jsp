@@ -79,7 +79,7 @@
                                 <div class="row">
                                     <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
                                         <div class="slider-text-inner text-center">
-                                            <h1>Thêm ảnh</h1>                                    
+                                            <h1>Thay đổi quyền</h1>                                    
                                         </div>
                                     </div>
                                 </div>
@@ -117,7 +117,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="companyname"> Role ID </label>
-                                            <input name="role_id"type="text" id="towncity" class="form-control" value="${acc.role_id}"required>
+                                            <input name="role_id"type="text" id="towncity" class="form-control" value="${acc.role_id}" placeholder="Nhập 1-Admin 2- Người dùng"required>
                                         </div>
                                     </div>
                                     

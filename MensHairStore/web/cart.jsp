@@ -61,7 +61,15 @@
         <!--[if lt IE 9]>
         <script src="js/respond.min.js"></script>
         <![endif]-->
-        
+        <script type="text/javascript">
+            function confirmDelete(id) {
+                if (confirm("Xóa sản phẩm id=" + id + " khỏi giỏ hàng?")) {
+                    
+                  window.location= "deleteItem?p_id=" + id;
+                        
+                }
+            }
+        </script>
     </head>
     <body>
 
@@ -135,9 +143,9 @@
                                             <td>${i.product.product_name}</td>
                                             
                                             <td>
-                                                <button><a href="process?num=-1&p_id=${i.product.product_id}">-</a></button>
+                                                <a href="process?num=-1&p_id=${i.product.product_id}">-</a>
                                                 ${i.quantity}
-                                                <button><a href="process?num=1&p_id=${i.product.product_id}">+</a></button>
+                                                <a href="process?num=1&p_id=${i.product.product_id}">+</a>
                                             </td>
                                             <td>${i.product.discount}%</td>
                                             <td>$${i.product.price}</td>
@@ -145,8 +153,12 @@
                                             
                                             
                                             <td>
-
-                                                <a href="#"  class="delete" data-toggle="modal"><i class="icon-delete" data-toggle="tooltip" title="Xóa"></i></a>
+                                                <a href="#"  onclick="confirmDelete(${i.product.product_id})" class="delete" data-toggle="modal"><i class="icon-delete" data-toggle="tooltip" title="Xóa"></i></a>
+                                                <!--<form action="deleteItem" >
+                                                    <input type="hidden" name="p_id" value="${i.product.product_id}"/>
+                                                    <input type="submit" value="Xóa"/>       
+                                                </form>-->
+                                            
                                             </td>
                                         </tr>
                                     </c:forEach> 
@@ -178,7 +190,7 @@
                                                         <!--<input type="text" name="quantity" class="form-control input-number" placeholder="Your Coupon Number...">-->
                                                     </div>
                                                     <div class="col-md-3">
-                                                        <input type="submit" value="Thanh toán" class="btn btn-primary">
+                                                        <a href="checkoutControll" class="btn btn-primary">Thanh toán</a>
                                                     </div>
                                                 </div>
                                             </form>

@@ -4,8 +4,8 @@
  */
 package controller;
 
-import DAL.AccountDAO;
-import DAL.UserDAO;
+import DAL.OrderDAO;
+import DAL.OrderDetailDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -13,14 +13,15 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.util.ArrayList;
 import model.Account;
-import model.User;
+import model.Order;
 
 /**
  *
  * @author DELL
  */
-public class profile extends HttpServlet {
+public class manageorder extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,27 +34,24 @@ public class profile extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
-        Account acc = (Account) session.getAttribute("account");
-        String user_id = "";
-        if (acc != null) {
+        Account ac = (Account) session.getAttribute("account");
 
-            int u_id = (Integer) session.getAttribute("id");
-            UserDAO ud = new UserDAO();
-            User us = ud.GetUserById(u_id);
-            request.setAttribute("us", us);
-            request.getRequestDispatcher("profile.jsp").forward(request, response);
+        if (ac != null) {
+            int role_id = ac.getRole_id();
+            if (role_id == 1) {
+                OrderDAO od = new OrderDAO();
+                OrderDetailDAO odd = new OrderDetailDAO();
+                ArrayList<Order> o = od.AllOrder();
+                request.setAttribute("order", o);
+                request.getRequestDispatcher("manageorder.jsp").forward(request, response);
+            } else {
+                response.sendRedirect("home");
+            }
         } else {
-            request.getRequestDispatcher("login1.jsp").forward(request, response);
+            response.sendRedirect("login1.jsp");
         }
-
-    }
-
-    public static void main(String[] args) {
-        int u_id = Integer.parseInt("2");
-        UserDAO ud = new UserDAO();
-        User us = ud.GetUserById(u_id);
-        System.out.println(us);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -82,23 +80,7 @@ public class profile extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        String fullname = request.getParameter("fullname");
-        String address = request.getParameter("address");
-        String phone_number = request.getParameter("phone_number");
-        HttpSession session = request.getSession();
-        int id = (Integer) session.getAttribute("id");
-
-        UserDAO ud = new UserDAO();
-        User us = new User();
-        us.setUser_id(id);
-        us.setFullname(fullname);
-        us.setAddress(address);
-        us.setPhone_number(phone_number);
-        ud.insertUser(us);
-        request.setAttribute("mess", "Cập nhật thông tin thành công!");
-        request.getRequestDispatcher("profile.jsp").forward(request, response);
-
+        processRequest(request, response);
     }
 
     /**

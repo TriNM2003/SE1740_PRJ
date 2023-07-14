@@ -93,8 +93,28 @@
         <servlet-class>controller.process</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>nhap</servlet-name>
-        <servlet-class>controller.nhap</servlet-class>
+        <servlet-name>deleteItem</servlet-name>
+        <servlet-class>controller.deleteItem</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>checkoutControll</servlet-name>
+        <servlet-class>controller.checkoutControll</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>manageorder</servlet-name>
+        <servlet-class>controller.manageorder</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>orderInfo</servlet-name>
+        <servlet-class>controller.orderInfo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>setstatus</servlet-name>
+        <servlet-class>controller.setstatus</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>deleteOrder</servlet-name>
+        <servlet-class>controller.deleteOrder</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -189,8 +209,28 @@
         <url-pattern>/process</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>nhap</servlet-name>
-        <url-pattern>/nhap</url-pattern>
+        <servlet-name>deleteItem</servlet-name>
+        <url-pattern>/deleteItem</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>checkoutControll</servlet-name>
+        <url-pattern>/checkoutControll</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>manageorder</servlet-name>
+        <url-pattern>/manageorder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>orderInfo</servlet-name>
+        <url-pattern>/orderInfo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>setstatus</servlet-name>
+        <url-pattern>/setstatus</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deleteOrder</servlet-name>
+        <url-pattern>/deleteOrder</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

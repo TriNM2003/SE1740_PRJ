@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -85,7 +86,7 @@
                     </ul>
                 </div>
             </aside>
-
+            <c:set var="o" value="${requestScope.cart}"/>
             <div class="colorlib-shop">
                 <div class="container">
                     <div class="row row-pb-md">
@@ -108,186 +109,103 @@
                     </div>
                     <div class="row">
                         <div class="col-md-7">
-                            <form method="post" class="colorlib-form">
+                            <form action="checkoutControll " method="POST" class="colorlib-form">
                                 <h2>Thông tin địa chỉ nhận hàng</h2>
                                 <div class="row">
-                                    
+
                                     <div class="form-group">
                                         <div class="col-md-12">
                                             <label for="fname">Họ và tên</label>
-                                            <input type="text" id="name" class="form-control" placeholder="Nhập tên...">
-                                        </div>
-                                        
+                                            <input name="fullname"type="text" id="name" class="form-control" value="${us.fullname}"placeholder="Nhập tên..." required>
                                     </div>
-                                    
-                                    
-                                    
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label for="companyname">Thành Phố</label>
-                                            <input type="text" id="towncity" class="form-control" placeholder="Nhập thành phố...">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-12">
-                                            <label for="stateprovince">Quận/Huyện</label>
-                                            <input type="text" id="fname" class="form-control" placeholder="Nhập quận/huyện...">
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label for="fname">Địa chỉ</label>
-                                            <input type="text" id="address" class="form-control" placeholder="Nhập địa chỉ..">
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-6">
-                                            <label for="email">Địa chỉ E-mail</label>
-                                            <input type="text" id="email" class="form-control" placeholder="xxxxxxxxx@xxxx.xxx.xx">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="Phone">Số điện thoại</label>
-                                            <input type="text" id="zippostalcode" class="form-control" placeholder="">
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                            </form>
-                        </div>
-                        <div class="col-md-5">
-                            <div class="cart-detail">
-                                <h2>Thanh toán</h2>
-                                <ul>
-                                    <li>
-                                        <span>Tổng tiền sản phẩm</span> <span>100.00</span>
-                                        <ul >
-                                            <li><span>1 x Product Name</span><span>99.00 </span></l>
-                                            
-                                        </ul>
-                                    </li>
-                                    <li><span>Phí giao hàng</span> <span>0.00</span></li>
-                                    <li><span>Tổng thanh toán</span> <span>180.00(VND)</span></li>
-                                </ul>
-                            </div>
-                            <div class="cart-detail">
-                                <h2>Phương thức thanh toán</h2>
-                                <div class="form-group">
-                                    <div class="col-md-12">
-                                        <div class="radio">
-                                            <label><input type="radio" name="optradio">Thanh toán trực tiếp</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <div class="col-md-12">
-                                        <div class="radio">
-                                            <label><input type="radio" name="optradio">Paypal</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <p><a href="orderComplete.jsp" class="btn btn-primary">Đặt hàng</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="colorlib-shop">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 col-md-offset-3 text-center colorlib-heading">
-                            <h2><span>Recommended Products</span></h2>
-                            <p>We love to tell our successful far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                        </div>
+                                </div>
+
+
+
+
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="fname">Địa chỉ</label>
+                                        <input name="address"type="text" id="address" class="form-control" value="${us.address}"placeholder="Nhập địa chỉ.."required>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="companyname">Note</label>
+                                        <input name="note"type="text" id="towncity" class="form-control" placeholder="Nhập lưu ý ..."required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6">
+                                        <label for="email">Địa chỉ E-mail</label>
+                                        <input name="gmail"type="text" id="email" class="form-control" value="${sessionScope.gmail}" readonly>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="Phone">Số điện thoại</label>
+                                        <input name="phone_number"type="text" id="zippostalcode" class="form-control" value="${us.phone_number}" placeholder="098xxxxxx"required>
+                                    </div>
+                                    
+                                    
+                                    <div class="col-md-12" style="margin-top:20px">
+                                            <input type="hidden" name="total" value="${requestScope.cart.getTotalMoney()+2}"/>
+                                            <input type="submit" class="btn btn-primary" value="Đặt hàng"/>
+                                        </div>
+                                    
+                                </div>
+
+                            </div>
+                        </form>
                     </div>
-                    <div class="row">
-                        <div class="col-md-3 text-center">
-                            <div class="product-entry">
-                                <div class="product-img" style="background-image: url(images/item-5.jpg);">
-                                    <p class="tag"><span class="new">New</span></p>
-                                    <div class="cart">
-                                        <p>
-                                            <span class="addtocart"><a href="#"><i class="icon-shopping-cart"></i></a></span> 
-                                            <span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
-                                            <span><a href="#"><i class="icon-heart3"></i></a></span>
-                                            <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
-                                        </p>
+                    <div class="col-md-5">
+                        <div class="cart-detail">
+                            <h2>Thanh toán</h2>
+                            
+                            <ul>
+                                <li>
+                                    <span>Tổng tiền sản phẩm</span> <span>$${requestScope.cart.getTotalMoney()}</span>
+                                    
+                                    <ul >
+                                        <c:forEach items="${o.items}" var="i">
+                                            <li><span style="transform: translateX(10%)">${i.quantity} x ${i.product.product_name}</span><span>$${i.product.price*i.quantity*(1-i.product.discount/100)} </span></l>
+                                        </c:forEach>
+                                    </ul>
+                                    
+                                </li>
+                                
+                                <li><span>Phí giao hàng</span> <span>$2.00</span></li>
+                                <li><span>Tổng thanh toán</span> <span>$${requestScope.cart.getTotalMoney()+2}</span></li>
+                                
+                            </ul>
+                        </div>
+                        <div class="cart-detail">
+                            <h2>Phương thức thanh toán</h2>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <div class="radio">
+                                        <label><input type="radio" name="optradio" checked>Thanh toán trực tiếp</label>
                                     </div>
                                 </div>
-                                <div class="desc">
-                                    <h3><a href="shop">Floral Dress</a></h3>
-                                    <p class="price"><span>$300.00</span></p>
-                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-3 text-center">
-                            <div class="product-entry">
-                                <div class="product-img" style="background-image: url(images/item-6.jpg);">
-                                    <p class="tag"><span class="new">New</span></p>
-                                    <div class="cart">
-                                        <p>
-                                            <span class="addtocart"><a href="#"><i class="icon-shopping-cart"></i></a></span> 
-                                            <span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
-                                            <span><a href="#"><i class="icon-heart3"></i></a></span>
-                                            <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
-                                        </p>
+
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <div class="radio">
+                                        <label><input type="radio" name="optradio">Paypal</label>
                                     </div>
                                 </div>
-                                <div class="desc">
-                                    <h3><a href="shop">Floral Dress</a></h3>
-                                    <p class="price"><span>$300.00</span></p>
-                                </div>
                             </div>
+
                         </div>
-                        <div class="col-md-3 text-center">
-                            <div class="product-entry">
-                                <div class="product-img" style="background-image: url(images/item-7.jpg);">
-                                    <p class="tag"><span class="new">New</span></p>
-                                    <div class="cart">
-                                        <p>
-                                            <span class="addtocart"><a href="#"><i class="icon-shopping-cart"></i></a></span> 
-                                            <span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
-                                            <span><a href="#"><i class="icon-heart3"></i></a></span>
-                                            <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="desc">
-                                    <h3><a href="shop">Floral Dress</a></h3>
-                                    <p class="price"><span>$300.00</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 text-center">
-                            <div class="product-entry">
-                                <div class="product-img" style="background-image: url(images/item-8.jpg);">
-                                    <p class="tag"><span class="new">New</span></p>
-                                    <div class="cart">
-                                        <p>
-                                            <span class="addtocart"><a href="#"><i class="icon-shopping-cart"></i></a></span> 
-                                            <span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
-                                            <span><a href="#"><i class="icon-heart3"></i></a></span>
-                                            <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="desc">
-                                    <h3><a href="shop">Floral Dress</a></h3>
-                                    <p class="price"><span>$300.00</span></p>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
+        </div>
+
+
 
 
         <jsp:include page="footer/footer.jsp"></jsp:include>

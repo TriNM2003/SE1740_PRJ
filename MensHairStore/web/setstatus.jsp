@@ -1,6 +1,6 @@
 <%-- 
-    Document   : manageUser
-    Created on : 11-07-2023, 18:15:57
+    Document   : setstatus
+    Created on : 14-07-2023, 16:12:55
     Author     : DELL
 --%>
 
@@ -66,21 +66,12 @@
         <!--[if lt IE 9]>
         <script src="js/respond.min.js"></script>
         <![endif]-->
-        <script type="text/javascript">
-            function confirmDelete(id) {
-                if (confirm("Xóa tài khoản id=" + id + "?")) {
-                    
-                  window.location= "deleteItem?id=" + id;
-                        
-                }
-            }
-        </script>
+
     </head>
     <body>
 
         <jsp:include page="header/header.jsp"></jsp:include>
-            <div class="container" style="width: 130% ">
-                <aside id="colorlib-hero" class="breadcrumbs">
+            <aside id="colorlib-hero" class="breadcrumbs">
                 <div class="flexslider">
                     <ul class="slides">
                         <li style="background-image: url(image/overlay/andrea-donato-MNu0n-3BIKs-unsplash.jpg);">
@@ -88,9 +79,8 @@
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
-                                        <div class="slider-text-inner text-center" style="    transform: translate(-260px, 0px);">
-                                            <h1>Quản lý tài khoản</h1>
-                                            <h2 class="bread" style="color: black"><span ><a href="home"style="color: black">Trang chủ</a></span> <span>Quản lý người dùng</span></h2>
+                                        <div class="slider-text-inner text-center">
+                                            <h1>Thay đổi trạng thái đơn hàng</h1>                                    
                                         </div>
                                     </div>
                                 </div>
@@ -98,55 +88,51 @@
                         </li>
                     </ul>
                 </div>
-                </aside>
-            </div>
-            <div class="container">
-                <div class="table-wrapper">
-                    <div class="table-title">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <h2>Quản lý <b>Tài khoản</b></h2>
-                            </div>
-                            <div class="col-sm-6">
-                                <a href="addAcc.jsp" class="btn btn-success" ><i class="icon-plus"></i> <span>Thêm tài khoản</span></a>
-                                </div>
-                        </div>
-                    </div>
-                    <table class="table table-striped table-hover">
-                        <thead>
-                            <tr>
-                                <th>ID</th>                                
-                                <th>Tên tài khoản</th>
-                                <th>Gmail</th>
-                                <th>Role_id</th>                                
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <c:forEach items="${acc}" var="o">
-                                <tr>
-                                <td>${o.user_id}</td>                   
-                                <td>${o.username}</td>
-                                <td>${o.gmail}</td>
-                                <td>${o.role_id}</td>
+            </aside>
+            <div class="colorlib-shop">
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form action="setstatus" method="post" class="colorlib-form">
                                 
-                                
-                                <td>
-                                 <a href="setadmin?u_id=${o.user_id}" class="edit" data-toggle="modal"><i class="icon-edit" data-toggle="tooltip" title="Chỉnh sửa quyền"></i></a>  
-                                </td>
-                                <td>
+                                <div class="row">
+
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <label for="fname">ID đơn hàng</label>
+                                            <input name="o_id" type="text" id="name" class="form-control" value="${ord.order_id}" readonly>
+                                        </div>
+
+                                    </div>
                                     
-                                    <a href="#" onclick="confirmDelete(${o.user_id})" class="delete" data-toggle="modal"><i class="icon-bin" data-toggle="tooltip" title="Xóa tài khoản"></i></a>
-                                </td>
-                            </tr>
-                            </c:forEach>
-                        </tbody>
-                    </table>
-                    
+
+
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="companyname"> Trạng thái </label>
+                                            <input name="status"type="text" id="towncity" class="form-control" value="${ord.status}" placeholder="Nhập 1-Chờ xác nhận 2-Đã xác nhận 3-Đang vận chuyển 4-Đã hoàn thành"required>
+                                        </div>
+                                    </div>
+                                    
+                                    
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input type="submit" class="btn btn-primary" value="Thay đổi"required>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
                 </div>
             </div>
-           
-            
+
+
+
         <jsp:include page="footer/footer.jsp"></jsp:include>
 
 
@@ -179,8 +165,6 @@
 
 </body>
 </html>
-
-
 
 
 

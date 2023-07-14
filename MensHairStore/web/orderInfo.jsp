@@ -1,8 +1,9 @@
 <%-- 
-    Document   : manageUser
-    Created on : 11-07-2023, 18:15:57
+    Document   : orderInfo
+    Created on : 14-07-2023, 15:58:41
     Author     : DELL
 --%>
+
 
 
 
@@ -66,38 +67,30 @@
         <!--[if lt IE 9]>
         <script src="js/respond.min.js"></script>
         <![endif]-->
-        <script type="text/javascript">
-            function confirmDelete(id) {
-                if (confirm("Xóa tài khoản id=" + id + "?")) {
-                    
-                  window.location= "deleteItem?id=" + id;
-                        
-                }
-            }
-        </script>
+        
     </head>
     <body>
 
         <jsp:include page="header/header.jsp"></jsp:include>
             <div class="container" style="width: 130% ">
                 <aside id="colorlib-hero" class="breadcrumbs">
-                <div class="flexslider">
-                    <ul class="slides">
-                        <li style="background-image: url(image/overlay/andrea-donato-MNu0n-3BIKs-unsplash.jpg);">
-                            <div class="overlay"></div>
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
-                                        <div class="slider-text-inner text-center" style="    transform: translate(-260px, 0px);">
-                                            <h1>Quản lý tài khoản</h1>
-                                            <h2 class="bread" style="color: black"><span ><a href="home"style="color: black">Trang chủ</a></span> <span>Quản lý người dùng</span></h2>
+                    <div class="flexslider">
+                        <ul class="slides">
+                            <li style="background-image: url(image/overlay/andrea-donato-MNu0n-3BIKs-unsplash.jpg);">
+                                <div class="overlay"></div>
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
+                                            <div class="slider-text-inner text-center" style="    transform: translate(-260px, 0px);">
+                                                <h1>Quản lý tài khoản</h1>
+                                                <h2 class="bread" style="color: black"><span ><a href="home"style="color: black">Trang chủ</a></span> <span>Quản lý người dùng</span></h2>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </aside>
             </div>
             <div class="container">
@@ -108,45 +101,40 @@
                                 <h2>Quản lý <b>Tài khoản</b></h2>
                             </div>
                             <div class="col-sm-6">
-                                <a href="addAcc.jsp" class="btn btn-success" ><i class="icon-plus"></i> <span>Thêm tài khoản</span></a>
-                                </div>
+                                <a href="manageorder" class="btn btn-success" ><i class="icon-exit"></i></a>
+                            </div>
                         </div>
                     </div>
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th>ID</th>                                
-                                <th>Tên tài khoản</th>
-                                <th>Gmail</th>
-                                <th>Role_id</th>                                
-                                <th></th>
+                                <th>ID đơn hàng chi tiết</th>                                                                
+                                <th>ID sản phẩm</th>
+                                <th>Giá</th> 
+                                <th>Số lượng</th> 
+                                <th>Tổng</th> 
+                                 
+                                
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach items="${acc}" var="o">
-                                <tr>
-                                <td>${o.user_id}</td>                   
-                                <td>${o.username}</td>
-                                <td>${o.gmail}</td>
-                                <td>${o.role_id}</td>
+                        <c:forEach items="${orderI}" var="o">
+                            <tr>
+                                <td>${o.od_id}</td>  
                                 
-                                
-                                <td>
-                                 <a href="setadmin?u_id=${o.user_id}" class="edit" data-toggle="modal"><i class="icon-edit" data-toggle="tooltip" title="Chỉnh sửa quyền"></i></a>  
-                                </td>
-                                <td>
-                                    
-                                    <a href="#" onclick="confirmDelete(${o.user_id})" class="delete" data-toggle="modal"><i class="icon-bin" data-toggle="tooltip" title="Xóa tài khoản"></i></a>
-                                </td>
+                                <td>${o.product_id}</td>
+                                <td>${o.price}</td>
+                                <td>${o.quantity}</td>
+                                <td>${o.subtotal}</td>                               
                             </tr>
-                            </c:forEach>
-                        </tbody>
-                    </table>
-                    
-                </div>
+                        </c:forEach>
+                    </tbody>
+                </table>
+
             </div>
-           
-            
+        </div>
+
+
         <jsp:include page="footer/footer.jsp"></jsp:include>
 
 
@@ -179,6 +167,8 @@
 
 </body>
 </html>
+
+
 
 
 

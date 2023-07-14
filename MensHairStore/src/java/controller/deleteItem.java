@@ -4,23 +4,25 @@
  */
 package controller;
 
-import DAL.AccountDAO;
-import DAL.UserDAO;
+import DAL.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.util.ArrayList;
 import model.Account;
-import model.User;
+import model.Cart;
+import model.Product;
 
 /**
  *
  * @author DELL
  */
-public class profile extends HttpServlet {
+public class deleteItem extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,27 +35,49 @@ public class profile extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        ProductDAO dp = new ProductDAO();
+        ArrayList<Product> list = dp.AllProduct();
         HttpSession session = request.getSession();
         Account acc = (Account) session.getAttribute("account");
         String user_id = "";
         if (acc != null) {
-
-            int u_id = (Integer) session.getAttribute("id");
-            UserDAO ud = new UserDAO();
-            User us = ud.GetUserById(u_id);
-            request.setAttribute("us", us);
-            request.getRequestDispatcher("profile.jsp").forward(request, response);
-        } else {
-            request.getRequestDispatcher("login1.jsp").forward(request, response);
+            user_id = Integer.toString(acc.getUser_id());
         }
-
-    }
-
-    public static void main(String[] args) {
-        int u_id = Integer.parseInt("2");
-        UserDAO ud = new UserDAO();
-        User us = ud.GetUserById(u_id);
-        System.out.println(us);
+        Cookie[] arr = request.getCookies();
+        String txt = "";
+        if (arr != null) {
+            for (Cookie o : arr) {
+                if (o.getName().equals("cart" + user_id)) {
+                    txt += o.getValue();
+                    o.setMaxAge(0);
+                    response.addCookie(o);
+                }
+            }
+        }
+        String p_id = request.getParameter("p_id");
+        String[] ids = txt.split("-");
+        String out = "";
+        for (int i=0; i < ids.length; i++) {
+            String s[] = ids[i].split(":");
+            if (!s[0].equals(p_id)) {
+                if (out.isEmpty()) {
+                    out=ids[i];
+                } else {
+                    out+="-"+ids[i];
+                }
+            }
+        }
+        if(!out.isEmpty()){
+            Cookie c = new Cookie ("cart"+user_id,out);
+            c.setMaxAge(30*24*60*60);
+            response.addCookie(c);
+            
+        }
+        Cart cart = new Cart(out,list);
+        request.setAttribute("cart", cart);
+        request.getRequestDispatcher("cart.jsp").forward(request, response);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -82,23 +106,7 @@ public class profile extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        String fullname = request.getParameter("fullname");
-        String address = request.getParameter("address");
-        String phone_number = request.getParameter("phone_number");
-        HttpSession session = request.getSession();
-        int id = (Integer) session.getAttribute("id");
-
-        UserDAO ud = new UserDAO();
-        User us = new User();
-        us.setUser_id(id);
-        us.setFullname(fullname);
-        us.setAddress(address);
-        us.setPhone_number(phone_number);
-        ud.insertUser(us);
-        request.setAttribute("mess", "Cập nhật thông tin thành công!");
-        request.getRequestDispatcher("profile.jsp").forward(request, response);
-
+        processRequest(request, response);
     }
 
     /**

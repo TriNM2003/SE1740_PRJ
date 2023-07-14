@@ -99,7 +99,7 @@
                                         <ul class="dropdown">
                                             <li><a href="manageAccount">Người dùng</a></li>
                                             <li><a href="manageProduct">Sản phẩm</a></li>
-                                            <li><a href="#">Đơn hàng</a></li>
+                                            <li><a href="manageorder">Đơn hàng</a></li>
                                            
                                         </ul>
                                     </li>

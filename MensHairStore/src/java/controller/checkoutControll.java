@@ -51,31 +51,32 @@ public class checkoutControll extends HttpServlet {
         if (acc != null) {
             Cookie[] arr = request.getCookies();
             if (arr != null) {
-                String txt = "";
-                for (Cookie o : arr) {
-                    if (o.getName().equals("cart" + user_id)) {
-                        txt += o.getValue();
-                    }
-                }
-                ArrayList<Product> list = pd.AllProduct();
+                int u_id = (Integer) session.getAttribute("id");
+                UserDAO ud = new UserDAO();
+                User us = ud.GetUserById(u_id);
+                if (us.getFullname() != null) {
+                    request.setAttribute("us", us);
 
-                Cart cart = new Cart(txt, list);
-                ArrayList<Item> items = cart.getItems();
-                
+                    user_id = Integer.toString(acc.getUser_id());
+
+                    String txt = "";
+                    for (Cookie o : arr) {
+                        if (o.getName().equals("cart" + user_id)) {
+                            txt += o.getValue();
+                        }
+                    }
+                    ArrayList<Product> list = pd.AllProduct();
+
+                    Cart cart = new Cart(txt, list);
+                    ArrayList<Item> items = cart.getItems();
+
                     request.setAttribute("cart", cart);
-                    int u_id = (Integer) session.getAttribute("id");
-                    UserDAO ud = new UserDAO();
-                    User us = ud.GetUserById(u_id);
-                    if (us.getFullname() != null) {
-                        request.setAttribute("us", us);
 
-                        user_id = Integer.toString(acc.getUser_id());
+                    request.getRequestDispatcher("checkout.jsp").forward(request, response);
+                } else {
+                    request.getRequestDispatcher("profile").forward(request, response);
+                }
 
-                        request.getRequestDispatcher("checkout.jsp").forward(request, response);
-                    } else {
-                        request.getRequestDispatcher("profile").forward(request, response);
-                    }
-                
             }
         } else {
             request.getRequestDispatcher("login1.jsp").forward(request, response);
@@ -110,61 +111,86 @@ public class checkoutControll extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         Account acc = (Account) session.getAttribute("account");
-        int user_id = acc.getUser_id();
-        OrderDAO od = new OrderDAO();
-        String fullname = request.getParameter("fullname");
-        String address = request.getParameter("address");
-        String note = request.getParameter("note");
-        String gmail = request.getParameter("gmail");
-        String phone_number = request.getParameter("phone_number");
-        Float total = Float.parseFloat(request.getParameter("total"));
-        Order o = new Order();
-        o.setUser_id(user_id);
-        o.setFullname(fullname);
-        o.setAddress(address);
-        o.setNote(note);
-        o.setGmail(gmail);
-        o.setStatus(1);
-        o.setPhone_number(phone_number);
-        o.setTotal_money(total);
-        od.insertOrder(o);
+        if (acc != null) {
+            int user_id = acc.getUser_id();
+            OrderDAO od = new OrderDAO();
+            String fullname = request.getParameter("fullname");
+            String address = request.getParameter("address");
+            String note = request.getParameter("note");
+            String gmail = request.getParameter("gmail");
+            String phone_number = request.getParameter("phone_number");
+            Float total = Float.parseFloat(request.getParameter("total"));
+            Order o = new Order();
+            o.setUser_id(user_id);
+            o.setFullname(fullname);
+            o.setAddress(address);
+            o.setNote(note);
+            o.setGmail(gmail);
+            o.setStatus(1);
+            o.setPhone_number(phone_number);
+            o.setTotal_money(total);
+            od.insertOrder(o);
 
-        ProductDAO dp = new ProductDAO();
-        ArrayList<Product> list = dp.AllProduct();
+            ProductDAO dp = new ProductDAO();
+            ArrayList<Product> list = dp.AllProduct();
 
-        String u_id = "";
+            String u_id = "";
 
-        u_id = Integer.toString(acc.getUser_id());
+            u_id = Integer.toString(user_id);
 
-        Cookie[] arr = request.getCookies();
-        String txt = "";
-        if (arr != null) {
-            for (Cookie cookie : arr) {
-                if (cookie.getName().equals("cart" + u_id)) {
-                    txt += cookie.getValue();
-                    cookie.setMaxAge(0);
-                    response.addCookie(cookie);
+            Cookie[] arr = request.getCookies();
+            String txt = "";
+            if (arr != null) {
+                for (Cookie z : arr) {
+                    if (z.getName().equals("cart" + user_id)) {
+                        txt += z.getValue();
+                        z.setMaxAge(0);
+                        response.addCookie(z);
+                    }
                 }
             }
-        }
-        Cart cart = new Cart(txt, list);
-        ArrayList<Item> listItem = cart.getItems();
-        OrderDetails ode = new OrderDetails();
-        OrderDetailDAO odd = new OrderDetailDAO();
-        Order od1 = od.GetOrderById(Integer.toString(user_id));
-        int o_id = od1.getOrder_id();
-        for (Item l : listItem) {
-            float sub = l.getProduct().getPrice() * l.getQuantity() * (1 - l.getProduct().getDiscount() / 100);
-            ode.setOrder_id(o_id);
-            ode.setProduct_id(l.getProduct().getProduct_id());
-            ode.setPrice(l.getPrice());
-            ode.setQuantity(l.getQuantity());
-            ode.setSubtotal(sub);
-            odd.insertOrderDetails(ode);
+            Cart cart = new Cart(txt, list);
+            ArrayList<Item> listItem = cart.getItems();
+            OrderDetails ode = new OrderDetails();
+            OrderDetailDAO odd = new OrderDetailDAO();
+            Order od1 = od.GetOrderByO_Id(Integer.toString(user_id));
+            int o_id = od1.getOrder_id();
+            for (Item l : listItem) {
+                float sub = l.getProduct().getPrice() * l.getQuantity() * (1 - l.getProduct().getDiscount() / 100);
+                ode.setOrder_id(o_id);
+                ode.setProduct_id(l.getProduct().getProduct_id());
+                ode.setPrice(l.getPrice());
+                ode.setQuantity(l.getQuantity());
+                ode.setSubtotal(sub);
+                odd.insertOrderDetails(ode);
+            }
+
+            response.sendRedirect("orderComplete.jsp");
+        } else {
+            response.sendRedirect("home");
         }
 
-        response.sendRedirect("orderComplete.jsp");
+    }
 
+    public static void main(String[] args) {
+//        OrderDetailDAO odd = new OrderDetailDAO();
+//        ArrayList<OrderDetails>  ode = odd.GetOrderDetailsById("8");
+//        for(OrderDetails o : ode){
+//            System.out.println(o);
+//        }
+//        odd.deleteOrderDetail(7);
+//        float sub = 4 * 3 * (1 - 5 / 100);
+//                
+//        OrderDetails ode = new OrderDetails();
+//        ode.setOrder_id(9);
+//        ode.setProduct_id(2);
+//        ode.setPrice(50);
+//        ode.setQuantity(2);
+//        ode.setSubtotal(sub);
+//        odd.insertOrderDetails(ode);
+            OrderDAO od = new OrderDAO();
+            Order od1 = od.GetOrderById(Integer.toString(1));
+            System.out.println(od1);
     }
 
     /**

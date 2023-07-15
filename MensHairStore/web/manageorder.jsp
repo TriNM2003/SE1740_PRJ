@@ -127,6 +127,7 @@
                                 <th>Địa chỉ</th> 
                                 <th>Số điện thoại</th> 
                                 <th>Ngày đặt</th> 
+                                <th>Tổng</th>
                                 <th>Tình trạng</th> 
                                 <th></th>
                                 <th></th>
@@ -142,6 +143,7 @@
                                 <td>${o.address}</td>
                                 <td>${o.phone_number}</td>
                                 <td>${o.order_date}</td>
+                                <td>${o.total_money}</td>
                                 <td>
                                     <c:if test="${o.status == 1 }">
                                     Chờ xác nhận

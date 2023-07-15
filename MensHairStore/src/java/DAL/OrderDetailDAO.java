@@ -73,9 +73,17 @@ public class OrderDetailDAO extends BaseDAO {
     }
     public static void main(String[] args) {
         OrderDetailDAO odd = new OrderDetailDAO();
-        ArrayList<OrderDetails>  ode = odd.GetOrderDetailsById("8");
-        for(OrderDetails o : ode){
-            System.out.println(o);
-        }
+//        ArrayList<OrderDetails>  ode = odd.GetOrderDetailsById("8");
+//        for(OrderDetails o : ode){
+//            System.out.println(o);
+//        }
+//        odd.deleteOrderDetail(7);
+            OrderDetails ode = new OrderDetails();
+            ode.setOrder_id(8);
+            ode.setProduct_id(1);
+            ode.setPrice(50);
+            ode.setQuantity(2);
+            ode.setSubtotal(100);
+            odd.insertOrderDetails(ode);
     }
 }

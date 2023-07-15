@@ -18,11 +18,36 @@ import java.util.logging.Logger;
  * @author DELL
  */
 public class OrderDAO extends BaseDAO {
+    public Order GetOrderByO_Id(String u_id) {
+        Order p= new Order();
+        
+        try {
+            String sql = "select top 1 * from [order] where [user_id]=?  order by order_id desc";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, u_id);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                p= new Order(rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getDate(8),
+                        rs.getInt(9),
+                        rs.getFloat(10));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return p;
+    }
     public Order GetOrderById(String u_id) {
         Order p= new Order();
         
         try {
-            String sql = "select * from [order] where order_id=? ";
+            String sql = "select * from [order] where [order_id]=?  ";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, u_id);
             ResultSet rs = statement.executeQuery();
@@ -45,7 +70,7 @@ public class OrderDAO extends BaseDAO {
     }
     public void deleteOrder(String o_id) {
         try {
-            String sql = "delete from Order where order_id=?";
+            String sql = "delete from [Order] where order_id=?";
             PreparedStatement statement = connection.prepareStatement(sql);
             
             statement.setString(1, o_id );
@@ -57,7 +82,7 @@ public class OrderDAO extends BaseDAO {
     }
     public void insertOrder(Order s) {
         try {
-            String sql = "insert into [Order]([user_id],fullname,[address],gmail,note,phone_number,order_date,[status],total_money)\n" +
+            String sql = "insert into [Order]([user_id],[fullname],[address],[gmail],[note],[phone_number],[order_date],[status],[total_money])\n" +
                         "values(?,?,?,?,?,?,getDate(),1,?)";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, s.getUser_id());
@@ -121,6 +146,10 @@ public class OrderDAO extends BaseDAO {
 //        for(Order o:list){
 //            System.out.println(o);
 //        }
-        od.updateOrder("2", "8");
+//        od.updateOrder("2", "8");
+//            od.deleteOrder("7");
+
+        Order od1 = od.GetOrderById(Integer.toString(1));
+            System.out.println(od1);
     }
 }

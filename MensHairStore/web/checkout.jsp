@@ -169,7 +169,7 @@
                                     
                                     <ul >
                                         <c:forEach items="${o.items}" var="i">
-                                            <li><span style="transform: translateX(10%)">${i.quantity} x ${i.product.product_name}</span><span>$${i.product.price*i.quantity*(1-i.product.discount/100)} </span></l>
+                                            <li><span >${i.quantity} x ${i.product.product_name}</span><span>$${i.product.price*i.quantity*(1-i.product.discount/100)} </span></l>
                                         </c:forEach>
                                     </ul>
                                     

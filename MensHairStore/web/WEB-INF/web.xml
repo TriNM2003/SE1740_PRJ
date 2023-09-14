@@ -116,6 +116,14 @@
         <servlet-name>deleteOrder</servlet-name>
         <servlet-class>controller.deleteOrder</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>changepass</servlet-name>
+        <servlet-class>controller.changepass</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>myOrder</servlet-name>
+        <servlet-class>controller.myOrder</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -231,6 +239,14 @@
     <servlet-mapping>
         <servlet-name>deleteOrder</servlet-name>
         <url-pattern>/deleteOrder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>changepass</servlet-name>
+        <url-pattern>/changepass</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>myOrder</servlet-name>
+        <url-pattern>/myOrder</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

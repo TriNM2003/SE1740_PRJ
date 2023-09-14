@@ -37,6 +37,11 @@ public class setadmin extends HttpServlet {
         request.getRequestDispatcher("setAdmin.jsp").forward(request, response);
         
     } 
+    public static void main(String[] args) {
+        AccountDAO acd = new AccountDAO();
+        Account a = acd.getAccountById("1");
+        System.out.println(a);
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 

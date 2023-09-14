@@ -5,20 +5,20 @@
 
 package controller;
 
-import DAL.OrderDAO;
+import DAL.AccountDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.Order;
+import model.Account;
 
 /**
  *
  * @author DELL
  */
-public class setstatus extends HttpServlet {
+public class changepass extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -30,22 +30,19 @@ public class setstatus extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String o_id=request.getParameter("o_id");
-        OrderDAO od = new OrderDAO();
-        Order o = od.GetOrderById(o_id);
-        request.setAttribute("ord", o);
-        request.getRequestDispatcher("setstatus.jsp").forward(request, response);
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet changepass</title>");  
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet changepass at " + request.getContextPath () + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     } 
-    public static void main(String[] args) {
-        OrderDAO od = new OrderDAO();
-//        ArrayList<Order> list= od.AllOrder();
-//        for(Order o:list){
-//            System.out.println(o);
-//        }
-//        od.updateOrder("2", "8");
-        Order o= od.GetOrderById("8");
-        System.out.println(o);
-    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
@@ -71,31 +68,21 @@ public class setstatus extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        String stt = request.getParameter("status");
-        String fullname = request.getParameter("fullname");
-        String address = request.getParameter("address");
-        String phone_number = request.getParameter("phone_number");
-        String note = request.getParameter("note");
-        String o_id = request.getParameter("o_id");
-        
-        
-        int status, order_id;
-        
-            status = Integer.parseInt(stt);
-            order_id =Integer.parseInt(o_id);
-            
-         OrderDAO od = new OrderDAO();
-         Order o = new Order();
-         o.setOrder_id(order_id);
-         o.setFullname(fullname);
-         o.setAddress(address);
-         o.setPhone_number(phone_number);
-         o.setNote(note);
-         o.setStatus(status);
-         od.updateOrder(o);
-         
-         response.sendRedirect("manageorder");
-        
+        String username = request.getParameter("username");
+        String old = request.getParameter("old");
+        String password = request.getParameter("password");
+        String re_password = request.getParameter("re_password");
+        AccountDAO acd= new AccountDAO();
+        Account a = acd.getAccount(username, old);
+        if(a == null){
+            request.setAttribute("err1", "Sai mật khẩu cũ");
+        }else if(!password.equals(re_password)){
+            request.setAttribute("err2", "Mật khẩu không trùng khớp");
+        }else{
+            acd.updateAccount(username, password);
+            request.setAttribute("mess", "Thay đổi mật khẩu thành công!");
+        }
+        request.getRequestDispatcher("changepass.jsp").forward(request, response);
     }
 
     /** 

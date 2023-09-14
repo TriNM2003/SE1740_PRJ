@@ -51,7 +51,18 @@ public class deleteaccount extends HttpServlet {
             response.sendRedirect("manageAccount");
         }
     } 
-
+    public static void main(String[] args) {
+        AccountDAO acd= new AccountDAO();
+            UserDAO ud= new UserDAO();
+            OrderDAO od= new OrderDAO();
+            OrderDetailDAO odd=new OrderDetailDAO();
+            Order o = od.GetOrderById("7");
+            odd.deleteOrderDetail(o.getOrder_id());
+            od.deleteOrder("7");
+            ud.deleteUser("7");
+            acd.deleteAccount("7");
+    }
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
      * Handles the HTTP <code>GET</code> method.

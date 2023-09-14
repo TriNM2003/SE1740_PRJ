@@ -1,4 +1,10 @@
 <%-- 
+    Document   : myOrder
+    Created on : 17-07-2023, 11:36:45
+    Author     : DELL
+--%>
+
+<%-- 
     Document   : manageorder
     Created on : 14-07-2023, 11:41:46
     Author     : DELL
@@ -74,9 +80,9 @@
         <![endif]-->
         <script type="text/javascript">
             function confirmDelete(id) {
-                if (confirm("Xóa người dùng id=" + id + "?")) {
+                if (confirm("Xóa đơn hàng id=" + id + "?")) {
 
-                    window.location = "deleteaccount?id=" + id;
+                    window.location = "deleteOrder?id=" + id;
 
                 }
             }
@@ -95,7 +101,7 @@
                                     <div class="row">
                                         <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
                                             <div class="slider-text-inner text-center" style="    transform: translate(-260px, 0px);">
-                                                <h1>Quản lý người dùng</h1>
+                                                <h1>Quản lý đơn hàng</h1>
                                                 <h2 class="bread" style="color: black"><span ><a href="home"style="color: black">Trang chủ</a></span> <span>Quản lý đơn hàng</span></h2>
                                             </div>
                                         </div>
@@ -111,7 +117,7 @@
                     <div class="table-title">
                         <div class="row">
                             <div class="col-sm-6">
-                                <h2>Quản lý <b>người dùng</b></h2>
+                                <h2>Quản lý <b>Đơn hàng</b></h2>
                             </div>
                             <div class="col-sm-6">
                                 <!--<a href="#" class="btn btn-success" ><i class="icon-plus"></i> <span>Thêm tài khoản</span></a>-->
@@ -123,33 +129,53 @@
                             <tr>
                                 <th>ID</th>                                
                                 
-                                <th>Username</th>
-                                <th>Gmail</th> 
-                                <th>Role_ID</th> 
-                                
-                                
+                                <th>Tên người nhận</th>
+                                <th>Địa chỉ</th> 
+                                <th>Số điện thoại</th> 
+                                <th>Ngày đặt</th> 
+                                <th>Tổng</th>
+                                <th>Tình trạng</th> 
+                                <!--<th></th>
                                 <th></th>
-                                <th></th>
+                                <th></th>-->
                             </tr>
                         </thead>
                         <tbody>
-                        <c:forEach items="${acc}" var="o">
+                        <c:forEach items="${order}" var="o">
                             <tr>
-                                <td>${o.user_id}</td>  
+                                <td>${o.order_id}</td>  
                                 
-                                <td>${o.username}</td>
-                                <td>${o.gmail}</td>
-                                <td>${o.role_id}</td>
-                                        
-
-                                
+                                <td>${o.fullname}</td>
+                                <td>${o.address}</td>
+                                <td>${o.phone_number}</td>
+                                <td>${o.order_date}</td>
+                                <td>${o.total_money}</td>
                                 <td>
-                                    <a href="setadmin?u_id=${o.user_id}" class="edit" data-toggle="modal"><i class="icon-edit" data-toggle="tooltip" title="Chỉnh sửa quyền"></i></a>  
+                                    <c:if test="${o.status == 1 }">
+                                    Chờ xác nhận
+                                    </c:if>
+                                    <c:if test="${o.status == 2}">
+                                    Đã xác nhận
+                                    </c:if>
+                                    <c:if test="${o.status == 3}">
+                                    Đang giao hàng
+                                    </c:if>
+                                    <c:if test="${o.status == 4}">
+                                    Đã hoàn thành
+                                    </c:if>
+                                    
+                                </td>        
+
+                                <!--<td>
+                                    <a href="orderInfo?o_id=${o.order_id}" class="edit" data-toggle="modal"><i class="icon-info" data-toggle="tooltip" title="Thông tin chi tiết"></i></a>  
+                                </td>
+                                <td>
+                                    <a href="setstatus?o_id=${o.order_id}" class="edit" data-toggle="modal"><i class="icon-edit" data-toggle="tooltip" title="Chỉnh sửa trạng thái"></i></a>  
                                 </td>
                                 <td>
 
-                                    <a href="#" onclick="confirmDelete(${o.user_id})" class="delete" data-toggle="modal"><i class="icon-bin" data-toggle="tooltip" title="Xóa người dùng"></i></a>
-                                </td>
+                                    <a href="#" onclick="confirmDelete(${o.order_id})" class="delete" data-toggle="modal"><i class="icon-bin" data-toggle="tooltip" title="Xóa đơn hàng"></i></a>
+                                </td>-->
                             </tr>
                         </c:forEach>
                     </tbody>
@@ -191,6 +217,7 @@
 
 </body>
 </html>
+
 
 
 

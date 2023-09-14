@@ -62,7 +62,9 @@ public class shop extends HttpServlet {
         HttpSession session = request.getSession();
         Account acc =(Account) session.getAttribute("account");
         CategoryDAO cd= new CategoryDAO();
-        String user_id= Integer.toString(acc.getUser_id());
+        if(acc != null){
+            String user_id= Integer.toString(acc.getUser_id());
+        }
         Cookie[] arr=request.getCookies();
         
         String txt="";

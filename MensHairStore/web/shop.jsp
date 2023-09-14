@@ -145,7 +145,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="side">
+                               <!-- <div class="side">
                                     <h2>Price Range</h2>
                                     <form method="post" class="colorlib-form-2">
                                         <div class="row">
@@ -207,7 +207,7 @@
                                         </p>
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </div>

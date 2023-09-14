@@ -22,7 +22,7 @@ public class DBContext {
         private final String dbName = "hairshop";
         private final String portNumber = "1433";
         private final String userID = "sa";
-        private final String password = "12345";
+        private final String password = "12345678";
         public static void main(String[] args) {
             try {
                 System.out.println(new DBContext().getConnection());

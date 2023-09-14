@@ -12,13 +12,16 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import java.util.ArrayList;
+import model.Account;
 import model.Order;
 
 /**
  *
  * @author DELL
  */
-public class setstatus extends HttpServlet {
+public class myOrder extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -30,22 +33,17 @@ public class setstatus extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String o_id=request.getParameter("o_id");
-        OrderDAO od = new OrderDAO();
-        Order o = od.GetOrderById(o_id);
-        request.setAttribute("ord", o);
-        request.getRequestDispatcher("setstatus.jsp").forward(request, response);
+        OrderDAO odd = new OrderDAO();
+        HttpSession session=request.getSession();
+        Account acc= (Account)session.getAttribute("account");
+        String u_id;
+        if(acc!=null){
+            u_id=Integer.toString(acc.getUser_id());
+            ArrayList<Order> order= odd.OrderOfUser(u_id);
+            request.setAttribute("order", order);
+            request.getRequestDispatcher("myOrder.jsp").forward(request, response);
+        }
     } 
-    public static void main(String[] args) {
-        OrderDAO od = new OrderDAO();
-//        ArrayList<Order> list= od.AllOrder();
-//        for(Order o:list){
-//            System.out.println(o);
-//        }
-//        od.updateOrder("2", "8");
-        Order o= od.GetOrderById("8");
-        System.out.println(o);
-    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
@@ -71,31 +69,7 @@ public class setstatus extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        String stt = request.getParameter("status");
-        String fullname = request.getParameter("fullname");
-        String address = request.getParameter("address");
-        String phone_number = request.getParameter("phone_number");
-        String note = request.getParameter("note");
-        String o_id = request.getParameter("o_id");
-        
-        
-        int status, order_id;
-        
-            status = Integer.parseInt(stt);
-            order_id =Integer.parseInt(o_id);
-            
-         OrderDAO od = new OrderDAO();
-         Order o = new Order();
-         o.setOrder_id(order_id);
-         o.setFullname(fullname);
-         o.setAddress(address);
-         o.setPhone_number(phone_number);
-         o.setNote(note);
-         o.setStatus(status);
-         od.updateOrder(o);
-         
-         response.sendRedirect("manageorder");
-        
+        processRequest(request, response);
     }
 
     /** 

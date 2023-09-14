@@ -80,6 +80,32 @@ public class OrderDAO extends BaseDAO {
             Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public ArrayList<Order> OrderOfUser(String u_id) {
+        ArrayList<Order> list= new ArrayList<>();
+        
+        try {
+            String sql = "select  * from [order] where [user_id]= ?  ";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, u_id);
+            ResultSet rs = statement.executeQuery();
+            while(rs.next()){
+            list.add(new Order(rs.getInt(1),
+                         rs.getInt(2),
+                         rs.getString(3),
+                         rs.getString(4),
+                         rs.getString(5),
+                         rs.getString(6),
+                         rs.getString(7),
+                         rs.getDate(8),
+                         rs.getInt(9),
+                         rs.getFloat(10)
+                                    ));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
     public void insertOrder(Order s) {
         try {
             String sql = "insert into [Order]([user_id],[fullname],[address],[gmail],[note],[phone_number],[order_date],[status],[total_money])\n" +
@@ -100,12 +126,16 @@ public class OrderDAO extends BaseDAO {
             Logger.getLogger(OrderDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void updateOrder(String s, String i) {
+    public void updateOrder(Order o) {
         try {
-            String sql = "update [Order] set [status]=? where order_id=?";
+            String sql = "update [Order] set [fullname]=?, [address]=?,[phone_number]=?,[note]=?, [status]=? where order_id=?";
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1,s );
-            statement.setString(2,i );
+            statement.setString(1,o.getFullname() );
+            statement.setString(2,o.getAddress() );
+            statement.setString(3,o.getPhone_number() );
+            statement.setString(4,o.getNote() );
+            statement.setInt(5,o.getStatus() );
+            statement.setInt(6,o.getOrder_id() );
             
             
             
@@ -142,14 +172,16 @@ public class OrderDAO extends BaseDAO {
     }
     public static void main(String[] args) {
         OrderDAO od = new OrderDAO();
-//        ArrayList<Order> list= od.AllOrder();
+//        ArrayList<Order> list= od.OrderOfUser("2");
 //        for(Order o:list){
 //            System.out.println(o);
 //        }
-//        od.updateOrder("2", "8");
-//            od.deleteOrder("7");
+        Order o = new Order();
+        
 
-        Order od1 = od.GetOrderById(Integer.toString(1));
-            System.out.println(od1);
+//            od.deleteOrder("7");
+//
+//        Order od1 = od.GetOrderById(Integer.toString(1));
+//            System.out.println(od1);
     }
 }

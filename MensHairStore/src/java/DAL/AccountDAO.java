@@ -121,6 +121,19 @@ public class AccountDAO extends BaseDAO{
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public void updateAccount(String user, String pass) {
+        try {
+            String sql = "update [Account] set [password] = ? where [username] =?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            
+            statement.setString(1, pass);
+            statement.setString(2, user );
+            
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     public static void main(String[] args) {
         AccountDAO ad= new AccountDAO();
         ad.setAdmin("3","2");

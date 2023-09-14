@@ -113,7 +113,8 @@
                                         <li class="has-dropdown">
                                             <a href="#"><i class="icon-user2"></i>${sessionScope.username}</a>
                                             <ul class="dropdown">
-                                               
+                                               <li><a href="changepass.jsp"><i class="icon-write" ></i>Đổi mật khẩu</a></li>
+                                                <li><a href="myOrder"><i class="icon-write" ></i>Đơn hàng</a></li>
                                                 <li><a href="profile?u_id=${sessionScope.id}"><i class="icon-profile-male" ></i>Profile</a></li>
                                                 <li><a href="logout"><i class="icon-log-out" ></i>Đăng xuất</a></li>
                                                 

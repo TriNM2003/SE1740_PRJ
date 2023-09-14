@@ -297,7 +297,7 @@ public class ProductDAO  extends BaseDAO {
     
     public static void main(String[] args) {
         ProductDAO dao = new ProductDAO();
-        ArrayList<Product> list= dao.GetProductByPaging(1);
+        ArrayList<Product> list= dao.Newproduct();
        
         for(Product o: list){
             System.out.println(o);
